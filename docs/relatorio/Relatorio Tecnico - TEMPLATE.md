@@ -1,21 +1,18 @@
-# Informações do Projeto
-`TÍTULO DO PROJETO`  
+# Informações do Projeto 
 
-......  COLOQUE AQUI O SEU TEXTO ......
+### Tempo e Gestao de Tarefas Grupo 9 
 
-`CURSO` 
 
-......  COLOQUE AQUI O SEU TEXTO ......
+### Ciencias da computacao 
 
-## Participantes
 
-......  COLOQUE AQUI O SEU TEXTO ......
-
-> Inclua a lista dos membros da equipe com seus nomes completos.
->
-> Os membros do grupo são: 
-> - Fulano da Silva
-> - Ciclano Albuquerque
+#### Participantes
+  - Pedro Gaioso
+  - Thomas Neuenschwander
+  - Vinicius Goddard
+  - Rodrigo Drummond
+  - Matheus Rodrigues
+  - Vitoriav
 
 # Estrutura do Documento
 
@@ -53,86 +50,41 @@
 
 
 # Introdução
+Diariamente, somos inundados de compromissos e responsabilidades tornando a gestão de todas essas tarefas e do tempo um grande problema, tanto para estudantes ou para professores, estagiários , empresários e muitas outras áreas.
+Dessa forma, a tecnologia pode se provar uma grande aliada na gestão de tarefas, fornecendo instrumentos para a  distribuição dos afazeres, que são fundamentais na organização do dia-a-dia , já que muitas vezes devido ao excesso de informações e tarefas pode se acabar esquecendo de algo, o que no caso do estudante pode prejudica-lo ao por exemplo perder o prazo de entrega de  uma tarefa ou sofrer com notas ruins, pois a gestão ruim do tempo pode ocasionar na diminuição do ritmo dos estudos.
+Assim, é fundamental que existam mecanismos de apoio e de organização, que permitam ao usuário uma otimização do seu tempo, lhe permitindo mais conforto e disposição, além de fornecer maior controle sobre sua própria vida.
 
 ## Problema
 
-......  COLOQUE AQUI O SEU TEXTO ......
+O problema de gestão de tempo e tarefas é um banal desafio enfrentado por quase todas as pessoas em suas vidas pessoais e profissionais. No entanto, nossa aplicação web propõe focar em auxiliar o jovem público universitário (e pré-vestibular).  A temática gira em torno da a dificuldade em equilibrar o tempo disponível com as tarefas que precisam ser realizadas, de modo a alcançar os objetivos desejados. Dessa forma, para encarar esse desafio, é de suma importância um planejamento adequado, estabelecendo metas e prioridades claras.
 
-> Nesse momento você deve apresentar o problema que a sua aplicação deve
-> resolver. No entanto, não é a hora de comentar sobre a aplicação.
-> Descreva também o contexto em que essa aplicação será usada, se
-> houver: empresa, tecnologias, etc. Novamente, descreva apenas o que de
-> fato existir, pois ainda não é a hora de apresentar requisitos
-> detalhados ou projetos.
->
-> Nesse momento, o grupo pode optar por fazer uso
-> de ferramentas como Design Thinking, que permite um olhar de ponta a
-> ponta para o problema.
->
-> **Links Úteis**:
-> - [Objetivos, Problema de pesquisa e Justificativa](https://medium.com/@versioparole/objetivos-problema-de-pesquisa-e-justificativa-c98c8233b9c3)
-> - [Matriz Certezas, Suposições e Dúvidas](https://medium.com/educa%C3%A7%C3%A3o-fora-da-caixa/matriz-certezas-suposi%C3%A7%C3%B5es-e-d%C3%BAvidas-fa2263633655)
-> - [Brainstorming](https://www.euax.com.br/2018/09/brainstorming/)
 
 ## Objetivos
 
-......  COLOQUE AQUI O SEU TEXTO ......
+O objetivo principal do projeto é a criação de um aplicativo que forneça ao usuário ferramentas para a melhor organização do seu tempo e de suas tarefas, tendo maior enfoque nos universitários, mas ofertando funções que auxiliam qualquer tipo de usuário.
 
-> Aqui você deve descrever os objetivos do trabalho indicando que o
-> objetivo geral é desenvolver um software para solucionar o problema
-> apresentado acima. Apresente também alguns (pelo menos 2) objetivos
-> específicos dependendo de onde você vai querer concentrar a sua
-> prática investigativa, ou como você vai aprofundar no seu trabalho.
-> 
-> **Links Úteis**:
-> - [Objetivo geral e objetivo específico: como fazer e quais verbos utilizar](https://blog.mettzer.com/diferenca-entre-objetivo-geral-e-objetivo-especifico/)
+⦁	Fornecer funcionalidades que permitam organizar as tarefas em um estilo de calendário ou checklist.
+
+⦁	Fornecer informações sobre métodos de estudo como o pomodoro, que podem aumentar a produtividade.
+
+⦁	Mostrar ao usuário o crescimento de sua produtividade, por meio de gráficos e um sistema de recompensas, lhe motivando a manter o ritmo.
 
 ## Justificativa
 
-......  COLOQUE AQUI O SEU TEXTO ......
-
-> Descreva a importância ou a motivação para trabalhar com esta aplicação
-> que você escolheu. Indique as razões pelas quais você escolheu seus
-> objetivos específicos ou as razões para aprofundar em certos aspectos
-> do software.
-> 
-> O grupo de trabalho pode fazer uso de questionários, entrevistas e
-> dados estatísticos, que podem ser apresentados, com o objetivo de
-> esclarecer detalhes do problema que será abordado pelo grupo.
->
-> **Links Úteis**:
-> - [Como montar a justificativa](https://guiadamonografia.com.br/como-montar-justificativa-do-tcc/)
+Com a crescente das pessoas em gerir seu tempo e suas atividades, tem se tornado essencial a criação de uma ferramenta que possibilite ao usuário a priorizar sua metas, seus compromissos e seus objetivos, lhe permitindo criar tarefas e lembretes de seus afazeres, que lhe permitirão maior controle sobre sua vida e sua rotina, visto que devido ao mundo cada vez mais acelerado em que vivemos, esse tipo de mecanismo se torna cada vez mais requisitado e necessário.
 
 ## Público-Alvo
 
-......  COLOQUE AQUI O SEU TEXTO ......
+Embora possa ser utilizado por todos os tipos de usuários, o projeto terá enfoque no público dos estudantes universitários e vestibulandos, os quais são jogados de uma hora para a outra na vida adulta e devem aprender a gerir por si próprios seus estudos, trabalhos e compromissos .
+Assim, estabeleceu-se que o público-alvo terá uma faixa etária mínima de 17 anos, não tendo seu máximo delimitado, já que tem crescido exponencialmente o número de profissionais de diferentes áreas que realizam doutorados, mestrados e pós-graduações, lhes sendo necessário um auxílio para otimizar seu tempo e realizar todas as suas tarefas, em conciliação com os estudos.
 
-> Descreva quem serão as pessoas que usarão a sua aplicação indicando os
-> diferentes perfis. O objetivo aqui não é definir quem serão os
-> clientes ou quais serão os papéis dos usuários na aplicação. A ideia
-> é, dentro do possível, conhecer um pouco mais sobre o perfil dos
-> usuários: conhecimentos prévios, relação com a tecnologia, relações
-> hierárquicas, etc.
->
-> Adicione informações sobre o público-alvo por meio de uma descrição
-> textual, ou diagramas de personas, mapa de stakeholders, ou como o
-> grupo achar mais conveniente.
-> 
-> **Links Úteis**:
-> - [Público-alvo: o que é, tipos, como definir seu público e exemplos](https://klickpages.com.br/blog/publico-alvo-o-que-e/)
-> - [Qual a diferença entre público-alvo e persona?](https://rockcontent.com/blog/diferenca-publico-alvo-e-persona/)
- 
 # Especificações do Projeto
 
-......  COLOQUE AQUI O SEU TEXTO ......
-
-> Apresente uma visão geral do que será abordado nesta parte do
-> documento, enumerando as técnicas e/ou ferramentas utilizadas para
-> realizar a especificações do projeto
+A especificação do projeto foi definida principalmente baseando se nas entrevistas realizadas com o público-alvo, as quais levantaram informações relevantes acerca das personas que devem receber maior enfoque e as dificuldades e problemas mais frequentes entre os entrevistados.
 
 ## Personas, Empatia e Proposta de Valor
 
-......  COLOQUE AQUI O SEU TEXTO ......
+
 
 
 > Relacione as personas identificadas no seu projeto, os respectivos mapas de empatia e 

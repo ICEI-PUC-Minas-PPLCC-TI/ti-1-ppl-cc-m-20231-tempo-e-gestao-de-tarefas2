@@ -108,12 +108,12 @@ A proposta de valor é uma forma de evidenciar os resultados que vêm com o uso 
 > 
 > **Exemplo de Persona**
 > 
-> ![Exemplo de Persona](images/persona.png)
+> ![Exemplo de Persona](images/raganolli.jpg)
 > 
-> Fonte: [Como criar uma persona para o seu negócio](https://raissaviegas.com.br/como-criar-uma-persona/)
+
 >
 > **Exemplo de Proposta de Valor**
-> ![Exemplo da Proposta de Valor](images/proposta_valor.png)
+> ![Exemplo da Proposta de Valor](images/proposta1.png)
 
 
 ## Histórias de Usuários
@@ -183,7 +183,7 @@ As questões que limitam a execução desse projeto e que se configuram como obr
 
 
 # Projeto de Interface
-adsadadsda
+
 ......  COLOQUE AQUI O SEU TEXTO DE INTRODUÇÃO ......
 
 > Apresente as principais interfaces da solução. Discuta como 

@@ -84,7 +84,9 @@ A especificação do projeto foi definida principalmente baseando se nas entrevi
 
 ## Personas, Empatia e Proposta de Valor
 
-Alo.
+As personas representam possíveis usuários do nosso produto, e, mesmo que sejam fictícios, são feitos para representarem perfis similares aos de inúmeras pessoas que passam pelo problema que buscamos solucionar. 
+A empatia é, de maneira geral, se colocar no lugar do usuário, buscando entender as dores e necessidades, e, por incrível que pareça, é de extrema importância na criação de uma proposta de valor.
+A proposta de valor é uma forma de evidenciar os resultados que vêm com o uso do nosso aplicativo, com o intuíto de mostrar a utilidade do nosso produto. Ao analisar o perfil do usuário, ficam claras suas "dores", o que possibilita chegar a uma série de opções voltadas para a resolução dos problemas (Criadores de ganhos), levando diretamente aos mecanismos oferecidos pelo aplicativo (Produtos e serviços). Dessa forma, definimos os "ganhos", que são justamente os benefícios obtidos ao utilizar o produto.
 
 
 > Relacione as personas identificadas no seu projeto, os respectivos mapas de empatia e 

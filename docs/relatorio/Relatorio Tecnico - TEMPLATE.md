@@ -116,81 +116,68 @@ A especificação do projeto foi definida principalmente baseando se nas entrevi
 
 ## Histórias de Usuários
 
-Com base na análise das personas forma identificadas as seguintes histórias de usuários:
 
-|EU COMO... `PERSONA`| QUERO/PRECISO ... `FUNCIONALIDADE` |PARA ... `MOTIVO/VALOR`                 |
-|--------------------|------------------------------------|----------------------------------------|
-|Usuário do sistema  | Registrar minhas tarefas           | Não esquecer de fazê-las               |
-|Administrador       | Alterar permissões                 | Permitir que possam administrar contas |
+A partir da compreensão do dia a dia das personas identificadas para o projeto, foram registradas as seguintes histórias de usuários.
 
-> Apresente aqui as histórias de usuário que são relevantes para o
-> projeto de sua solução. As Histórias de Usuário consistem em uma
-> ferramenta poderosa para a compreensão e elicitação dos requisitos
-> funcionais e não funcionais da sua aplicação. Se possível, agrupe as
-> histórias de usuário por contexto, para facilitar consultas
-> recorrentes à essa parte do documento.
->
-> **Links Úteis**:
-> - [Histórias de usuários com exemplos e template](https://www.atlassian.com/br/agile/project-management/user-stories)
-> - [Como escrever boas histórias de usuário (User Stories)](https://medium.com/vertice/como-escrever-boas-users-stories-hist%C3%B3rias-de-usu%C3%A1rios-b29c75043fac)
+|EU COMO... `PERSONA`| QUERO/PRECISO ... `FUNCIONALIDADE`    |PARA ... `MOTIVO/VALOR`                 |
+|--------------------|------------------------------------   |----------------------------------------|
+|Usuário do sistema: | Definir metas de produtividade;       |Para se manter motivado pelo progresso; |
+|Felipe Raganolli    |Acesso a calendário com minhas tarefas;|Melhor organização dos afazeres;        |       
+|--------------------|Visualizar tudo em uma única interface;|Para ter maior praticidade;             |
+|                    |Poder priorizar as tarefas;            | Para fazer o mais importante primeiro; |
+|                    |Receber relatórios;                    |Para avaliar o progresso;               | 
+ 
+|EU COMO... `PERSONA`| QUERO/PRECISO ... `FUNCIONALIDADE`                         | PARA ... `MOTIVO/VALOR`                  |          
+|--------------------|------------------------------------------------------------|------------------------------------------|
+|Usuário do sistema: | Definir lembretes;                                         |Para não perder nenhum prazo;             |
+|Lucas Jairo da Silva|Criar uma lista com itens que podem ser marcados com feitos;|Para saber o que ainda deve ser feito;    |       
+|--------------------|Acessar o aplicativo de qualquer lugar e dispositivo;       |Maior praticidade para acessar as tarefas;|
+
 
 ## Requisitos
 
-As tabelas que se seguem apresentam os requisitos funcionais e não funcionais que detalham o escopo do projeto.
+O escopo funcional do projeto é definido por meio dos requisitos funcionais que descrevem as possibilidades interação dos usuários, bem como os requisitos não funcionais que descrevem os aspectos que o sistema deverá apresentar de maneira geral. Estes requisitos são apresentados a seguir.
 
 ### Requisitos Funcionais
 
+A tabela a seguir apresenta os requisitos do projeto, identificando a prioridade em que os mesmos devem ser entregues.
+
 |ID    | Descrição do Requisito  | Prioridade |
 |------|-----------------------------------------|----|
-|RF-001| Permitir que o usuário cadastre tarefas | ALTA | 
-|RF-002| Emitir um relatório de tarefas no mês   | MÉDIA |
+|RF-001| O site deve apresentar uma interface modular, inspirada no miro | ALTA | 
+|RF-002| O site deve apresentar uma grade de encaixe relativo e um menu flutuante  | ALTA |
+|RF-003| O site deve possuir um sistema de recompensas que dará noção de progresso ao usuário | MÉDIA | 
+|RF-004| O site deve possuir um sistema de atribuição de tarefas ligado a um sistema de tasks  | ALTA |
+|RF-005| O site deve se conectar dados do usuário a uma database própria  | MÉDIA |
+|RF-006| O site deve possuir um sistema de gráficos e display de informações | MÉDIA | 
+|RF-007| O site deve possuir uma interface chamativa com cores atribuídas com estudos sobre neurociência  | MÉDIA |
+|RF-008| O site deve possuir um cronômetro para usuário medir tempo decorrido na realização de cada tarefa, além de contar o tempo de cada sprint do método pomodoro. | MÉDIA |
+|RF-009| O site deve possuir templates pré-prontos e post its | BAIXA | 
+|RF-010| O site deve disponibilizar exercícios para trabalhar o foco  | BAIXA |
+|RF-011| O site deve dar referências ao usuário de artigos e vídeos sobre métodos de estudo, motivação, disciplina e exercícios físicos | BAIXA | 
+
 
 
 ### Requisitos não Funcionais
 
+A tabela a seguir apresenta os requisitos não funcionais que o projeto deverá atender.
+
 |ID     | Descrição do Requisito  |Prioridade |
 |-------|-------------------------|----|
-|RNF-001| O sistema deve ser responsivo para rodar em um dispositivos móvel | MÉDIA | 
-|RNF-002| Deve processar requisições do usuário em no máximo 3s |  BAIXA | 
-
-> Com base nas Histórias de Usuário, enumere os requisitos da sua
-> solução. Classifique esses requisitos em dois grupos:
->
-> - [Requisitos Funcionais (RF)](https://pt.wikipedia.org/wiki/Requisito_funcional):
->   correspondem a uma funcionalidade que deve estar presente na
->   plataforma (ex: cadastro de usuário).
->
-> - [Requisitos Não Funcionais (RNF)](https://pt.wikipedia.org/wiki/Requisito_n%C3%A3o_funcional):
->   correspondem a uma característica técnica, seja de usabilidade,
->   desempenho, confiabilidade, segurança ou outro (ex: suporte a
->   dispositivos iOS e Android).
->
-> Lembre-se que cada requisito deve corresponder à uma e somente uma
-> característica alvo da sua solução. Além disso, certifique-se de que
-> todos os aspectos capturados nas Histórias de Usuário foram cobertos.
-> 
-> **Links Úteis**:
-> 
-> - [O que são Requisitos Funcionais e Requisitos Não Funcionais?](https://codificar.com.br/requisitos-funcionais-nao-funcionais/)
-> - [O que são requisitos funcionais e requisitos não funcionais?](https://analisederequisitos.com.br/requisitos-funcionais-e-requisitos-nao-funcionais-o-que-sao/)
-
+|RNF-001| O site deve ser publicado em um ambiente acessível publicamente na Internet (Repl.it, GitHub Pages, Heroku); | ALTA | 
+|RNF-002| O site deverá ser responsivo permitindo a visualização em um celular de forma adequada |  ALTA |
+|RNF-003| O site deve ter bom nível de contraste entre os elementos da tela em conformidade | MÉDIA | 
+|RNF-004| O site deve ser compatível com os principais navegadores do mercado (Google Chrome, Firefox, Microsoft Edge) |  ALTA |
 
 ## Restrições
 
-O projeto está restrito pelos itens apresentados na tabela a seguir.
+As questões que limitam a execução desse projeto e que se configuram como obrigações claras para o desenvolvimento do projeto em questão são apresentadas na tabela a seguir.
 
 |ID| Restrição                                             |
 |--|-------------------------------------------------------|
-|01| O projeto deverá ser entregue até o final do semestre |
-|02| Não pode ser desenvolvido um módulo de backend        |
-
-
-> Enumere as restrições à sua solução. Lembre-se de que as restrições
-> geralmente limitam a solução candidata.
-> 
-> **Links Úteis**:
-> - [O que são Requisitos Funcionais e Requisitos Não Funcionais?](https://codificar.com.br/requisitos-funcionais-nao-funcionais/)
-> - [O que são requisitos funcionais e requisitos não funcionais?](https://analisederequisitos.com.br/requisitos-funcionais-e-requisitos-nao-funcionais-o-que-sao/)
+|01| O projeto deverá ser entregue no final do semestre letivo, não podendo extrapolar a data de 07/07/2020. |
+|02| O aplicativo deve se restringir às tecnologias básicas da Web no Frontend        |
+|03| A equipe não pode subcontratar o desenvolvimento do trabalho |
 
 
 # Projeto de Interface
@@ -243,34 +230,13 @@ O projeto está restrito pelos itens apresentados na tabela a seguir.
 
 # Metodologia
 
-......  COLOQUE AQUI O SEU TEXTO ......
-
-> Nesta parte do documento, você deve apresentar a metodologia 
-> adotada pelo grupo, descrevendo o processo de trabalho baseado nas metodologias ágeis, 
-> a divisão de papéis e tarefas, as ferramentas empregadas e como foi realizada a
-> gestão de configuração do projeto via GitHub.
->
-> Coloque detalhes sobre o processo de Design Thinking e a implementação do Framework Scrum seguido
-> pelo grupo. O grupo poderá fazer uso de ferramentas on-line para acompanhar
-> o andamento do projeto, a execução das tarefas e o status de desenvolvimento
-> da solução.
-> 
-> **Links Úteis**:
-> - [Tutorial Trello](https://trello.com/b/8AygzjUA/tutorial-trello)
-> - [Gestão ágil de projetos com o Trello](https://www.youtube.com/watch?v=1o9BOMAKBRE)
-> - [Gerência de projetos - Trello com Scrum](https://www.youtube.com/watch?v=DHLA8X_ujwo)
-> - [Tutorial Slack](https://slack.com/intl/en-br/)
+Para gerir e desenhar o projeto, a equipe utilizou do processo de design thinking, para pensar e priorizar as ideias e etapas do site, além do método scrum para separar as tarefas entre os integrantes e melhorar a comunicação e o trabalho em equipe. Além disso, foi criado um repositório no GitHub , uma ferramenta que permite armazenar as alterações realizadas no código-fonte, sem perder as versões anteriores, permitindo maior controle sobre o desenvolvimento do projeto. Para priorizar as tarefas a serem concluídas e sua ordem de prioridade, a equipe usou o miro e o próprio processo de design thinking, definindo as bases do projeto e como o aplicativo devera ser feito e entendido, além de definir conhecimentos sobre a área que devem ser adquiridos para a realização do projeto, como a neurociência, fundamental para entender questões como a disciplina, a motivação e o foco.
 
 ## Divisão de Papéis
 
-......  COLOQUE AQUI O SEU TEXTO ......
-
-> Apresente a divisão de papéis e tarefas entre os membros do grupo.
->
-> **Links Úteis**:
-> - [11 Passos Essenciais para Implantar Scrum no seu Projeto](https://mindmaster.com.br/scrum-11-passos/)
-> - [Scrum em 9 minutos](https://www.youtube.com/watch?v=XfvQWnRgxG0)
-
+Scrum master: Rodrigo Drummond.
+Product Owner: Vinicius Goddard
+Scrum Team: Rodrigo Drummond, Thomas Baron, Vinicius Goddard, Vitoria Avany, Matheus Rodrigues, Pedro Oliveira.
 
 ## Ferramentas
 
@@ -279,7 +245,7 @@ O projeto está restrito pelos itens apresentados na tabela a seguir.
 | Ambiente  | Plataforma              |Link de Acesso |
 |-----------|-------------------------|---------------|
 |Processo de Design Thinkgin  | Miro |  https://miro.com/XXXXXXX | 
-|Repositório de código | GitHub | https://github.com/XXXXXXX | 
+|Repositório de código | GitHub | https://github.com/ICEI-PUC-Minas-PPLCC-TI/ti-1-ppl-cc-m-20231-tempo-e-gestao-de-tarefas2 | 
 |Hospedagem do site | Heroku |  https://XXXXXXX.herokuapp.com | 
 |Protótipo Interativo | MavelApp ou Figma | https://figma.com/XXXXXXX | 
 

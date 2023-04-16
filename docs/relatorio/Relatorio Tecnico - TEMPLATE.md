@@ -199,14 +199,7 @@ As questões que limitam a execução desse projeto e que se configuram como obr
 > mapear todo fluxo de telas do site ou app. Essa técnica funciona
 > para alinhar os caminhos e as possíveis ações que o usuário pode
 > fazer junto com os membros de sua equipe.
->
-> **Links Úteis**:
-> - [User Flow: O Quê É e Como Fazer?](https://medium.com/7bits/fluxo-de-usu%C3%A1rio-user-flow-o-que-%C3%A9-como-fazer-79d965872534)
-> - [User Flow vs Site Maps](http://designr.com.br/sitemap-e-user-flow-quais-as-diferencas-e-quando-usar-cada-um/)
-> - [Top 25 User Flow Tools & Templates for Smooth](https://www.mockplus.com/blog/post/user-flow-tools)
->
 > **Exemplo**:
-> 
 > ![Exemplo de UserFlow](images/userflow.jpg)
 
 
@@ -227,7 +220,7 @@ As questões que limitam a execução desse projeto e que se configuram como obr
 > 
 > **Exemplo**:
 > 
-> ![Exemplo de Wireframe](images/wireframe-example.png)
+> ![Exemplo de Wireframe](images/wireframe1.jpg)
 
 
 # Metodologia
@@ -246,10 +239,10 @@ Scrum Team: Rodrigo Drummond, Thomas Baron, Vinicius Goddard, Vitoria Avany, Mat
 
 | Ambiente  | Plataforma              |Link de Acesso |
 |-----------|-------------------------|---------------|
-|Processo de Design Thinkgin  | Miro |  https://miro.com/XXXXXXX | 
+|Processo de Design Thinkgin  | Miro |  https://miro.com/app/board/uXjVMYDaO20=/ | 
 |Repositório de código | GitHub | https://github.com/ICEI-PUC-Minas-PPLCC-TI/ti-1-ppl-cc-m-20231-tempo-e-gestao-de-tarefas2 | 
-|Hospedagem do site | Heroku |  https://XXXXXXX.herokuapp.com | 
-|Protótipo Interativo | MavelApp ou Figma | https://figma.com/XXXXXXX | 
+|Hospedagem do site | Heroku |  https://XXXXXXX.herokuapp.com |
+|Protótipo Interativo | MavelApp ou Figma | https://www.figma.com/proto/YNDapGnWeLogRhiTacqEIi/Chronos?node-id=7-14&scaling=min-zoom&page-id=0%3A1&starting-point-node-id=7%3A14 | 
 
 >
 > Liste as ferramentas empregadas no desenvolvimento do

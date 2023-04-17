@@ -88,34 +88,6 @@ As personas representam possíveis usuários do nosso produto, e, mesmo que seja
 A empatia é, de maneira geral, se colocar no lugar do usuário, buscando entender as dores e necessidades, e, por incrível que pareça, é de extrema importância na criação de uma proposta de valor.
 A proposta de valor é uma forma de evidenciar os resultados que vêm com o uso do nosso aplicativo, com o intuíto de mostrar a utilidade do nosso produto. Ao analisar o perfil do usuário, ficam claras suas "dores", o que possibilita chegar a uma série de opções voltadas para a resolução dos problemas (Criadores de ganhos), levando diretamente aos mecanismos oferecidos pelo aplicativo (Produtos e serviços). Dessa forma, definimos os "ganhos", que são justamente os benefícios obtidos ao utilizar o produto.
 
-
-> Relacione as personas identificadas no seu projeto, os respectivos mapas de empatia e 
-> mapas da proposta de valor. Lembre-se que você deve ser enumerar e descrever precisamente 
-> e de forma personalizada todos os principais envolvidos com a solução almeja. 
-> 
-> Para tanto, baseie-se tanto nos documentos disponibilizados na disciplina
-> e/ou nos seguintes links:
->
-> **Links Úteis**:
-> - [Persona x Público-alvo](https://flammo.com.br/blog/persona-e-publico-alvo-qual-a-diferenca/)
-> - [O que é persona?](https://resultadosdigitais.com.br/blog/persona-o-que-e/)
-> - [Rock Content](https://rockcontent.com/blog/personas/)
-> - [Hotmart](https://blog.hotmart.com/pt-br/como-criar-persona-negocio/)
-> - [Mapa de Empatia](https://resultadosdigitais.com.br/blog/mapa-da-empatia/)
-> - [Como fazer um mapa de empatia - Vídeo](https://www.youtube.com/watch?v=JlKHGpVoA2Y)
-> - [Canvas da Proposta de Valor](https://analistamodelosdenegocios.com.br/canvas-da-proposta-de-valor/)
-> 
-> 
-> **Exemplo de Persona**
-> 
-> ![Exemplo de Persona](images/raganolli.jpg)
-> 
-
->
-> **Exemplo de Proposta de Valor**
-> ![Exemplo da Proposta de Valor](images/proposta1.png)
-
-
 ## Histórias de Usuários
 
 
@@ -183,8 +155,6 @@ As questões que limitam a execução desse projeto e que se configuram como obr
 
 
 # Projeto de Interface
-
-......  COLOQUE AQUI O SEU TEXTO DE INTRODUÇÃO ......
 
 Partindo da premissa de que muitos dos problemas de gestão de tempo e tarefas são comportamentais, a interface em questão foi pensada com conceitos do âmbito neurocientífico para que o usuário possa se sentir imerso na proposta de "Second Brain" (ou, em português, cérecro secundário), a qual tem o objetivo de evitar a sobrecarga e o burnout do usuário por meio de um sistema digitalizado de tasks. Após uma simples tela de login, o usuáro se depara com uma interface modular em estilo "whiteboard", em que ele pode organizar as subjanelas da forma que preferir. Cada janela recebe o nome de "módulo". Um agrupamento de módulos recebe o nome de "rede modular" e permite com que cada módulo interaja entre si. A aplicação dispõe de um sistema de cores que muda as cores de destaque ao longo do dia, aplicando cores mais quentes na manhã e mais frias na noite (nota: Esse sistema não interfere com as configurações de tema escuro/claro do usuário, também pode ser desativado para customização manual). 
 

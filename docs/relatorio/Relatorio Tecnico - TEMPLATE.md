@@ -170,7 +170,7 @@ A aplicação possue um menu flutuante com as opções cursor, adicionar, zoom e
 
 ## User Flow
 
-![UserFlow](/docs/relatorio/images/userflow.jpg)
+![UserFlow](/docs/relatorio/images/userflowchronos.jpg)
 
 ## Wireframes
 

@@ -175,7 +175,7 @@ A aplicação possue um menu flutuante com as opções cursor, adicionar, zoom e
 ## Wireframes
 
 ![Wireframe Claro](C:\Users\vinic\github-classroom\ICEI-PUC-Minas-PPLCC-TI\ti-1-ppl-cc-m-20231-tempo-e-gestao-de-tarefas2\docs\relatorio\images\WireframeClaro.png)
-![Wireframe Escuro](images/WireframeEscuro.png)
+![Wireframe Escuro](https://discord.com/channels/1084515595330007082/1084630243521871922/1097327458530885642)
 
 
 # Metodologia

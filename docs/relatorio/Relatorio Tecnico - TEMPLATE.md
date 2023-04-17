@@ -84,7 +84,37 @@ A especificação do projeto foi definida principalmente baseando se nas entrevi
 
 ## Personas, Empatia e Proposta de Valor
 
-Alo.
+As personas representam possíveis usuários do nosso produto, e, mesmo que sejam fictícios, são feitos para representarem perfis similares aos de inúmeras pessoas que passam pelo problema que buscamos solucionar. 
+A empatia é, de maneira geral, se colocar no lugar do usuário, buscando entender as dores e necessidades, e, por incrível que pareça, é de extrema importância na criação de uma proposta de valor.
+A proposta de valor é uma forma de evidenciar os resultados que vêm com o uso do nosso aplicativo, com o intuíto de mostrar a utilidade do nosso produto. Ao analisar o perfil do usuário, ficam claras suas "dores", o que possibilita chegar a uma série de opções voltadas para a resolução dos problemas (Criadores de ganhos), levando diretamente aos mecanismos oferecidos pelo aplicativo (Produtos e serviços). Dessa forma, definimos os "ganhos", que são justamente os benefícios obtidos ao utilizar o produto.
+
+
+> Relacione as personas identificadas no seu projeto, os respectivos mapas de empatia e 
+> mapas da proposta de valor. Lembre-se que você deve ser enumerar e descrever precisamente 
+> e de forma personalizada todos os principais envolvidos com a solução almeja. 
+> 
+> Para tanto, baseie-se tanto nos documentos disponibilizados na disciplina
+> e/ou nos seguintes links:
+>
+> **Links Úteis**:
+> - [Persona x Público-alvo](https://flammo.com.br/blog/persona-e-publico-alvo-qual-a-diferenca/)
+> - [O que é persona?](https://resultadosdigitais.com.br/blog/persona-o-que-e/)
+> - [Rock Content](https://rockcontent.com/blog/personas/)
+> - [Hotmart](https://blog.hotmart.com/pt-br/como-criar-persona-negocio/)
+> - [Mapa de Empatia](https://resultadosdigitais.com.br/blog/mapa-da-empatia/)
+> - [Como fazer um mapa de empatia - Vídeo](https://www.youtube.com/watch?v=JlKHGpVoA2Y)
+> - [Canvas da Proposta de Valor](https://analistamodelosdenegocios.com.br/canvas-da-proposta-de-valor/)
+> 
+> 
+> **Exemplo de Persona**
+> 
+> ![Exemplo de Persona](images/raganolli.jpg)
+> 
+
+>
+> **Exemplo de Proposta de Valor**
+> ![Exemplo da Proposta de Valor](images/proposta1.png)
+
 
 ## Histórias de Usuários
 
@@ -198,10 +228,10 @@ Scrum Team: Rodrigo Drummond, Thomas Baron, Vinicius Goddard, Vitoria Avany, Mat
 
 | Ambiente  | Plataforma              |Link de Acesso |
 |-----------|-------------------------|---------------|
-|Processo de Design Thinkgin  | Miro |  https://miro.com/XXXXXXX | 
+|Processo de Design Thinkgin  | Miro |  https://miro.com/app/board/uXjVMYDaO20=/ | 
 |Repositório de código | GitHub | https://github.com/ICEI-PUC-Minas-PPLCC-TI/ti-1-ppl-cc-m-20231-tempo-e-gestao-de-tarefas2 | 
-|Hospedagem do site | Heroku |  https://XXXXXXX.herokuapp.com | 
-|Protótipo Interativo | MavelApp ou Figma | https://figma.com/XXXXXXX | 
+|Hospedagem do site | Heroku |  https://XXXXXXX.herokuapp.com |
+|Protótipo Interativo | MavelApp ou Figma | https://www.figma.com/proto/YNDapGnWeLogRhiTacqEIi/Chronos?node-id=7-14&scaling=min-zoom&page-id=0%3A1&starting-point-node-id=7%3A14 | 
 
 >
 > Liste as ferramentas empregadas no desenvolvimento do

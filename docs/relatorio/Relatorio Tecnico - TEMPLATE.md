@@ -86,34 +86,6 @@ A especificação do projeto foi definida principalmente baseando se nas entrevi
 
 Alo.
 
-
-> Relacione as personas identificadas no seu projeto, os respectivos mapas de empatia e 
-> mapas da proposta de valor. Lembre-se que você deve ser enumerar e descrever precisamente 
-> e de forma personalizada todos os principais envolvidos com a solução almeja. 
-> 
-> Para tanto, baseie-se tanto nos documentos disponibilizados na disciplina
-> e/ou nos seguintes links:
->
-> **Links Úteis**:
-> - [Persona x Público-alvo](https://flammo.com.br/blog/persona-e-publico-alvo-qual-a-diferenca/)
-> - [O que é persona?](https://resultadosdigitais.com.br/blog/persona-o-que-e/)
-> - [Rock Content](https://rockcontent.com/blog/personas/)
-> - [Hotmart](https://blog.hotmart.com/pt-br/como-criar-persona-negocio/)
-> - [Mapa de Empatia](https://resultadosdigitais.com.br/blog/mapa-da-empatia/)
-> - [Como fazer um mapa de empatia - Vídeo](https://www.youtube.com/watch?v=JlKHGpVoA2Y)
-> - [Canvas da Proposta de Valor](https://analistamodelosdenegocios.com.br/canvas-da-proposta-de-valor/)
-> 
-> 
-> **Exemplo de Persona**
-> 
-> ![Exemplo de Persona](images/persona.png)
-> 
-> Fonte: [Como criar uma persona para o seu negócio](https://raissaviegas.com.br/como-criar-uma-persona/)
->
-> **Exemplo de Proposta de Valor**
-> ![Exemplo da Proposta de Valor](images/proposta_valor.png)
-
-
 ## Histórias de Usuários
 
 
@@ -181,51 +153,33 @@ As questões que limitam a execução desse projeto e que se configuram como obr
 
 
 # Projeto de Interface
-adsadadsda
+
 ......  COLOQUE AQUI O SEU TEXTO DE INTRODUÇÃO ......
 
-> Apresente as principais interfaces da solução. Discuta como 
-> foram elaboradas de forma a atender os requisitos funcionais, não
-> funcionais e histórias de usuário abordados nas [Especificações do
-> Projeto](#especificações-do-projeto).
+Partindo da premissa de que muitos dos problemas de gestão de tempo e tarefas são comportamentais, a interface em questão foi pensada com conceitos do âmbito neurocientífico para que o usuário possa se sentir imerso na proposta de "Second Brain" (ou, em português, cérecro secundário), a qual tem o objetivo de evitar a sobrecarga e o burnout do usuário por meio de um sistema digitalizado de tasks. Após uma simples tela de login, o usuáro se depara com uma interface modular em estilo "whiteboard", em que ele pode organizar as subjanelas da forma que preferir. Cada janela recebe o nome de "módulo". Um agrupamento de módulos recebe o nome de "rede modular" e permite com que cada módulo interaja entre si. A aplicação dispõe de um sistema de cores que muda as cores de destaque ao longo do dia, aplicando cores mais quentes na manhã e mais frias na noite (nota: Esse sistema não interfere com as configurações de tema escuro/claro do usuário, também pode ser desativado para customização manual). 
+
+Os módulos básicos são:
+- Calendário integrado com sistema de Tasks (janelas com cheklists que agregam pontos pela compleção de cada item + bônus por compleção da janela)
+- Gráfico que atualiza em tempo real os pontos de produtividade adiquiridos. (eixo y = Pontos de produtividade, eixo x = tempo-customizável - horas, dias, semana, mês -)
+- Janela de informante digital. A partir de um banco de dados selecionado, anexa links para artigos sobre neurociência e saúde, notícias e uma "dica rápida" flutuante, que possui grau de complexidade baseado no perfil do usuário.
+- Post-its expandíveis que podem ser anexados em qualquer lugar do quadro branco, mas não possuem conexão com a rede modular
+- Módulo da técnica de concentração Pomodoro, que contém um contador de 25 minutos e uma imagem customizável de fundo
+- Módulos adicionais e extensões para módulos atuais(Exercícios respiratórios, aba de notícias)
+
+A aplicação possue um menu flutuante com as opções cursor, adicionar, zoom e post-it. Existe também um menu de navegação ao lado da logo flutuante, contendo a aba de loja de customizações ( que usa pontos de produtividade para permitir customizações para além do já disponibilizado, funcionando como um motivador a aumentar sua taxa de produtividade) e a aba de configurações do site.
 
 ## User Flow
 
 ......  INCLUA AQUI O DIAGRAMA COM O FLUXO DO USUÁRIO NA APLICAÇÃO ......
 
-> Fluxo de usuário (User Flow) é uma técnica que permite ao desenvolvedor
-> mapear todo fluxo de telas do site ou app. Essa técnica funciona
-> para alinhar os caminhos e as possíveis ações que o usuário pode
-> fazer junto com os membros de sua equipe.
->
-> **Links Úteis**:
-> - [User Flow: O Quê É e Como Fazer?](https://medium.com/7bits/fluxo-de-usu%C3%A1rio-user-flow-o-que-%C3%A9-como-fazer-79d965872534)
-> - [User Flow vs Site Maps](http://designr.com.br/sitemap-e-user-flow-quais-as-diferencas-e-quando-usar-cada-um/)
-> - [Top 25 User Flow Tools & Templates for Smooth](https://www.mockplus.com/blog/post/user-flow-tools)
->
-> **Exemplo**:
-> 
-> ![Exemplo de UserFlow](images/userflow.jpg)
-
+![UserFlow](images/userflowchronos.png)
 
 ## Wireframes
 
 ......  INCLUA AQUI OS WIREFRAMES DAS TELAS DA APLICAÇÃO COM UM BREVE DESCRITIVO ......
 
-> Wireframes são protótipos das telas da aplicação usados em design de interface para sugerir a
-> estrutura de um site web e seu relacionamentos entre suas
-> páginas. Um wireframe web é uma ilustração semelhante ao
-> layout de elementos fundamentais na interface.
-> 
-> **Links Úteis**:
-> - [Ferramentas de Wireframes](https://rockcontent.com/blog/wireframes/)
-> - [Figma](https://www.figma.com/)
-> - [Adobe XD](https://www.adobe.com/br/products/xd.html#scroll)
-> - [MarvelApp](https://marvelapp.com/developers/documentation/tutorials/)
-> 
-> **Exemplo**:
-> 
-> ![Exemplo de Wireframe](images/wireframe-example.png)
+![Wireframe Claro](images/WireframeClaro.png)
+![Wireframe Escuro](images/WireframeEscuro.png)
 
 
 # Metodologia

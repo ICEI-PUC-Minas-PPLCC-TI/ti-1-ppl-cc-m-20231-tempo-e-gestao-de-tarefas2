@@ -170,12 +170,12 @@ A aplicação possue um menu flutuante com as opções cursor, adicionar, zoom e
 
 ## User Flow
 
-![UserFlow](images/userflowchronos.png)
+![UserFlow](/docs/relatorio/images/userflow.jpg)
 
 ## Wireframes
 
 ![Wireframe Claro](/docs/relatorio/images/WireframeClaro.PNG)
-![Wireframe Escuro](https://discord.com/channels/1084515595330007082/1084630243521871922/1097327458530885642)
+![Wireframe Escuro](/docs/relatorio/images/WireframeEscuro.PNG)
 
 
 # Metodologia

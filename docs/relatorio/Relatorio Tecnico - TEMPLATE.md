@@ -171,12 +171,12 @@ A aplicação possue um menu flutuante com as opções cursor, adicionar, zoom e
 
 ## User Flow
 
-![UserFlow](images/userflowchronos.png)
+![UserFlow](/docs/relatorio/images/userflowchronos.PNG)
 
 ## Wireframes
 
-![Wireframe Claro](C:\Users\vinic\github-classroom\ICEI-PUC-Minas-PPLCC-TI\ti-1-ppl-cc-m-20231-tempo-e-gestao-de-tarefas2\docs\relatorio\images\WireframeClaro.png)
-![Wireframe Escuro](https://discord.com/channels/1084515595330007082/1084630243521871922/1097327458530885642)
+![Wireframe Claro](/docs/relatorio/images/WireframeClaro.PNG)
+![Wireframe Escuro](/docs/relatorio/images/WireframeEscuro.PNG)
 
 
 # Metodologia

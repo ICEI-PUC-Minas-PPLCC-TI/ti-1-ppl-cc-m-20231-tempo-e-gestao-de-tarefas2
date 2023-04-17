@@ -170,15 +170,11 @@ A aplicação possue um menu flutuante com as opções cursor, adicionar, zoom e
 
 ## User Flow
 
-......  INCLUA AQUI O DIAGRAMA COM O FLUXO DO USUÁRIO NA APLICAÇÃO ......
-
 ![UserFlow](images/userflowchronos.png)
 
 ## Wireframes
 
-......  INCLUA AQUI OS WIREFRAMES DAS TELAS DA APLICAÇÃO COM UM BREVE DESCRITIVO ......
-
-![Wireframe Claro](images/WireframeClaro.png)
+![Wireframe Claro](C:\Users\vinic\github-classroom\ICEI-PUC-Minas-PPLCC-TI\ti-1-ppl-cc-m-20231-tempo-e-gestao-de-tarefas2\docs\relatorio\images\WireframeClaro.png)
 ![Wireframe Escuro](images/WireframeEscuro.png)
 
 

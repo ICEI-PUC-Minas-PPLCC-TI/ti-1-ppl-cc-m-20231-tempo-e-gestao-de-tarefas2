@@ -1,3 +1,5 @@
+
+/*código*/
 body {
     margin: 0px;
     background-color: #1E1E1E !important;
@@ -15,6 +17,7 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
+    transition: transform 0.5s;
     
 }
 #menu-flutuante {
@@ -39,21 +42,22 @@ body {
     justify-content: center;
     align-items: center;
     box-shadow:  6px 6px 13px #2b2b2b, -6px -6px 13px #3b3b3b;
-    transition: 0.3s;
+    transition: background-color 0.3s;
 }
 .menu-item img {
     height: 25px;
     width: 25px;
 }
 #menu-button {
+    position: relative;
     margin-left: 10px;
     z-index: 101;
+    transition: transform 0.3s;
 }
 #menu-button img {
     height: 50px;
     width: 50px;
     opacity: 50%;
-    border: solid 2px #3D3D3D;
     border-radius: 10px;
     transition: 0.3s;
 }

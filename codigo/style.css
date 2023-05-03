@@ -5,6 +5,10 @@ body {
     background-color: #1E1E1E !important;
 }
 
+li {
+    list-style-type: none;
+}
+/*menus*/
 #menu-flutuante-outer-wrapper {
     position: absolute;
     height: 100%;
@@ -61,3 +65,16 @@ body {
     border-radius: 10px;
     transition: 0.3s;
 }
+/*principal*/
+
+.gridster {
+    position: relative;
+}
+
+.gridster .gs-w {
+    position: absolute;
+}
+.box {
+    background-color: white;
+}
+

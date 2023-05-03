@@ -42,6 +42,7 @@
                         transform: 'translateX(-80px)',
                     });
                     $(this).css({
+                        transform: 'translateX(0px)',
                         transform: 'rotate(180deg)',
                     });
                     isMenuHidden = 1;
@@ -51,6 +52,7 @@
                     });
                     $(this).css({
                         transform: 'rotate(0deg)',
+                        transform: 'translateX(0px)',
                     });
                     isMenuHidden = 0;
                 }
@@ -70,7 +72,18 @@
         </div>
     </div>
     <div id="menu-config"></div>
-    
+    <div class="gridster" id="interface-modular">
+        <ul>
+            <li class="box" data-col="1" data-row="1" data-sizex="1" data-sizey="1"><img src="https://picsum.photos/200"></li>
+            <li class="box" data-col="1" data-row="2" data-sizex="1" data-sizey="1"><img src="https://picsum.photos/200"></li>
+            <li class="box" data-col="1" data-row="3" data-sizex="1" data-sizey="1"><img src="https://picsum.photos/200"></li>
+            <li class="box" data-col="2" data-row="1" data-sizex="1" data-sizey="1"><img src="https://picsum.photos/200"></li>
+            <li class="box" data-col="2" data-row="1" data-sizex="1" data-sizey="1"><img src="https://picsum.photos/200"></li>
+            <li class="box" data-col="2" data-row="1" data-sizex="1" data-sizey="1"><img src="https://picsum.photos/200"></li>
+        </ul>
+    </div>
+
+<script src="/codigo/assets/libraries/gridster.js-master/dist/jquery.gridster.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/js/bootstrap.bundle.min.js" integrity="sha384-qKXV1j0HvMUeCBQ+QVp7JcfGl760yU08IQ+GpUo5hlbpg51QRiuqHAJz8+BrxE/N" crossorigin="anonymous">
 </script>
 </body>

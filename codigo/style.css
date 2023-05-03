@@ -3,10 +3,12 @@
 body {
     margin: 0px;
     background-color: #1E1E1E !important;
+    overflow: hidden;
 }
 
 li {
     list-style-type: none;
+    
 }
 /*menus*/
 #menu-flutuante-outer-wrapper {
@@ -16,6 +18,7 @@ li {
     display: flex;
     z-index: 100;
     justify-content: center;
+    pointer-events: none;
 }
 #menu-flutuante-inner-wrapper {
     display: flex;
@@ -67,14 +70,18 @@ li {
 }
 /*principal*/
 
-.gridster {
+#principal {
     position: relative;
+    height: 100vh;
+    width: 100vw;
+    
 }
 
-.gridster .gs-w {
-    position: absolute;
+.módulo {
+    size: 100px;
+    background-color: aqua;
 }
-.box {
-    background-color: white;
-}
+
+
+
 

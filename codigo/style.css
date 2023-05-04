@@ -39,6 +39,7 @@ li {
     border-radius: 10px;
     background: linear-gradient(145deg, #373737, #2e2e2e);
     box-shadow:  20px 20px 40px #1a1a1a, -20px -20px 40px #232323;
+    pointer-events: auto;
 }
 .menu-item {
     background-color: #333333;
@@ -60,6 +61,7 @@ li {
     margin-left: 10px;
     z-index: 101;
     transition: transform 0.3s;
+    pointer-events: auto;
 }
 #menu-button img {
     height: 50px;

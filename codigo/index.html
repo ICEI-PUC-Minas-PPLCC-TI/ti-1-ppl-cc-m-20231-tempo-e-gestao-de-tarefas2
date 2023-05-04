@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chronos</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js" integrity="sha256-oP6HI9z1XaZNBrJURtCoUT5SUnxFr8s3BzRl+cbzUq8=" crossorigin="anonymous"></script>
+    <script src="/codigo/assets/libraries/gridster.js-master/dist/jquery.gridster.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            //animações do menu
+            $('.menu-item').hover(function(){
+                $(this).css("background-color","#3D3D3D");
+            },function() {
+                $(this).css("background-color","#333333");
+            });
+            $('#menu-button img').hover(function(){
+                if (isMenuHidden == 0) {
+                    $(this).css({
+                        backgroundColor: '#3D3D3D',
+                        transform: 'translateX(10px)',
+                    });
+                } else if (isMenuHidden == 1) {
+                    $(this).css({
+                        backgroundColor: '#3D3D3D',
+                        transform: 'translateX(-10px)',
+                    });
+                }
+            },function() {
+                $(this).css({
+                    backgroundColor: 'transparent',
+                    transform: 'translateX(0px)',
+                });
+            });
+            $('#menu-button').on('click', function(){
+                if (isMenuHidden == 0)  {
+                    $('#menu-flutuante-inner-wrapper').css({
+                        transform: 'translateX(-80px)',
+                    });
+                    $(this).css({
+                        transform: 'translateX(0px)',
+                        transform: 'rotate(180deg)',
+                    });
+                    isMenuHidden = 1;
+                } else {
+                    $('#menu-flutuante-inner-wrapper').css({
+                        transform: 'translateX(0px)',
+                    });
+                    $(this).css({
+                        transform: 'rotate(0deg)',
+                        transform: 'translateX(0px)',
+                    });
+                    isMenuHidden = 0;
+                }
+            });
+            $(".gridster ul").gridster({
+                widget_margins: [10, 10],
+                widget_base_dimensions: [100, 100]
+            });
+        }); 
+    </script>
+</head>
+<body>
+    <div id="menu-flutuante-outer-wrapper">
+        <div id="menu-flutuante-inner-wrapper">
+            <ul id="menu-flutuante">
+                <li class="menu-item"><img src="/codigo/assets/img/mais.png" alt="Adicionar Módulo"></li>
+                <li class="menu-item"><img src="/codigo/assets/img/notas.png" alt="Post-its"></li>
+                <li class="menu-item"><img src="/codigo/assets/img/do-utilizador.png" alt="Usuário"></li>
+            </ul>
+            <div id="menu-button"><img src="/codigo/assets/img/angulo-duplo-pequeno-esquerdo.png" alt="Contrair"></div>
+        </div>
+    </div>
+    <div id="menu-config"></div>
+    <div id="principal">
+        <div class="gridster" id="interface-modular">
+            <ul>
+                <li class="módulo" data-row="1" data-col="1" data-sizex="1" data-sizey="1">a</li>
+                <li class="módulo" data-row="2" data-col="1" data-sizex="1" data-sizey="1">a</li>
+                <li class="módulo" data-row="3" data-col="1" data-sizex="1" data-sizey="1">a</li>
+            
+                <li class="módulo" data-row="1" data-col="2" data-sizex="1" data-sizey="1">a</li>
+                <li class="módulo" data-row="2" data-col="2" data-sizex="1" data-sizey="1">a</li>
+            
+                <li class="módulo" data-row="1" data-col="4" data-sizex="1" data-sizey="1">a</li>
+                <li class="módulo" data-row="2" data-col="4" data-sizex="1" data-sizey="1">a</li>
+                <li class="módulo" data-row="3" data-col="4" data-sizex="1" data-sizey="1">a</li>
+            
+                <li class="módulo" data-row="1" data-col="5" data-sizex="1" data-sizey="1">a</li>
+                <li class="módulo" data-row="3" data-col="5" data-sizex="1" data-sizey="1">a</li>
+            
+                <li class="módulo" data-row="1" data-col="6" data-sizex="1" data-sizey="1">a</li>
+                <li class="módulo" data-row="2" data-col="6" data-sizex="1" data-sizey="1">a</li>
+            </ul>
+        </div>
+    </div>
+
+
+
+
+</body>
+</html>

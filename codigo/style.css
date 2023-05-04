@@ -11,12 +11,7 @@ li {
     
 }
 
-#main-wrapper {
-    position: relative;
-    height: 50%;
-    width: 50%;
-    display: flex;
-}
+
 /*menus*/
 #menu-flutuante-outer-wrapper {
     position: absolute;

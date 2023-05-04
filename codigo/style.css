@@ -4,6 +4,7 @@ body {
     margin: 0px;
     background-color: #1E1E1E !important;
     overflow: hidden;
+    
 }
 
 li {
@@ -11,12 +12,7 @@ li {
     
 }
 
-#main-wrapper {
-    position: relative;
-    height: 50%;
-    width: 50%;
-    display: flex;
-}
+
 /*menus*/
 #menu-flutuante-outer-wrapper {
     position: absolute;
@@ -80,10 +76,10 @@ li {
 /*principal*/
 
 #principal {
-    position: relative;
-    height: 100vh;
-    width: 100vw;
-    
+    position: absolute;
+   height: 100vh;
+   width: 100vw;
+   
 }
 
 .módulo {

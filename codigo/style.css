@@ -1,9 +1,10 @@
 
 /*código*/
 body {
+    padding: 0;
     margin: 0px;
     background-color: #1E1E1E !important;
-    overflow: hidden;
+    overflow: hiddn;
     
 }
 
@@ -15,7 +16,7 @@ li {
 
 /*menus*/
 #menu-flutuante-outer-wrapper {
-    position: absolute;
+    position: fixed;
     height: 100%;
     left: 10px;
     display: flex;
@@ -76,9 +77,10 @@ li {
 /*principal*/
 
 #principal {
+    padding: 200px;
     position: absolute;
-   height: 100vh;
-   width: 100vw;
+    height: 100vh;
+    width: 100vw;
    
 }
 

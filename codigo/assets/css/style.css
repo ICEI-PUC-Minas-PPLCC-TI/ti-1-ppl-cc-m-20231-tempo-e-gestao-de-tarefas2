@@ -1,90 +1,20 @@
+@import url(./menuLateral.css);
+@import url(./components/grafico.css);
+@import url(./components/infoDigital.css);
+@import url(./components/pomodoro.css);
+@import url(./components/Post-its.css);
+
 
 /*código*/
 body {
     padding: 0;
     margin: 0px;
     background-color: #1E1E1E !important;
-    overflow: hiddn;
+    /*overflow: hidden;*/
     
 }
 
 li {
     list-style-type: none;
     
-}
-
-
-/*menus*/
-#menu-flutuante-outer-wrapper {
-    position: fixed;
-    height: 100%;
-    left: 10px;
-    display: flex;
-    z-index: 100;
-    justify-content: center;
-    pointer-events: none;
-}
-#menu-flutuante-inner-wrapper {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: transform 0.5s;
-    
-}
-#menu-flutuante {
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-evenly;
-    height: 200px;
-    padding: 0px 10px;
-    margin-bottom: 0%;
-    border-radius: 10px;
-    background: linear-gradient(145deg, #373737, #2e2e2e);
-    box-shadow:  20px 20px 40px #1a1a1a, -20px -20px 40px #232323;
-    pointer-events: auto;
-}
-.menu-item {
-    background-color: #333333;
-    border-radius: 10px;
-    height: 50px;
-    width: 50px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    box-shadow:  6px 6px 13px #2b2b2b, -6px -6px 13px #3b3b3b;
-    transition: background-color 0.3s;
-}
-.menu-item img {
-    height: 25px;
-    width: 25px;
-}
-#menu-button {
-    position: relative;
-    margin-left: 10px;
-    z-index: 101;
-    transition: transform 0.3s;
-    pointer-events: auto;
-}
-#menu-button img {
-    height: 50px;
-    width: 50px;
-    opacity: 50%;
-    border-radius: 10px;
-    transition: 0.3s;
-}
-/*principal*/
-
-#principal {
-    padding: 200px;
-    position: absolute;
-    height: 100vh;
-    width: 100vw;
-   
-}
-
-.módulo {
-    size: 100px;
-    background-color: aqua;
 }

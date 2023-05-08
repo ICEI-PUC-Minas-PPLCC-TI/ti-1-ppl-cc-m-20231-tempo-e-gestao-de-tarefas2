@@ -18,3 +18,17 @@ li {
     list-style-type: none;
     
 }
+/*principal*/
+
+
+#principal {
+    padding: 200px;
+    position: absolute;
+    height: 100vh;
+    width: 100vw;
+   
+}
+
+.módulo {
+    background-color: aqua;
+}

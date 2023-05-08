@@ -11,7 +11,6 @@ body {
     margin: 0px;
     background-color: #1E1E1E !important;
     /*overflow: hidden;*/
-    
 }
 
 li {
@@ -22,13 +21,15 @@ li {
 
 
 #principal {
-    padding: 200px;
     position: absolute;
-    height: 100vh;
-    width: 100vw;
-   
+    min-height: 100vh;
+    min-width: 100vw;
 }
+
 
 .módulo {
     background-color: aqua;
+    border-radius: 10px;
+    margin: 0%;
+    overflow: hidden;
 }

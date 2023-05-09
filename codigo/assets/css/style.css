@@ -6,27 +6,47 @@
 
 
 /*código*/
+
 body {
     padding: 0;
     margin: 0px;
+    display: flex !important;
+    justify-content: center;
     background-color: #1E1E1E !important;
-    /*overflow: hidden;*/
+    overflow: hidden;
 }
 
 li {
     list-style-type: none;
-    
 }
+
+
+
+
 /*principal*/
 
-
 #principal {
-    position: absolute;
-    min-height: 100vh;
-    min-width: 100vw;
+    /*min-height: 100vh;
+    min-width: 100%;*/
+    width: 100%;
+    
 }
 
+.gridster {
+    position: relative;
+    margin: 0 auto;
+    width: 80%;
+    
+}
 
+#pomodoro {
+    text-align: center;
+    
+}
+
+#pomodoro header {
+    background-color: blue;
+}
 .módulo {
     background-color: aqua;
     border-radius: 10px;

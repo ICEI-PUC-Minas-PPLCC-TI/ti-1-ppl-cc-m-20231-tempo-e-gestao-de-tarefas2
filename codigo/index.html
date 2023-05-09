@@ -63,14 +63,33 @@
             $(".gridster ul").gridster({
                 widget_base_dimensions: [150, 150], // dimensões em pixels
                 widget_margins: [10, 10], // margens em pixels
-                min_cols: 10,
-                max_cols: 10,
-                min_rows: 6,
-                max_rows: 6,
+                //min_cols: 10,
+                //max_cols: 20,
+                //min_rows: 6,
+                //max_rows: 6,
                 shift_widgets_up: false, // se joga os itens para cima da grade, comprimindo-a
                 shift_larger_widgets_down: false, // se joga os itens grandes para baixo da grade, comprimindo-a
-                collision: {
-                    wait_for_mouseup: true
+                draggable: {
+                    handle: 'header'
+                }
+            }).data('gridster');
+            document.addEventListener('mousemove', function (event) {
+                var mouseX = event.clientX;
+                var windowWidth = window.innerWidth;
+                var scrollDirection = '';
+
+                if (mouseX < windowWidth * 0.05) {
+                    scrollDirection = 'left';
+                } else if (mouseX > windowWidth * 0.95) {
+                    scrollDirection = 'right';
+                }
+
+                if (scrollDirection !== '') {
+                    if (scrollDirection === 'left') {
+                        window.scrollBy(-10, 0);
+                    } else {
+                        window.scrollBy(10, 0);
+                    }
                 }
             });
         });
@@ -96,8 +115,11 @@
     <div id="principal">
         <div class="gridster" id="interface-modular">
             <ul>
-                <li class="módulo" data-row="1" data-col="1" data-sizex="1" data-sizey="1"><img src="https://media.seudinheiro.com/uploads/2023/01/Blazer-EV-foto-Chevrolet.jpg" alt=""></li>
-                <li class="módulo" data-row="2" data-col="1" data-sizex="1" data-sizey="1">b</li>
+                <li class="módulo" data-row="1" data-col="1" data-sizex="1" data-sizey="1"><img
+                        src="https://media.seudinheiro.com/uploads/2023/01/Blazer-EV-foto-Chevrolet.jpg" alt=""></li>
+                <li class="módulo" id="pomodoro" data-row="2" data-col="1" data-sizex="3" data-sizey="2">
+                    <header>|||</header>
+                </li>
                 <li class="módulo" data-row="3" data-col="1" data-sizex="1" data-sizey="1">c</li>
 
                 <li class="módulo" data-row="1" data-col="2" data-sizex="1" data-sizey="1">d</li>

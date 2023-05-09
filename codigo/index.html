@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Chronos</title>
-    <link rel="stylesheet" href="./assets/css/style.css">
+    <link rel="stylesheet" href="./assets/css/style.css"> 
     <script src="./assets/js/script.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"
         integrity="sha256-oP6HI9z1XaZNBrJURtCoUT5SUnxFr8s3BzRl+cbzUq8=" crossorigin="anonymous"></script>
@@ -17,12 +17,15 @@
         integrity="sha384-aFq/bzH65dt+w6FI2ooMVUpc+21e0SRygnTpmBvdBgSdnuTN7QbdgL+OapgHtvPp" crossorigin="anonymous">
     <script>
         $(document).ready(function () {
-            //animações do menu
+            // ----------- javascript do menu flutuante -----------
+
+            // fazer os itens do menu "brilharem" conforme o mouse passa em cima
             $('.menu-item').hover(function () {
                 $(this).css("background-color", "#3D3D3D");
             }, function () {
                 $(this).css("background-color", "#333333");
             });
+            // animações do botão contrair/expandir do menu
             $('#menu-button img').hover(function () {
                 if (isMenuHidden == 0) {
                     $(this).css({
@@ -60,6 +63,7 @@
                     isMenuHidden = 0;
                 }
             });
+            // ----------- configurações da biblioteca gridster.js -----------
             $(".gridster ul").gridster({
                 widget_base_dimensions: [150, 150], // dimensões em pixels
                 widget_margins: [10, 10], // margens em pixels
@@ -69,58 +73,81 @@
                 //max_rows: 6,
                 shift_widgets_up: false, // se joga os itens para cima da grade, comprimindo-a
                 shift_larger_widgets_down: false, // se joga os itens grandes para baixo da grade, comprimindo-a
-                draggable: {
-                    handle: 'header'
-                }
+                //draggable: {
+                //handle: 'header'
+                //}
             }).data('gridster');
-            document.addEventListener('mousemove', function (event) {
-                var mouseX = event.clientX;
-                var windowWidth = window.innerWidth;
-                var scrollDirection = '';
+            // ----------- sistema de scroll x axis -----------
+            var scrollDirection = ''; // direção do scroll
+            window.addEventListener('mousemove', function (event) {
+                var mouseX = event.clientX; // posição x do mouse
+                var windowWidth = window.innerWidth; // largura da janela
 
-                if (mouseX < windowWidth * 0.05) {
+                // atribuição de nome à posição do mouse
+                if (mouseX < windowWidth * 0.05) { 
+                    scrollDirection = 'farLeft';
+                } else if (mouseX >= windowWidth * 0.05 && mouseX < windowWidth * 0.10) {
                     scrollDirection = 'left';
                 } else if (mouseX > windowWidth * 0.95) {
+                    scrollDirection = 'farRight';
+                } else if (mouseX <= windowWidth * 0.95 && mouseX > windowWidth * 0.90) {
                     scrollDirection = 'right';
-                }
-
-                if (scrollDirection !== '') {
-                    if (scrollDirection === 'left') {
-                        window.scrollBy(-10, 0);
-                    } else {
-                        window.scrollBy(10, 0);
-                    }
+                } else {
+                    scrollDirection = '';
                 }
             });
+            // função para mover o a tela de acordo com o nome da sua posição
+            function moveX () {
+                if (scrollDirection !== '') {
+                    if (scrollDirection === 'farLeft') {
+                        window.scrollBy(-20, 0);
+                    } 
+                    else if (scrollDirection === 'left') {
+                        window.scrollBy(-5, 0);
+                    } 
+                    else if (scrollDirection === 'farRight') {
+                        window.scrollBy(20, 0);
+                    }
+                    if (scrollDirection === 'right') {
+                        window.scrollBy(5, 0);
+                    }
+                }
+
+                //console.log(scrollDirection);
+                // o código comentado acima pode ser usado para imprimir no console o valor atual da variável scrollDirection
+            }
+            setInterval(moveX, 50); // define o intervalo em milisegundos para que a tela seja movida
         });
 
     </script>
 </head>
 
 <body>
-    <div id="menu-flutuante-outer-wrapper">
-        <div id="menu-flutuante-inner-wrapper">
-            <ul id="menu-flutuante">
+    <div id="menu-flutuante-outer-wrapper"> <!--embrulho de fora do menu, serve para posicionamento na esquerda da página-->
+        <div id="menu-flutuante-inner-wrapper"> <!--embrulho de dentro do menu, serve para posicionamento no ponto médio da altura da página-->
+            <ul id="menu-flutuante"> <!--menu flutuante-->
                 <li class="menu-item"><img src="/codigo/assets/img/mais.png" alt="Adicionar Módulo"></li>
                 <li class="menu-item"><img src="/codigo/assets/img/notas.png" alt="Post-its"></li>
                 <li class="menu-item"><img src="/codigo/assets/img/do-utilizador.png" alt="Usuário"></li>
             </ul>
-            <div id="menu-button"><img src="/codigo/assets/img/angulo-duplo-pequeno-esquerdo.png" alt="Contrair"></div>
+            <div id="menu-button"><img src="/codigo/assets/img/angulo-duplo-pequeno-esquerdo.png" alt="Contrair/Expandir"></div> <!--botão contrair/expandir-->
         </div>
     </div>
     <div id="menu-config"></div>
 
     <!--SISTEMA DRAG AND DROP (main)-->
 
-    <div id="principal">
-        <div class="gridster" id="interface-modular">
+    <div id="principal"> <!--embrulho de fora do gridster-->
+        <div class="gridster" id="interface-modular"> <!--gridster-->
             <ul>
                 <li class="módulo" data-row="1" data-col="1" data-sizex="1" data-sizey="1"><img
                         src="https://media.seudinheiro.com/uploads/2023/01/Blazer-EV-foto-Chevrolet.jpg" alt=""></li>
                 <li class="módulo" id="pomodoro" data-row="2" data-col="1" data-sizex="3" data-sizey="2">
                     <header>|||</header>
                 </li>
-                <li class="módulo" data-row="3" data-col="1" data-sizex="1" data-sizey="1">c</li>
+                <li class="módulo" data-row="3" data-col="1" data-sizex="1" data-sizey="1">
+                    <header>|||</header>
+                </li>
 
                 <li class="módulo" data-row="1" data-col="2" data-sizex="1" data-sizey="1">d</li>
                 <li class="módulo" data-row="2" data-col="2" data-sizex="1" data-sizey="1">e</li>

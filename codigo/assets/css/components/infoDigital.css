@@ -1,0 +1,61 @@
+.infoD-container{
+    background-color: #dddfff;
+    width: 100%;
+    height: 100%;
+}
+
+.inf-conjunto-container{
+    width: 100%;
+    height: 100%;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    gap: 6px;
+    border: 1px solid black;
+    padding: 6px;
+}
+
+.informante {
+    position: relative;
+    height: 125px;
+    background-color: #eee;
+    padding: 10px;
+    cursor: pointer;
+    border: 1px solid black;
+    border-radius: 10px;
+}
+
+.informante-titulo{
+    text-align: center;
+    padding-top: 30px;
+}
+
+#sono{
+    background-image: url(/codigo/assets/img/infoDigital.img/neuronio1.ti.jpg);
+    background-size: cover;
+}
+
+#foco{
+    background-image: url(/codigo/assets/img/infoDigital.img/neuronio2.ti.jpg);
+    background-size: cover;
+}
+
+#agua{
+    background-image: url(/codigo/assets/img/infoDigital.img/agua.ti.jpg);
+    background-size: cover;
+}
+
+#vicios{
+    background-image: url(/codigo/assets/img/infoDigital.img/dopamine.ti.jpg);
+    background-size: cover;
+}
+
+#saude-mental{
+    background-image: url(/codigo/assets/img/infoDigital.img/cerebro-iluminado.ti.jpg);
+    background-size: cover;
+}
+
+#exercicios-fisicos{
+    background-image: url(/codigo/assets/img/infoDigital.img/muscle.ti.jpg);
+    background-size: cover;
+}

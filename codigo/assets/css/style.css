@@ -6,10 +6,12 @@
 
 
 /*código*/
-
-body {
+*{
+    margin: 0;
     padding: 0;
-    margin: 0px;
+    box-sizing: border-box;
+}
+body {
     display: flex !important;
     justify-content: center;
     background-color: #1E1E1E !important;
@@ -39,17 +41,16 @@ li {
     
 }
 
-#pomodoro {
-    text-align: center;
-    
-}
-
-#pomodoro header {
-    background-color: blue;
-}
 .módulo {
     background-color: aqua;
     border-radius: 10px;
     margin: 0%;
     overflow: hidden;
+    /*borda branca*/
+    border: 1px solid rgb(255, 255, 255);
 }
+.módulo header{
+    background-color: blue;
+    text-align: center;
+}
+

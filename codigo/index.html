@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Chronos</title>
-    <link rel="stylesheet" href="./assets/css/style.css"> 
+    <link rel="stylesheet" href="./assets/css/style.css">
     <script src="./assets/js/script.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"
         integrity="sha256-oP6HI9z1XaZNBrJURtCoUT5SUnxFr8s3BzRl+cbzUq8=" crossorigin="anonymous"></script>
@@ -78,59 +78,167 @@
                 //}
             }).data('gridster');
             // ----------- sistema de scroll x axis -----------
-            var scrollDirection = ''; // direção do scroll
+            var scrollDirectionX = ''; // direção do scroll
             window.addEventListener('mousemove', function (event) {
                 var mouseX = event.clientX; // posição x do mouse
                 var windowWidth = window.innerWidth; // largura da janela
 
                 // atribuição de nome à posição do mouse
-                if (mouseX < windowWidth * 0.05) { 
-                    scrollDirection = 'farLeft';
+                if (mouseX < windowWidth * 0.05) {
+                    scrollDirectionX = 'farLeft';
                 } else if (mouseX >= windowWidth * 0.05 && mouseX < windowWidth * 0.10) {
-                    scrollDirection = 'left';
+                    scrollDirectionX = 'left';
                 } else if (mouseX > windowWidth * 0.95) {
-                    scrollDirection = 'farRight';
+                    scrollDirectionX = 'farRight';
                 } else if (mouseX <= windowWidth * 0.95 && mouseX > windowWidth * 0.90) {
-                    scrollDirection = 'right';
+                    scrollDirectionX = 'right';
                 } else {
-                    scrollDirection = '';
+                    scrollDirectionX = '';
+                }
+            });
+            // ----------- sistema de scroll y axis -----------
+            var scrollDirectionY = ''; // direção do scroll
+            window.addEventListener('mousemove', function (event) {
+                var mouseY = event.clientY; // posição y do mouse
+                var windowHeight = window.innerHeight; // altura da janela
+
+                // atribuição de nome à posição do mouse
+                if (mouseY < windowHeight * 0.05) {
+                    scrollDirectionY = 'farDown';
+                } else if (mouseY >= windowHeight * 0.05 && mouseY < windowHeight * 0.10) {
+                    scrollDirectionY = 'down';
+                } else if (mouseY > windowHeight * 0.95) {
+                    scrollDirectionY = 'farUp';
+                } else if (mouseY <= windowHeight * 0.95 && mouseY > windowHeight * 0.90) {
+                    scrollDirectionY = 'up';
+                } else {
+                    scrollDirectionY = '';
+                }
+            });
+            // ----------- sistema de scroll diagonal -----------
+            var scrollDirectionDiag = ''; // direção do scroll
+            window.addEventListener('mousemove', function (event) {
+                var mouseX = event.clientX; // posição x do mouse
+                var windowWidth = window.innerWidth; // largura da janela
+                var mouseY = event.clientY; // posição y do mouse
+                var windowHeight = window.innerHeight; // altura da janela
+
+
+                // atribuição de nome à posição do mouse
+                if (mouseX <= windowWidth * 0.15 && mouseY <= windowHeight * 0.15) {
+                    scrollDirectionDiag = 'farTopLeft';
+                }
+                else if (
+                    mouseX < windowWidth * 0.15 && mouseY < windowHeight * 0.20 && mouseY > windowHeight * 0.15 ||
+                    mouseX >= windowWidth * 0.15 && mouseX < windowWidth * 0.20 && mouseY >= windowHeight * 0.15 && mouseY < windowHeight * 0.20 ||
+                    mouseX > windowWidth * 0.15 && mouseX < windowWidth * 0.20 && mouseY < windowHeight * 0.15
+                ) {scrollDirectionDiag = 'topLeft';}
+                else if (mouseX >= windowWidth * 0.85 && mouseY <= windowHeight * 0.15) {
+                    scrollDirectionDiag = 'farTopRight';
+                }
+                else if (
+                    mouseX > windowWidth * 0.85 && mouseY < windowHeight * 0.20 && mouseY > windowHeight * 0.15 ||
+                    mouseX > windowWidth * 0.80 && mouseX <= windowWidth * 0.85 && mouseY >= windowHeight * 0.15 && mouseY < windowHeight * 0.20 ||
+                    mouseX > windowWidth * 0.80 && mouseX < windowWidth * 0.85 && mouseY < windowHeight * 0.15 
+                ) {scrollDirectionDiag = 'topRight';}
+                else if (mouseX <= windowWidth * 0.15 && mouseY >= windowHeight * 0.85) {
+                    scrollDirectionDiag = 'farBottomLeft';
+                }
+                else if (
+                    mouseX < windowWidth * 0.15 && mouseY < windowHeight * 0.85 && mouseY > windowHeight * 0.80 ||
+                    mouseX >= windowWidth * 0.15 && mouseX < windowWidth * 0.20 && mouseY > windowHeight * 0.80 && mouseY <= windowHeight * 0.85 ||
+                    mouseX > windowWidth * 0.15 && mouseX < windowWidth * 0.20 && mouseY > windowHeight * 0.85 
+                ) {scrollDirectionDiag = 'bottomLeft';}
+                else if (mouseX >= windowWidth * 0.85 && mouseY >= windowHeight * 0.85) {
+                    scrollDirectionDiag = 'farBottomRight';
+                }
+                else if (
+                    mouseX > windowWidth * 0.85 && mouseY < windowHeight * 0.85 && mouseY > windowHeight * 0.80 ||
+                    mouseX > windowWidth * 0.80 && mouseX <= windowWidth * 0.85 && mouseY > windowHeight * 0.80 && mouseY <= windowHeight * 0.85 ||
+                    mouseX > windowWidth * 0.80 && mouseX < windowWidth * 0.85 && mouseY > windowHeight * 0.85 
+                ) {scrollDirectionDiag = 'bottomRight';}
+                else {
+                    scrollDirectionDiag = ''
                 }
             });
             // função para mover o a tela de acordo com o nome da sua posição
-            function moveX () {
-                if (scrollDirection !== '') {
-                    if (scrollDirection === 'farLeft') {
+            function moveMouse() {
+                if (scrollDirectionX !== '') {
+                    if (scrollDirectionX === 'farLeft') {
                         window.scrollBy(-20, 0);
-                    } 
-                    else if (scrollDirection === 'left') {
+                    }
+                    else if (scrollDirectionX === 'left') {
                         window.scrollBy(-5, 0);
-                    } 
-                    else if (scrollDirection === 'farRight') {
+                    }
+                    else if (scrollDirectionX === 'farRight') {
                         window.scrollBy(20, 0);
                     }
-                    if (scrollDirection === 'right') {
+                    if (scrollDirectionX === 'right') {
                         window.scrollBy(5, 0);
                     }
                 }
-
-                //console.log(scrollDirection);
-                // o código comentado acima pode ser usado para imprimir no console o valor atual da variável scrollDirection
+                if (scrollDirectionY !== '') {
+                    if (scrollDirectionY === 'farDown') {
+                        window.scrollBy(0, -20);
+                    }
+                    else if (scrollDirectionY === 'down') {
+                        window.scrollBy(0, -5);
+                    }
+                    else if (scrollDirectionY === 'farUp') {
+                        window.scrollBy(0, 20);
+                    }
+                    if (scrollDirectionY === 'up') {
+                        window.scrollBy(0, 5);
+                    }
+                }
+                if (scrollDirectionDiag !== '') {
+                    if (scrollDirectionDiag === 'topLeft') {
+                        window.scrollBy(-5, -5);
+                    }
+                    if (scrollDirectionDiag === 'farTopLeft') {
+                        window.scrollBy(-20, -20);
+                    }if (scrollDirectionDiag === 'topRight') {
+                        window.scrollBy(5, -5);
+                    }
+                    if (scrollDirectionDiag === 'farTopRight') {
+                        window.scrollBy(20, -20);
+                    }if (scrollDirectionDiag === 'bottomLeft') {
+                        window.scrollBy(-5, 5);
+                    }
+                    if (scrollDirectionDiag === 'farBottomLeft') {
+                        window.scrollBy(-20, 20);
+                    }
+                    if (scrollDirectionDiag === 'bottomRight') {
+                        window.scrollBy(5, 5);
+                    }
+                    if (scrollDirectionDiag === 'farBottomRight') {
+                        window.scrollBy(20, 20);
+                    }
+                }
+                //console.log(scrollDirectionDiag);
+                //console.log(scrollDirectionX);
+                //console.log(scrollDirectionY);  
+                // os códigos comentados acima podem ser usados para imprimir no console o valor atual das variáveis scrollDirectionX e scrollDirectionY
             }
-            setInterval(moveX, 50); // define o intervalo em milisegundos para que a tela seja movida
+            // intervalos de teste da posição do mouse
+            setInterval(moveMouse, 50); // define o intervalo em milisegundos para que a tela seja movida e chama a função de movimento
         });
 
     </script>
 </head>
 
 <body>
-    <div id="menu-flutuante-outer-wrapper"> <!--embrulho de fora do menu, serve para posicionamento na esquerda da página-->
-        <div id="menu-flutuante-inner-wrapper"> <!--embrulho de dentro do menu, serve para posicionamento no ponto médio da altura da página-->
+    <div id="menu-flutuante-outer-wrapper">
+        <!--embrulho de fora do menu, serve para posicionamento na esquerda da página-->
+        <div id="menu-flutuante-inner-wrapper">
+            <!--embrulho de dentro do menu, serve para posicionamento no ponto médio da altura da página-->
             <ul id="menu-flutuante"> <!--menu flutuante-->
                 <li class="menu-item"><img src="/codigo/assets/img/mais.png" alt="Adicionar Módulo"></li>
                 <li class="menu-item"><img src="/codigo/assets/img/notas.png" alt="Post-its"></li>
                 <li class="menu-item"><img src="/codigo/assets/img/do-utilizador.png" alt="Usuário"></li>
             </ul>
-            <div id="menu-button"><img src="/codigo/assets/img/angulo-duplo-pequeno-esquerdo.png" alt="Contrair/Expandir"></div> <!--botão contrair/expandir-->
+            <div id="menu-button"><img src="/codigo/assets/img/angulo-duplo-pequeno-esquerdo.png"
+                    alt="Contrair/Expandir"></div> <!--botão contrair/expandir-->
         </div>
     </div>
     <div id="menu-config"></div>
@@ -189,7 +297,7 @@
                         </div>
                     </div>
                 </li>
-                    
+
                 <!--TASK LIST-->
                 <li class="módulo" data-row="1" data-col="1" data-sizex="6" data-sizey="4">
                     <header>|||</header>

@@ -46,19 +46,17 @@ li {
     
 }
 
-.módulo header {
-    background-color: blue;
-}
 .módulo {
-    background-color: aqua;
+    background-color: rgb(182, 236, 236);
     border-radius: 10px;
     margin: 0%;
     overflow: hidden;
     /*borda branca*/
-    border: 1px solid rgb(255, 255, 255);
+    border: 1px solid #ff5722;
 }
 .módulo header{
-    background-color: blue;
+    color: aliceblue;
+    background-color: #ff5722;
     text-align: center;
+    cursor: pointer;
 }
-

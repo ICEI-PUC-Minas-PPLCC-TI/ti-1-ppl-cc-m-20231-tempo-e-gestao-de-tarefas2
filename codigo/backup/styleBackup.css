@@ -15,28 +15,21 @@
     padding: 6px;
 }
 
-.inf-conjunto-container:hover > :not(:hover){
-    opacity: .7;
-    transform: scale(0.9);
-}
-
 .informante {
-
+    position: relative;
+    height: 125px;
     background-color: #eee;
+    padding: 10px;
     cursor: pointer;
-    transition: .35s;
     border: 1px solid black;
     border-radius: 10px;
-    display: flex;
-    align-items: center;
 }
-
 
 .informante-titulo{
     text-align: center;
-    background-color: antiquewhite;
-    width: 100%;
+    padding-top: 30px;
 }
+
 #sono{
     background-image: url(/codigo/assets/img/infoDigital.img/neuronio1.ti.jpg);
     background-size: cover;

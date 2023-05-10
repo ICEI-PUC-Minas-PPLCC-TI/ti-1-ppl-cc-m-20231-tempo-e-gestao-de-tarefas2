@@ -65,7 +65,7 @@
             });
             // ----------- configurações da biblioteca gridster.js -----------
             $(".gridster ul").gridster({
-                widget_base_dimensions: [150, 150], // dimensões em pixels
+                widget_base_dimensions: [100, 100], // dimensões em pixels
                 widget_margins: [10, 10], // margens em pixels
                 //min_cols: 10,
                 //max_cols: 20,
@@ -141,19 +141,17 @@
         <div class="gridster" id="interface-modular"> <!--gridster-->
             <ul>
 
-                <li class="módulo" data-row="1" data-col="1" data-sizex="1" data-sizey="1"><img
-                        src="https://media.seudinheiro.com/uploads/2023/01/Blazer-EV-foto-Chevrolet.jpg" alt=""></li>
-
-                <li class="módulo" id="pomodoro" data-row="2" data-col="1" data-sizex="3" data-sizey="2">
+                <!--POMODORO-->
+                <li class="módulo" id="pomodoro" data-row="1" data-col="9" data-sizex="5" data-sizey="3">
                     <header>|||</header>
                     <div class="pomodoro-container">
-                        aa
+                        pomodoro
                     </div>
 
                 </li>
 
                 <!--Informante Digital-->
-                <li class="módulo" id="infoD" data-row="3" data-col="1" data-sizex="3" data-sizey="2">
+                <li class="módulo" id="infoD" data-row="6" data-col="11" data-sizex="4" data-sizey="3">
                     <header>|||</header>
                     <div class="infoD-container">
                         <div class="inf-conjunto-container">
@@ -192,29 +190,34 @@
                     </div>
                 </li>
                     
-
-                <li class="módulo" data-row="1" data-col="2" data-sizex="1" data-sizey="1">
+                <!--TASK LIST-->
+                <li class="módulo" data-row="1" data-col="1" data-sizex="6" data-sizey="4">
                     <header>|||</header>
-                </li>
-                <li class="módulo" data-row="2" data-col="2" data-sizex="1" data-sizey="1">
-                    <header>|||</header>
-                </li>
-
-                <li class="módulo" data-row="1" data-col="4" data-sizex="1" data-sizey="1">
-                    <header>|||</header>
-                </li>
-                <li class="módulo" data-row="2" data-col="4" data-sizex="1" data-sizey="1">
-                    <header>|||</header>
-                </li>
-                <li class="módulo" data-row="3" data-col="4" data-sizex="1" data-sizey="1">
-                    <header>|||</header>
+                    <div class="task-list-container">
+                        task list
+                    </div>
                 </li>
 
-                <li class="módulo" data-row="1" data-col="5" data-sizex="1" data-sizey="1">i</li>
-                <li class="módulo" data-row="3" data-col="5" data-sizex="1" data-sizey="1">j</li>
+                <!--GRAFICO-->
+                <li class="módulo" data-row="5" data-col="1" data-sizex="5" data-sizey="4">
+                    <header>|||</header>
+                    <div class="grafico-container">
+                        grafico
+                    </div>
+                </li>
 
-                <li class="módulo" data-row="1" data-col="6" data-sizex="1" data-sizey="1">k</li>
-                <li class="módulo" data-row="2" data-col="6" data-sizex="1" data-sizey="1">l</li>
+                <!--POST-ITS-->
+                <li class="módulo" data-row="6" data-col="7" data-sizex="1" data-sizey="1">
+                    <header>|||</header>
+                </li>
+                <li class="módulo" data-row="8" data-col="9" data-sizex="1" data-sizey="1">
+                    <header>|||</header>
+                </li>
+                <li class="módulo" data-row="5" data-col="9" data-sizex="1" data-sizey="1">
+                    <header>|||</header>
+                </li>
+
+
             </ul>
         </div>
     </div>

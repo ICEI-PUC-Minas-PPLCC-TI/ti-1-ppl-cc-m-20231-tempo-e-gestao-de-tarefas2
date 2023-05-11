@@ -4,13 +4,19 @@
 @import url(./components/pomodoro.css);
 @import url(./components/Post-its.css);
 
+/*fontes*/
+@font-face {
+    font-family: 'montserrat';
+    src: url(/codigo/assets/fonts/Montserrat/Montserrat-VariableFont_wght.ttf);
+}
 
 /*código*/
-*{
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
+
 body {
     display: flex !important;
     justify-content: center;
@@ -31,19 +37,19 @@ li {
     /*min-height: 100vh;
     min-width: 100%;*/
     width: 100%;
-    
+
 }
 
 .gridster {
     position: relative;
     margin: 0 auto;
     width: 80%;
-    
+
 }
 
 #pomodoro {
     text-align: center;
-    
+
 }
 
 .módulo {
@@ -54,9 +60,79 @@ li {
     /*borda branca*/
     border: 1px solid #ff5722;
 }
-.módulo header{
+
+.módulo header {
     color: aliceblue;
     background-color: #ff5722;
     text-align: center;
     cursor: pointer;
+}
+
+/*config-page*/
+
+#config-page-wrapper { 
+    z-index: 102;
+    position: absolute;
+    left: 0.5%;
+}
+
+#config-page {
+    position: fixed;
+    left: 0%;
+    background: linear-gradient(145deg, #252525, #2c2c2c);
+    height: 90%;
+    width: 90%;
+    z-index: 102;
+    padding: 2%;
+    color: aliceblue;
+    opacity: 0;
+    transition: opacity 0.3s;
+    font-family: 'montserrat';
+    font-weight: bolder;
+    overflow: auto;
+}
+
+#config-page p {
+    width: fit-content;
+    margin: 0%;
+    font-size: xxx-large;
+}
+#config-page header {
+    display: inline;
+    width: 100%;
+    height: fit-content;
+}
+
+#config-page ul {
+    margin-left: 50px;
+}
+
+#config-page-leave {
+    position: relative;
+    width: fit-content;
+    float: right;
+    width: 50px;
+    height: 50px;
+    border-radius: 10px;
+    background-color: #161616;
+    opacity: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: opacity 0.3s ease-out;
+}
+
+#config-page-leave:hover {
+    opacity: 100%;
+}
+
+#config-page-leave img {
+    height: 25px;
+    width: 25px;
+}
+
+#config-page-content {
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+
 }

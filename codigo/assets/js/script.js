@@ -34,17 +34,25 @@ function showConfigPage () {
         <p>OLÁ USUÁRIO</p>
         
     </header>
-    
+    <input type="checkbox" name="change-theme" id="change-theme">
+            <label for="change-theme">
+                <i class="bi bi-sun"></i>
+                <i class="bi bi-moon"></i>
+            </label>
      <ul>
          <li id="tema">a</li>
-         <li>a</li>
+         <li>b</li>
          <li>a</li>
          <li>a</li>
          <li>a</li>
          <li>a</li>
      </ul>
-    `;
 
+    `;
+// DARK MODE
+    
+/////////////////
+    
     setTimeout(function(){
        $('#config-page-content').css({
             opacity: '1',

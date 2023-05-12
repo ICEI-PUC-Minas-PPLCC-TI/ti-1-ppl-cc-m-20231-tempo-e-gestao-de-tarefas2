@@ -80,8 +80,10 @@ li {
     position: fixed;
     left: 0%;
     background: linear-gradient(145deg, #252525, #2c2c2c);
-    height: 90%;
-    width: 90%;
+    margin: 1% 1%;
+    height: 95%;
+    width: 98%;
+    border-radius: 10px;
     z-index: 102;
     padding: 2%;
     color: aliceblue;
@@ -103,8 +105,14 @@ li {
     height: fit-content;
 }
 
+
 #config-page ul {
-    margin-left: 50px;
+    
+}
+
+#config-page li {
+    position: relative;
+    width: ;
 }
 
 #config-page-leave {
@@ -132,7 +140,15 @@ li {
 }
 
 #config-page-content {
+    position: relative;
     opacity: 0;
     transition: opacity 0.3s ease-in-out;
 
+}
+
+#config-itens {
+    position: relative;
+    border: solid 1px white;
+    border-radius: 10px;
+    height: 100%;
 }

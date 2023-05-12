@@ -1,3 +1,5 @@
+
+
 var isMenuHidden = 0;
 var viewportHeight = $(window).height();
 var viewportWidth = $(window).width();
@@ -10,10 +12,11 @@ var viewportWidth = $(window).width();
 
 // config-page
 function showConfigPage () {
-    isConfigPageOn = 1;
-    console.log(isConfigPageOn);
+    var loaded = 0;
+    window.varIsConfigPageOn = 1;
+    console.log(window.varIsConfigPageOn);
     const pageStart = document.querySelector('#config-page-wrapper');
-
+    
     setTimeout(function(){
         $('#config-page').css({
             opacity: '1',
@@ -34,26 +37,34 @@ function showConfigPage () {
         <p>OLÁ USUÁRIO</p>
         
     </header>
-    
-     <ul>
-         <li id="tema">a</li>
-         <li>a</li>
-         <li>a</li>
-         <li>a</li>
-         <li>a</li>
-         <li>a</li>
-     </ul>
+    <div id="config-itens">
+        <ul>
+            <li id="tema">a</li>
+            <li>a</li>
+            <li>a</li>
+            <li>a</li>
+            <li>a</li>
+            <li>a</li>
+        </ul>
+    </div>
     `;
 
     setTimeout(function(){
-       $('#config-page-content').css({
+        $('#config-page-content').css({
             opacity: '1',
         });
+        $('#config-page-leave').on('click', function(){
+            hideConfigPage();
+            loaded = 0;
+        });
     },1000);
+
+    
 };
+
 function hideConfigPage () {
-    isConfigPageOn = 0;
-    console.log(isConfigPageOn);
+    
+    console.log(window.varIsConfigPageOn);
     const pageEnd = document.querySelector('#config-page-wrapper');
 
     $('#config-page-content').css({
@@ -66,7 +77,8 @@ function hideConfigPage () {
         });
         setTimeout(function(){
             pageEnd.innerHTML = ``; 
-        },3000);
+        },500);
+        window.varIsConfigPageOn = 0;
     },1000); 
 }
 

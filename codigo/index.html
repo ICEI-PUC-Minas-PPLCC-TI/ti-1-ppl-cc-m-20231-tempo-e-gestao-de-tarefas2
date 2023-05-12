@@ -80,10 +80,16 @@
                 });
             });
             // botão config e config-page-leave
-            var isConfigPageOn = 0;
             
-            $('#menu-config-wrapper').on('click', showConfigPage);
-            console.log(isConfigPageOn);
+            window.varIsConfigPageOn = 0;
+
+            if (window.varIsConfigPageOn == 0) {
+                $('#menu-config-wrapper').on('click', showConfigPage);
+            }
+            
+            setInterval(function(){
+                console.log(window.varIsConfigPageOn);
+            },500);
 
             // ----------- configurações da biblioteca gridster.js -----------
             $(".gridster ul").gridster({
@@ -185,7 +191,7 @@
             });
             // função para mover o a tela de acordo com o nome da sua posição
             function moveMouse() {
-                if (isConfigPageOn == 0) {
+                if (window.varIsConfigPageOn == 0) {
                     if (scrollDirectionX !== '') {
                         if (scrollDirectionX === 'farLeft') {
                             window.scrollBy(-20, 0);

@@ -37,6 +37,11 @@ function showConfigPage () {
         <p>OLÁ USUÁRIO</p>
         
     </header>
+    <input type="checkbox" name="change-theme" id="change-theme">
+        <label for="change-theme">
+            <i class="bi bi-sun"></i>
+            <i class="bi bi-moon"></i>
+        </label>
     <div id="config-itens">
         <ul>
             <li id="tema">a</li>
@@ -48,7 +53,10 @@ function showConfigPage () {
         </ul>
     </div>
     `;
-
+// DARK MODE
+    
+/////////////////
+    
     setTimeout(function(){
         $('#config-page-content').css({
             opacity: '1',
@@ -84,5 +92,26 @@ function hideConfigPage () {
 
 
 
+//CODIGO TEXTO Q DIGITA SOZINHO
+
+const el = document.querySelector('#text');
+const text = "1 melhor cada dia!";
+const interval = 200;
+
+function showText(el,text,interval){
+    const char = text.split("").reverse();
+    const typer = setInterval(() => {
+
+        if(!char.length){
+            return clearInterval(typer);
+        }
+        const next = char.pop();
+
+        el.innerHTML += next;
+
+    },interval);
+}
+
+showText(el,text,interval);
 
 

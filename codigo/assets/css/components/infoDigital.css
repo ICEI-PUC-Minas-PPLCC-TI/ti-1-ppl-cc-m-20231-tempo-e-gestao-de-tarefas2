@@ -6,7 +6,7 @@
 
 .inf-conjunto-container{
     width: 100%;
-    height: 100%;
+    height: 68%;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     grid-template-rows: repeat(2, 1fr);
@@ -21,7 +21,6 @@
 }
 
 .informante {
-
     background-color: #eee;
     cursor: pointer;
     transition: .35s;
@@ -30,6 +29,33 @@
     display: flex;
     align-items: center;
 }
+
+.infoD-tips-containder{
+    background-color: coral;
+    width: 100%;
+    height: 32%;
+    display: flex;
+    justify-content: center;
+    padding: 10px;
+    padding-bottom: 40px;
+}
+
+.tip{
+    background-color:azure;
+    border: 1px solid black;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+
+
+
+
+
+
+
 
 
 .informante-titulo{

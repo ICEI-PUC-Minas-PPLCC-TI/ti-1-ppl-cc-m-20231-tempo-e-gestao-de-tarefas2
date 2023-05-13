@@ -111,6 +111,34 @@ function hideConfigPage () {
     },1000); 
 }
 
+// login page
+function showLoginPage (){
+    let body = document.querySelector('body');
+    body.innerHTML += ``;
+}
+function slideToLogin () {
+    $('#login-page-inner-wrapper').css({
+        left: "50%",
+    });
+    $('#login-form').css({
+        opacity: '0',
+    });
+    setTimeout(function(){
+        $('#login-form').css({
+            opacity: '1',
+            AnimationName: 'none',
+        });
+        let div = document.querySelector('#login-form');
+        
+        setTimeout(function(){
+            $('#login-form').css({
+                opacity: '1',
+            });
+        },200);
+    },200);
+}
+
+
 //CODIGO TEXTO Q DIGITA SOZINHO
 
 /*const el = document.querySelector('#text');
@@ -133,5 +161,5 @@ function showText(el,text,interval){
 
 showText(el,text,interval);
 */
-// Modelo padrão de cada módulo
+
 

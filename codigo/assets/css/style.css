@@ -1,9 +1,11 @@
 @import url(./configPage.css);
+@import url(./loginPage.css);
 @import url(./menuLateral.css);
 @import url(./components/grafico.css);
 @import url(./components/infoDigital.css);
 @import url(./components/pomodoro.css);
 @import url(./components/Post-its.css);
+
 
 
 /*fontes*/
@@ -12,7 +14,7 @@
     src: url(/codigo/assets/fonts/Montserrat/Montserrat-VariableFont_wght.ttf);
 }
 
-/*código*/
+/*código geral*/
 * {
     margin: 0;
     padding: 0;
@@ -30,6 +32,7 @@ li {
     list-style-type: none;
 }
 
+
 /*variáveis cores*/
 :root{
     /*modo escuro*/
@@ -37,7 +40,6 @@ li {
     --cor-2:#292929;/*cor de relevo primária*/
     --cor-3:#333333 ;/*cor de fundo secundária*/
     --cor-4:#333333; /*cor de relevo secundária*/
-    --cor-texto-1:aliceblue;/* color-texto*/
     /*modo claro*/
     /*cores de destaque*/
     --cor-ds-1:#F26419;
@@ -45,6 +47,8 @@ li {
     --cor-ds-3:#0E79B2;
     --cor-ds-4:#3D0B37;
     --cor-ds-5:#84C4B2;
+    --cor-ds-6:#DBD3D8;
+    --cor-texto-1:aliceblue;/* color-texto*/
     --cor-texto-2:black;/* color-texto-2*/
 }
 
@@ -97,7 +101,7 @@ li {
     height: 50px;
     
 }
-.module-handle {
+#module-handle {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -107,7 +111,7 @@ li {
     background-color: #161616;
     transition: background-color 0.3s ease-in-out;
 }
-.module-handle:hover {
+#module-handle:hover {
     background-color: var(--cor-ds-3);
 }
 .módulo header img {
@@ -132,7 +136,7 @@ li {
     justify-content: space-between;
     align-items: center;
     cursor: pointer;
-    padding: 0% 2%;
+    padding: 0% 5%;
     height: 50px;
 }
 .post-it header img {
@@ -140,14 +144,14 @@ li {
     height: 25px;
     pointer-events: none;
 }
-.post-it .post-it-handle {
+.post-it-handle {
     display: flex;
     justify-content: center;
     align-items: center;
     border-radius: 10px;
     width: 35px;
     height: 35px;
-    background-color: #aa3d03 !important;
+    background-color: #E77131 !important;
 }
 
 

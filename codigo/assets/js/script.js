@@ -1,14 +1,8 @@
 
 
 var isMenuHidden = 0;
-var viewportHeight = $(window).height();
-var viewportWidth = $(window).width();
 
 
-
-//cores
-
-// ----------- funções -----------
 
 // config-page
 function showConfigPage () {
@@ -31,7 +25,7 @@ function showConfigPage () {
     const configPageContent = document.querySelector('#config-page-content');
     configPageContent.innerHTML += `
     <header>
-        <div id="config-page-leave">
+        <div class="op50animation "id="config-page-leave">
             <img id="a" src="./assets/img/cruz.png" alt="Sair">
         </div>
         <p>OLÁ USUÁRIO</p>
@@ -42,20 +36,48 @@ function showConfigPage () {
             <i class="bi bi-sun"></i>
             <i class="bi bi-moon"></i>
         </label>
-    <div id="config-itens">
+    <div id="config-itens-wrapper">
         <ul>
-            <li id="tema">a</li>
-            <li>a</li>
-            <li>a</li>
-            <li>a</li>
-            <li>a</li>
-            <li>a</li>
+            <li class="config-item op50animation" id="tema">
+                <h3>Tema</h3>
+                <div class="config-item-content">
+                    <p>Escolha entre tema claro e escuro</p>
+                </div>
+            </li>
+            <li class="config-item op50animation" id="background">
+                <h3>Background</h3>
+                <div class="config-item-content">
+                    <p>Defina o background como cor, gradiente ou imagem</p>
+                </div>
+            </li>
+            <li class="config-item op50animation">a</li>
+            <li class="config-item op50animation">a</li>
+            <li class="config-item op50animation">a</li>
+            <li class="config-item op50animation">a</li>
         </ul>
     </div>
     `;
-// DARK MODE
     
-/////////////////
+    $('#tema').hover(function () {
+        $('#tema .config-item-content').css({
+            opacity: '1',
+        });
+
+    }, function () {
+        $('#tema .config-item-content').css({
+            opacity: '0',
+        });
+    });
+    $('#background').hover(function () {
+        $('#background .config-item-content').css({
+            opacity: '1',
+        });
+
+    }, function () {
+        $('#background .config-item-content').css({
+            opacity: '0',
+        });
+    });
     
     setTimeout(function(){
         $('#config-page-content').css({
@@ -69,7 +91,6 @@ function showConfigPage () {
 
     
 };
-
 function hideConfigPage () {
     
     console.log(window.varIsConfigPageOn);
@@ -90,11 +111,9 @@ function hideConfigPage () {
     },1000); 
 }
 
-
-
 //CODIGO TEXTO Q DIGITA SOZINHO
 
-const el = document.querySelector('#text');
+/*const el = document.querySelector('#text');
 const text = "1 melhor cada dia!";
 const interval = 200;
 
@@ -113,5 +132,6 @@ function showText(el,text,interval){
 }
 
 showText(el,text,interval);
-
+*/
+// Modelo padrão de cada módulo
 

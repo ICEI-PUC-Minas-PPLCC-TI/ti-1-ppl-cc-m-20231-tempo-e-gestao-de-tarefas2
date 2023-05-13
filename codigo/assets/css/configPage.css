@@ -1,0 +1,103 @@
+/*------config-page------*/
+
+#config-page-wrapper { 
+    z-index: 102;
+    position: absolute;
+    left: 0.5%;
+}
+
+#config-page {
+    box-sizing: border-box;
+    position: fixed;
+    left: 0%;
+    background: linear-gradient(145deg, #252525, #2c2c2c);
+    margin: 1% 1%;
+    height: 95%;
+    width: 98%;
+    border-radius: 10px;
+    z-index: 102;
+    padding: 2%;
+    color: aliceblue;
+    opacity: 0;
+    transition: opacity 0.3s;
+    font-family: 'montserrat';
+    font-weight: bolder;
+    overflow: auto;
+}
+
+#config-page header {
+    display: inline;
+    width: 100%;
+    height: fit-content;
+}
+header p {
+    width: fit-content;
+    margin: 0%;
+    font-size: xxx-large;
+}
+#config-page-leave {
+    position: relative;
+    width: fit-content;
+    float: right;
+    width: 50px;
+    height: 50px;
+    border-radius: 10px;
+    background-color: #161616;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.op50animation {
+    opacity: 50%;
+    transition: opacity 0.3s ease-out;
+}
+.op50animation:hover {
+    opacity: 100%;
+}
+#config-page-leave img {
+    height: 25px;
+    width: 25px;
+}
+
+#config-page-content {
+    position: relative;
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+    height: 100%;
+}
+#config-itens-wrapper {
+    margin: 0%;
+    padding: 1%;
+    position: relative;
+    background: linear-gradient(145deg, #1b1b1b, #202020);
+    border: solid 1px var(--cor-ds-2);
+    border-radius: 10px;
+    min-height: 90%;
+}
+#config-page ul {
+    position: relative;
+    padding: 0%;
+    
+}
+#config-page li {
+    position: relative;
+    padding: 1%;
+    max-height: fit-content;
+    width: 100%;
+    background-color: #161616;
+    border-radius: 10px;
+    margin: 1% 0px;
+}
+.config-item {
+    height: 60px;
+    transition: height 0.5s ease-in-out, opacity 0.3s ease-out;
+}
+.config-item:hover {
+    height: 200px;
+}
+
+.config-item div {
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+    font-weight: 100;
+}

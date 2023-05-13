@@ -22,7 +22,7 @@
 
             // fazer os itens do menu "brilharem" conforme o mouse passa em cima
             $('.menu-item').hover(function () {
-                $(this).css("background-color", "#3D3D3D");
+                $(this).css("background-color", "var(--cor-ds-3)");
             }, function () {
                 $(this).css("background-color", "#333333");
             });
@@ -30,12 +30,10 @@
             $('#menu-button img').hover(function () {
                 if (isMenuHidden == 0) {
                     $(this).css({
-                        backgroundColor: '#3D3D3D',
                         transform: 'translateX(10px)',
                     });
                 } else if (isMenuHidden == 1) {
                     $(this).css({
-                        backgroundColor: '#3D3D3D',
                         transform: 'translateX(-10px)',
                     });
                 }
@@ -81,31 +79,32 @@
                 });
             });
             // botão config e config-page-leave
-            
+
             window.varIsConfigPageOn = 0;
 
             if (window.varIsConfigPageOn == 0) {
                 $('#menu-config-wrapper').on('click', showConfigPage);
             }
-            
-            setInterval(function(){
-                console.log(window.varIsConfigPageOn);
-            },500);
+
+
 
             // ----------- configurações da biblioteca gridster.js -----------
-            $(".gridster ul").gridster({
+
+            var gridster = $(".gridster ul").gridster({
                 widget_base_dimensions: [100, 100], // dimensões em pixels
                 widget_margins: [10, 10], // margens em pixels
-                //min_cols: 10,
-                //max_cols: 20,
-                //min_rows: 6,
-                //max_rows: 6,
+                min_cols: 25,
+                min_rows: 25,
+                max_cols: null,
+                max_rows: 25,
+                helper: 'clone',
                 shift_widgets_up: false, // se joga os itens para cima da grade, comprimindo-a
                 shift_larger_widgets_down: false, // se joga os itens grandes para baixo da grade, comprimindo-a
-                //draggable: {
-                //handle: 'header'
-                //}
+                draggable: {
+                    handle: '.module-handle',
+                }
             }).data('gridster');
+
             // ----------- sistema de scroll x axis -----------
             var scrollDirectionX = ''; // direção do scroll
             window.addEventListener('mousemove', function (event) {
@@ -191,8 +190,20 @@
                 }
             });
             // função para mover o a tela de acordo com o nome da sua posição
+            // teste para ver se o mouse não está em cima dos módulos e do menu
+            var isMouseOverWidget = 0, isMouseOverMenu = 0;
+            $('.módulo').hover(function () {
+                isMouseOverWidget = 1;
+            }, function () {
+                isMouseOverWidget = 0;
+            });
+            $('.módulo').hover(function () {
+                isMouseOverWidget = 1;
+            }, function () {
+                isMouseOverWidget = 0;
+            });
             function moveMouse() {
-                if (window.varIsConfigPageOn == 0) {
+                if (window.varIsConfigPageOn == 0 && isMouseOverWidget == 0) {
                     if (scrollDirectionX !== '') {
                         if (scrollDirectionX === 'farLeft') {
                             window.scrollBy(-20, 0);
@@ -276,7 +287,7 @@
             <img id="menu-config" src="/codigo/assets/img/engrenagens.png" alt="Configurações">
         </div>
     </div>
-
+    <!--scrollzone-->
 
     <!--SISTEMA DRAG AND DROP (main)-->
 
@@ -284,92 +295,132 @@
         <div class="gridster" id="interface-modular"> <!--gridster-->
             <ul>
 
-                <!--POMODORO-->
-                <li class="módulo" id="pomodoro" data-row="1" data-col="9" data-sizex="5" data-sizey="3">
-                    <header>|||</header>
-                    <div class="pomodoro-container">
-                        pomodoro
-                    </div>
-
-                </li>
-                
-                <!--Informante Digital-->
-                <li class="módulo" id="infoD" data-row="6" data-col="11" data-sizex="4" data-sizey="3">
-                    <header>|||</header>
-                    <div class="infoD-container">
-                        <div class="inf-conjunto-container">
-
-                            <div class="informante" id="sono">
-                                <div class="informante-titulo">
-                                    <h2>SONO</h2>
-                                </div>
-                            </div>
-                            <div class="informante" id="foco">
-                                <div class="informante-titulo">
-                                    <h2>FOCO</h2>
-                                </div>
-                            </div>
-                            <div class="informante" id="agua">
-                                <div class="informante-titulo">
-                                    <h2>AGUA</h2>
-                                </div>
-                            </div>
-                            <div class="informante" id="vicios">
-                                <div class="informante-titulo">
-                                    <h2>VICIOS</h2>
-                                </div>
-                            </div>
-                            <div class="informante" id="saude-mental">
-                                <div class="informante-titulo">
-                                    <h2>MENTAL</h2>
-                                </div>
-                            </div>
-                            <div class="informante" id="exercicios-fisicos">
-                                <div class="informante-titulo">
-                                    <h2>GYM</h2>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="infoD-tips-containder">
-                            <div class="tip">
-                                <div id="text">a</div>
-                            </div>
-                        </div>
-                    </div>
-                </li>
-
                 <!--TASK LIST-->
-                <li class="módulo" data-row="1" data-col="1" data-sizex="6" data-sizey="4">
-                    <header>|||</header>
-                    <div class="task-list-container">
-                        task list
-                    </div>
+                <li class="módulo" data-row="4" data-col="6" data-sizex="7" data-sizey="5">
+                    <header>
+                        <h2 id="module-title">Tasklist</h2>
+                        <div class="module-handle" id="module-handle"><img src="/codigo/assets/img/setas-alt.png"
+                                alt="Mover Módulo"></div>
+                    </header>
+                    <section id="module-content"></section>
                 </li>
 
                 <!--GRAFICO-->
-                <li class="módulo" data-row="5" data-col="1" data-sizex="5" data-sizey="4">
-                    <header>|||</header>
-                    <div class="grafico-container">
-                        grafico
+                <li class="módulo" data-row="9" data-col="6" data-sizex="7" data-sizey="4">
+                    <header>
+                        <h2 id="module-title">Gráfico</h2>
+                        <div class="module-handle" id="module-handle"><img src="/codigo/assets/img/setas-alt.png"
+                                alt="Mover Módulo"></div>
+                    </header>
+                    <section id="module-content"></section>
+                </li>
+
+                <!--POMODORO-->
+                <li class="módulo" id="pomodoro" data-row="4" data-col="13" data-sizex="5" data-sizey="3">
+                    <header>
+                        <h2 id="module-title">Pomodoro</h2>
+                        <div class="module-handle" id="module-handle"><img src="/codigo/assets/img/setas-alt.png"
+                                alt="Mover Módulo"></div>
+                    </header>
+                    <section id="module-content"></section>
+                </li>
+
+                <!--Informante Digital-->
+                <li class="módulo" id="infoD" data-row="9" data-col="13" data-sizex="5" data-sizey="4">
+                    <div class="infoD-container">
+                        <header>
+                            <h2 id="module-title">Info. Digital</h2>
+                            <div class="module-handle" id="module-handle"><img src="/codigo/assets/img/setas-alt.png"
+                                    alt="Mover Módulo">
+                            </div>
+                        </header>
+                        <section id="module-content">
+                            <div class="inf-conjunto-container">
+
+                                <div class="informante" id="sono">
+                                    <div class="informante-titulo">
+                                        <h2>SONO</h2>
+                                    </div>
+                                </div>
+                                <div class="informante" id="foco">
+                                    <div class="informante-titulo">
+                                        <h2>FOCO</h2>
+                                    </div>
+                                </div>
+                                <div class="informante" id="agua">
+                                    <div class="informante-titulo">
+                                        <h2>AGUA</h2>
+                                    </div>
+                                </div>
+                                <div class="informante" id="vicios">
+                                    <div class="informante-titulo">
+                                        <h2>VICIOS</h2>
+                                    </div>
+                                </div>
+                                <div class="informante" id="saude-mental">
+                                    <div class="informante-titulo">
+                                        <h2>MENTAL</h2>
+                                    </div>
+                                </div>
+                                <div class="informante" id="exercicios-fisicos">
+                                    <div class="informante-titulo">
+                                        <h2>GYM</h2>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="infoD-tips-containder">
+                                <div class="tip">
+                                    <div id="text">a</div>
+                                </div>
+                            </div>
+                        </section>
+
                     </div>
                 </li>
 
                 <!--POST-ITS-->
-                <li class="módulo" data-row="6" data-col="7" data-sizex="1" data-sizey="1">
-                    <header>|||</header>
-                </li>
-                <li class="módulo" data-row="8" data-col="9" data-sizex="1" data-sizey="1">
-                    <header>|||</header>
-                </li>
-                <li class="módulo" data-row="5" data-col="9" data-sizex="1" data-sizey="1">
-                    <header>|||</header>
+                <li class="post-it" data-row="7" data-col="13" data-sizex="2" data-sizey="2">
+                    <header>
+                        <h2 id="module-title">Tasklist</h2>
+                        <div class="module-handle" id="post-it-handle"><img src="/codigo/assets/img/setas-alt.png"
+                                alt="Mover Módulo"></div>
+                    </header>
                 </li>
 
+                <!--placeholders-->
+                <li class="módulo" data-row="1" data-col="1" data-sizex="1" data-sizey="1">
+                    <header>
+
+                        <div id="module-handle"><img src="/codigo/assets/img/setas-alt.png" alt="Mover Módulo"></div>
+                    </header>
+                    <section id="module-content"></section>
+                </li>
+                <li class="módulo" data-row="1" data-col="25" data-sizex="1" data-sizey="1">
+                    <header>
+
+                        <div id="module-handle"><img src="/codigo/assets/img/setas-alt.png" alt="Mover Módulo"></div>
+                    </header>
+                    <section id="module-content"></section>
+                </li>
+                <li class="módulo" data-row="25" data-col="1" data-sizex="1" data-sizey="1">
+                    <header>
+
+                        <div id="module-handle"><img src="/codigo/assets/img/setas-alt.png" alt="Mover Módulo"></div>
+                    </header>
+                    <section id="module-content"></section>
+                </li>
+                <li class="módulo" data-row="25" data-col="25" data-sizex="1" data-sizey="1">
+                    <header>
+
+                        <div id="module-handle"><img src="/codigo/assets/img/setas-alt.png" alt="Mover Módulo"></div>
+                    </header>
+                    <section id="module-content"></section>
+                </li>
             </ul>
         </div>
     </div>
     <div id="config-page-wrapper">
-        
+
     </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-qKXV1j0HvMUeCBQ+QVp7JcfGl760yU08IQ+GpUo5hlbpg51QRiuqHAJz8+BrxE/N" crossorigin="anonymous">

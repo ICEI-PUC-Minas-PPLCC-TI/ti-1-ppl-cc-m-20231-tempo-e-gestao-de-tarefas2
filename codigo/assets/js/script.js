@@ -138,28 +138,13 @@ function slideToLogin () {
     },200);
 }
 
-
-//CODIGO TEXTO Q DIGITA SOZINHO
-
-/*const el = document.querySelector('#text');
-const text = "1 melhor cada dia!";
-const interval = 200;
-
-function showText(el,text,interval){
-    const char = text.split("").reverse();
-    const typer = setInterval(() => {
-
-        if(!char.length){
-            return clearInterval(typer);
-        }
-        const next = char.pop();
-
-        el.innerHTML += next;
-
-    },interval);
+function typeWriter(elemento){
+    const textoArray = elemento.innerHTML.split();
+    console.log(textoArray);
 }
 
-showText(el,text,interval);
-*/
+const titulo = document.querySelector('h5');
+
+typeWriter(titulo);
 
 

@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Chronos</title>
     <link rel="stylesheet" href="./assets/css/style.css">
-    <script src="./assets/js/script.js"></script>
+    <script src="./assets/js/script.js" defer></script>
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"
         integrity="sha256-oP6HI9z1XaZNBrJURtCoUT5SUnxFr8s3BzRl+cbzUq8=" crossorigin="anonymous"></script>
     <link rel="stylesheet" type="text/css"
@@ -283,7 +283,7 @@
             // intervalos de teste da posição do mouse
             setInterval(moveMouse, 50); // define o intervalo em milisegundos para que a tela seja movida e chama a função de movimento
 
-            showLoginPage();
+            //showLoginPage();
 
 
         });
@@ -346,7 +346,30 @@
                         <div class="module-handle" id="module-handle"><img src="/codigo/assets/img/setas-alt.png"
                                 alt="Mover Módulo"></div>
                     </header>
-                    <section id="module-content"></section>
+                    <section id="module-content">
+                        <div id="pomodoro">
+                        
+                            <div class="container">
+                                <div id="breaks-wrapper">
+                                    <div id="breaks">
+                                        <button class="btn" id="descansoCurto">5 min</button>
+                                        <button class="btn" id="descansoLongo">10 min</button>
+                                    </div>
+                                </div>
+                                <div class="timer">
+                                    <div class="time" id="minutes">00</div>
+                                    <div class="separator">:</div>
+                                    <div class="time" id="seconds">00</div>
+                                </div>
+                                <div class="buttons">
+                                    <button class="btn" id="start">Iniciar</button>
+                                    <button class="btn" id="pause">Pausar</button>
+                                    <button class="btn" id="resume">Continuar</button>
+                                    <button class="btn" id="reset">Resetar</button>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
                 </li>
 
                 <!--Informante Digital-->

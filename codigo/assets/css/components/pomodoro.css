@@ -1,5 +1,99 @@
-.pomodoro-container{
-    background-color: #f3eca8;
+.pomodoro {
+   
+    position: relative;
+    height: 250px;
+    background-color: black;
+}
+
+.container {
+    position: relative;
+    display: flex; 
+    align-items: center; /*alinha no centro*/
+    flex-direction: column; /*organiza os itens em coluna*/
+    
+    background-color: white;
+    height: 250px;
+    width: auto;
+    background-image: url(/codigo/assets/img/cool-background\ \(1\).png);
+    border-radius: 16px;
+}
+
+.timer {
+    display: flex;
+    
+    font-size: 50px;
+    font-weight: bold;
+    color: black;
+}
+
+.time {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 5px;  /*afastar dos outros elementros*/
+    color: black;
+    min-width: 90px; /*largura minima*/
+}
+
+.separator {
+    padding: 0 10px; /*10px apenas nas laterais*/
+    color: grey;
+}
+
+.buttons {
+    margin: 0% 2%;
+}
+
+.btn {
+    padding: 10px 20px;
+    font-size: 18px;
+    font-weight: bold;
+    border-radius: 30px;
+    cursor: pointer; /* Pra aparecer o ponteiro do mouse quando passar encima do botao*/
+    border: 1px solid #ccc;
+    transition: all 0.2s ease-in-out; /* animação fluída na entrada e saida */
+}
+
+.btn:hover {
+    transform: scale(1.1) /* animação para aumentar o botao quando passar o mouse */
+}
+
+#breaks-wrapper {
+    padding: 2%;
     width: 100%;
-    height: 100%;
+    background-color: aqua;
+}
+
+
+#descansoCurto {
+    background-color: slategrey;
+    color: black;
+    z-index: 1;
+    float: right;
+    margin: 0% 2%;
+}
+
+#descansoLongo {
+    background-color: slategrey;
+    color: black;
+    float: right;
+    margin: 0% 2%; 
+}
+
+
+
+#start {
+    background-color: gray;
+    color: white;
+}
+
+#pause,#resume {
+    display: none;
+    background-color: white;
+    color: black;
+}
+
+#reset {
+    background-color: white;
+    color: black;
 }

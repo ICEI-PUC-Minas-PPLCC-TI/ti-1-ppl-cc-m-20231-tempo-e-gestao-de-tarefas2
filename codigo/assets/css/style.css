@@ -1,8 +1,12 @@
+@import url(./configPage.css);
+@import url(./loginPage.css);
 @import url(./menuLateral.css);
 @import url(./components/grafico.css);
 @import url(./components/infoDigital.css);
 @import url(./components/pomodoro.css);
 @import url(./components/Post-its.css);
+
+
 
 /*fontes*/
 @font-face {
@@ -10,7 +14,7 @@
     src: url(/codigo/assets/fonts/Montserrat/Montserrat-VariableFont_wght.ttf);
 }
 
-/*código*/
+/*código geral*/
 * {
     margin: 0;
     padding: 0;
@@ -28,19 +32,38 @@ li {
     list-style-type: none;
 }
 
+
 /*variáveis cores*/
 :root{
-  --cor-1: #1E1E1E; /*background-color-principal*/
-  --cor-2:rgb(182, 236, 236);/*background-color-modulo*/
-  --cor-3:#ff5722 ;/* color-border-modulo*/
-  --cor-4:#ff5722; /*background-color-header-modulo*/
-  --cor-texto-1:aliceblue;/* color-texto*/
-  --cor-texto-2:black;/* color-texto-2*/
+    /*modo escuro*/
+    --cor-1: #1E1E1E; /*cor de fundo primária*/
+    --cor-2:#292929;/*cor de relevo primária*/
+    --cor-3:#333333 ;/*cor de fundo secundária*/
+    --cor-4:#333333; /*cor de relevo secundária*/
+    --cor-5:#f7f0f0;
+    /*modo claro*/
+    /*cores de destaque*/
+    --cor-ds-1:#F26419;
+    --cor-ds-2:#F5D02C;
+    --cor-ds-3:#0E79B2;
+    --cor-ds-4:#3D0B37;
+    --cor-ds-5:#84C4B2;
+    --cor-ds-6:#DBD3D8;
+    --cor-texto-1:aliceblue;/* color-texto*/
+    --cor-texto-2:black;/* color-texto-2*/
+}
+.light:root{
+/*modo claro*/
+    /*cores de destaque*/
+    --cor-1: #FFFFFF; /*cor de fundo primária*/
+    --cor-2:#f2f2f2;/*cor de relevo primária*/
+    --cor-3:#e5e5e5;/*cor de fundo secundária*/
+    --cor-4:#d9d9d9; /*cor de relevo secundária*/
+    --cor-5:#052f5f;
+
 }
 
-
-
-/*principal*/
+/*------principal------*/
 
 #principal {
     /*min-height: 100vh;
@@ -52,14 +75,17 @@ li {
 .gridster {
     position: relative;
     margin: 0 auto;
-    width: 80%;
-
+    width: 80%; 
+    z-index: 99;
+    pointer-events: none;
 }
+
 
 #pomodoro {
     text-align: center;
-
 }
+
+/*Módulos*/
 
 .módulo {
     background-color: var(--cor-2);
@@ -68,81 +94,86 @@ li {
     overflow: hidden;
     /*borda branca*/
     border: 1px solid var(--cor-3);
+    pointer-events: auto;
 }
 
 .módulo header {
+    position: relative;
     color: var(--cor-texto-1);
     background-color: var(--cor-4);
-    text-align: center;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     cursor: pointer;
-}
-
-/*config-page*/
-
-#config-page-wrapper { 
-    z-index: 102;
-    position: absolute;
-    left: 0.5%;
-}
-
-#config-page {
-    position: fixed;
-    left: 0%;
-    background: linear-gradient(145deg, #252525, #2c2c2c);
-    height: 90%;
-    width: 90%;
-    z-index: 102;
-    padding: 2%;
-    color: aliceblue;
-    opacity: 0;
-    transition: opacity 0.3s;
-    font-family: 'montserrat';
-    font-weight: bolder;
-    overflow: auto;
-}
-
-#config-page p {
-    width: fit-content;
-    margin: 0%;
-    font-size: xxx-large;
-}
-#config-page header {
-    display: inline;
-    width: 100%;
-    height: fit-content;
-}
-
-#config-page ul {
-    margin-left: 50px;
-}
-
-#config-page-leave {
-    position: relative;
-    width: fit-content;
-    float: right;
-    width: 50px;
+    padding: 0% 1.5%;
     height: 50px;
-    border-radius: 10px;
-    background-color: #161616;
-    opacity: 50%;
+    
+}
+#module-handle {
     display: flex;
     justify-content: center;
     align-items: center;
-    transition: opacity 0.3s ease-out;
+    border-radius: 10px;
+    width: 35px;
+    height: 35px;
+    background-color: #161616;
+    transition: background-color 0.3s ease-in-out;
 }
-
-#config-page-leave:hover {
-    opacity: 100%;
+#module-handle:hover {
+    background-color: var(--cor-ds-3);
 }
-
-#config-page-leave img {
-    height: 25px;
+.módulo header img {
     width: 25px;
+    height: 25px;
+    pointer-events: none;
+}
+#module-content {
+    background-color: #84C4B2;
+    height: 100%;
 }
 
-#config-page-content {
-    opacity: 0;
-    transition: opacity 0.3s ease-in-out;
+/*post-its*/
 
+.post-it {
+    background-color: var(--cor-ds-1);
+    border-radius: 5px;
+    pointer-events: auto;
 }
-/*dark theme*/
+.post-it header {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    padding: 0% 5%;
+    height: 50px;
+}
+.post-it header img {
+    width: 25px;
+    height: 25px;
+    pointer-events: none;
+}
+.post-it-handle {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    width: 35px;
+    height: 35px;
+    background-color: #E77131 !important;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

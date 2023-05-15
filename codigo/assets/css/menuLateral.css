@@ -59,6 +59,7 @@
     border-radius: 10px;
     transition: 0.3s;
 }
+
 /*menu-config*/
 #menu-config-wrapper {
     position: relative;
@@ -81,3 +82,35 @@
     z-index: 103;
     transition: transform 0.3s;
 }
+
+
+/*scroll Lock Status*/
+#scrollLockStatus {
+    position: relative;
+    background-color: transparent;
+    width: 60px;
+    height: 60px;
+    left: 5px;
+    border-radius: 10px;
+    pointer-events: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: transform 0.5s;
+    
+}
+#lockSign {
+    height: 25px;
+    width: 25px;
+    margin: 0%;
+    bottom: 5px;
+    z-index: 103;
+}
+.lockSignNormal {
+    transition: transform 0.3s ease-in-out;
+    transform: translateY(0px);
+}
+.lockSignAlt {
+    transform: translateY(-15px);
+}
+

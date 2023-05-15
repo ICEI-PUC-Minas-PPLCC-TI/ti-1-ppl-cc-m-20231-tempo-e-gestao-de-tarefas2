@@ -1,7 +1,8 @@
 .pomodoro {
-    padding: 2%;
+   
     position: relative;
     height: 250px;
+    background-color: black;
 }
 
 .container {

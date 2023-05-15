@@ -5,22 +5,21 @@ var isMenuHidden = 0;
 
 
 // config-page
-function showConfigPage () {
+function showConfigPage() {
     var loaded = 0;
     window.varIsConfigPageOn = 1;
-    console.log(window.varIsConfigPageOn);
     const pageStart = document.querySelector('#config-page-wrapper');
-    
-    setTimeout(function(){
+
+    setTimeout(function () {
         $('#config-page').css({
             opacity: '1',
-        })
-    },1);
+        });
+    }, 1);
 
     pageStart.innerHTML += `
     <div id="config-page">
         <section id="config-page-content"><section>
-    </div>`; 
+    </div>`;
 
     const configPageContent = document.querySelector('#config-page-content');
     configPageContent.innerHTML += `
@@ -57,7 +56,7 @@ function showConfigPage () {
         </ul>
     </div>
     `;
-    
+
     $('#tema').hover(function () {
         $('#tema .config-item-content').css({
             opacity: '1',
@@ -78,64 +77,140 @@ function showConfigPage () {
             opacity: '0',
         });
     });
-    
-    setTimeout(function(){
+
+    setTimeout(function () {
         $('#config-page-content').css({
             opacity: '1',
         });
-        $('#config-page-leave').on('click', function(){
+        $('#config-page-leave').on('click', function () {
             hideConfigPage();
             loaded = 0;
         });
-    },1000);
+    }, 1000);
 
-    
+
 };
-function hideConfigPage () {
-    
-    console.log(window.varIsConfigPageOn);
+function hideConfigPage() {
+
+
     const pageEnd = document.querySelector('#config-page-wrapper');
 
     $('#config-page-content').css({
         opacity: '0',
     });
 
-    setTimeout(function(){
+    setTimeout(function () {
         $('#config-page').css({
             opacity: '0',
         });
-        setTimeout(function(){
-            pageEnd.innerHTML = ``; 
-        },500);
+        setTimeout(function () {
+            pageEnd.innerHTML = ``;
+        }, 500);
         window.varIsConfigPageOn = 0;
-    },1000); 
+    }, 1000);
 }
 
+
 // login page
-function showLoginPage (){
-    let body = document.querySelector('body');
-    body.innerHTML += ``;
+function showLoginPage() {
+    window.isLoginPageOn = 1;
+    $('#login-page-outer-wrapper').css({
+        display: 'block',
+    });
+    let div = document.querySelector('#login-page-outer-wrapper');
+
+    div.innerHTML += `
+    <div id="login-page-inner-wrapper">
+        <div id="login-form">
+            <h1 id="login-title">INSCREVA-SE</h1>
+            <div id="loguin-form-content">
+                <h6 id="input-title">Usuário:</h6>
+                <input type="text" placeholder="Email">
+                <h6 id="input-title">Senha:</h6>
+                <input type="text" placeholder="*********">
+                <h6 id="input-title">Confirmar senha:</h6>
+                <input type="text" placeholder="*********">
+            </div>
+            <p id="login-signup-button">Já tem uma conta? Entrar</p>
+            <div id="save-button">
+                <h4 style="margin: 0;">REGISTRAR</h4>
+            </div>
+        </div>
+    </div>`;
+
+    $('#login-signup-button').on('click', slideToLogin);
+    $('#save-button').on('click', hideLoginPage);
 }
-function slideToLogin () {
+function slideToLogin() {
     $('#login-page-inner-wrapper').css({
         left: "50%",
     });
     $('#login-form').css({
         opacity: '0',
     });
-    setTimeout(function(){
-        $('#login-form').css({
-            opacity: '1',
-            AnimationName: 'none',
-        });
-        let div = document.querySelector('#login-form');
-        
-        setTimeout(function(){
+    let div = document.querySelector('#login-form');
+    setTimeout(function () {
+        div.innerHTML = `
+        <h1 id="login-title">Seja bem vindo!</h1>
+        <div id="loguin-form-content">
+            <h6 id="input-title">Usuário:</h6>
+            <input type="text" placeholder="Email">
+            <h6 id="input-title">Senha:</h6>
+            <input type="text" placeholder="*********">
+        </div>
+        <p id="login-signup-button">Não tem uma conta? Registrar</p>
+        <div id="save-button">
+            <h4 style="margin: 0;">ENTRAR</h4>
+        </div>`;
+        setTimeout(function () {
             $('#login-form').css({
                 opacity: '1',
             });
-        },200);
-    },200);
+        }, 600);
+        $('#login-signup-button').on('click', slideToSignUp);
+        $('#save-button').on('click', hideLoginPage);
+    }, 200);
+
+}
+function slideToSignUp() {
+    $('#login-page-inner-wrapper').css({
+        left: "-50px",
+    });
+    $('#login-form').css({
+        opacity: '0',
+    });
+    let div = document.querySelector('#login-form');
+    setTimeout(function () {
+        div.innerHTML = `
+        <h1 id="login-title">INSCREVA-SE</h1>
+        <div id="loguin-form-content">
+            <h6 id="input-title">Usuário:</h6>
+            <input type="text" placeholder="Email">
+            <h6 id="input-title">Senha:</h6>
+            <input type="text" placeholder="*********">
+            <h6 id="input-title">Confirmar senha:</h6>
+            <input type="text" placeholder="*********">
+        </div>
+        <p id="login-signup-button">Já tem uma conta? Entrar</p>
+        <div id="save-button">
+            <h4 style="margin: 0;">REGISTRAR</h4>
+        </div>`;
+        setTimeout(function () {
+            $('#login-form').css({
+                opacity: '1',
+            });
+            $('#login-signup-button').on('click', slideToLogin);
+            $('#save-button').on('click', hideLoginPage);
+        }, 600);
+    }, 200);
+}
+function hideLoginPage() {
+    let div = document.querySelector('#login-page-outer-wrapper');
+    $('#login-page-outer-wrapper').css({
+        display: 'none',
+    });
+    div.innerHTML = ``;
+    window.isLoginPageOn = 0;
 }
 
 
@@ -161,5 +236,6 @@ function showText(el,text,interval){
 
 showText(el,text,interval);
 */
+
 
 

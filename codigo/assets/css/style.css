@@ -40,6 +40,7 @@ li {
     --cor-2:#292929;/*cor de relevo primária*/
     --cor-3:#333333 ;/*cor de fundo secundária*/
     --cor-4:#333333; /*cor de relevo secundária*/
+    --cor-5:#f7f0f0;
     /*modo claro*/
     /*cores de destaque*/
     --cor-ds-1:#F26419;
@@ -51,8 +52,16 @@ li {
     --cor-texto-1:aliceblue;/* color-texto*/
     --cor-texto-2:black;/* color-texto-2*/
 }
+.light:root{
+/*modo claro*/
+    /*cores de destaque*/
+    --cor-1: #FFFFFF; /*cor de fundo primária*/
+    --cor-2:#f2f2f2;/*cor de relevo primária*/
+    --cor-3:#e5e5e5;/*cor de fundo secundária*/
+    --cor-4:#d9d9d9; /*cor de relevo secundária*/
+    --cor-5:#052f5f;
 
-
+}
 
 /*------principal------*/
 

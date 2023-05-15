@@ -30,17 +30,18 @@ function showConfigPage() {
         <p>OLÁ USUÁRIO</p>
         
     </header>
-    <input type="checkbox" name="change-theme" id="change-theme">
-        <label for="change-theme">
-            <i class="bi bi-sun"></i>
-            <i class="bi bi-moon"></i>
-        </label>
+
     <div id="config-itens-wrapper">
         <ul>
             <li class="config-item op50animation" id="tema">
                 <h3>Tema</h3>
                 <div class="config-item-content">
                     <p>Escolha entre tema claro e escuro</p>
+                    <input type="checkbox" onclick="javascript:themeToggle()" name="change-theme" id="change-theme">
+        <label for="change-theme">
+            <i class="bi bi-sun"></i>
+            <i class="bi bi-moon"></i>
+        </label>
                 </div>
             </li>
             <li class="config-item op50animation" id="background">

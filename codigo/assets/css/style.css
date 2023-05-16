@@ -75,8 +75,9 @@ li {
 .gridster {
     position: relative;
     margin: 0 auto;
-    width: 80%; 
     z-index: 99;
+    width: 25000px;
+    height: 25000px;
     pointer-events: none;
 }
 

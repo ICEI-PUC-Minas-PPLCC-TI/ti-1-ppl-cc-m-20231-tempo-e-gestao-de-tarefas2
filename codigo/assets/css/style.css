@@ -76,8 +76,8 @@ li {
     position: relative;
     margin: 0 auto;
     z-index: 99;
-    width: 25000px;
-    height: 25000px;
+    width: 2500px;
+    height: 2500px;
     pointer-events: none;
 }
 

@@ -5,32 +5,19 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Chronos</title>
-    <link rel="stylesheet" href="./assets/css/style.css" />
-    <script src="./assets/js/script.js"></script>
-    <script
-      src="https://code.jquery.com/jquery-3.6.4.min.js"
-      integrity="sha256-oP6HI9z1XaZNBrJURtCoUT5SUnxFr8s3BzRl+cbzUq8="
-      crossorigin="anonymous"
-    ></script>
-    <link
-      rel="stylesheet"
-      type="text/css"
-      href="/codigo/assets/libraries/dsmorse-gridster.js-6d418df/dist/jquery.dsmorse-gridster.min.css"
-    />
+    <link rel="stylesheet" href="./assets/css/style.css">
+    <script src="./assets/js/script.js" defer></script>
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"
+        integrity="sha256-oP6HI9z1XaZNBrJURtCoUT5SUnxFr8s3BzRl+cbzUq8=" crossorigin="anonymous"></script>
+    <link rel="stylesheet" type="text/css"
+        href="/codigo/assets/libraries/dsmorse-gridster.js-6d418df/dist/jquery.dsmorse-gridster.min.css">
     <script src="/codigo/assets/libraries/dsmorse-gridster.js-6d418df/dist/jquery.dsmorse-gridster.min.js"></script>
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-      integrity="sha384-aFq/bzH65dt+w6FI2ooMVUpc+21e0SRygnTpmBvdBgSdnuTN7QbdgL+OapgHtvPp"
-      crossorigin="anonymous"
-    />
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css"
-    />
-    <script>
-      $(document).ready(function () {
-        // ----------- javascript do menu flutuante -----------
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-aFq/bzH65dt+w6FI2ooMVUpc+21e0SRygnTpmBvdBgSdnuTN7QbdgL+OapgHtvPp" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    <script type="text/javascript">
+        $(document).ready(function () {
+            // ----------- javascript do menu flutuante -----------
 
         // fazer os itens do menu "brilharem" conforme o mouse passa em cima
         $(".menu-item").hover(
@@ -190,165 +177,139 @@
           var mouseY = event.clientY; // posição y do mouse
           var windowHeight = window.innerHeight; // altura da janela
 
-          // atribuição de nome à posição do mouse
-          if (mouseX <= windowWidth * 0.15 && mouseY <= windowHeight * 0.15) {
-            scrollDirectionDiag = "farTopLeft";
-          } else if (
-            (mouseX < windowWidth * 0.15 &&
-              mouseY < windowHeight * 0.2 &&
-              mouseY > windowHeight * 0.15) ||
-            (mouseX >= windowWidth * 0.15 &&
-              mouseX < windowWidth * 0.2 &&
-              mouseY >= windowHeight * 0.15 &&
-              mouseY < windowHeight * 0.2) ||
-            (mouseX > windowWidth * 0.15 &&
-              mouseX < windowWidth * 0.2 &&
-              mouseY < windowHeight * 0.15)
-          ) {
-            scrollDirectionDiag = "topLeft";
-          } else if (
-            mouseX >= windowWidth * 0.85 &&
-            mouseY <= windowHeight * 0.15
-          ) {
-            scrollDirectionDiag = "farTopRight";
-          } else if (
-            (mouseX > windowWidth * 0.85 &&
-              mouseY < windowHeight * 0.2 &&
-              mouseY > windowHeight * 0.15) ||
-            (mouseX > windowWidth * 0.8 &&
-              mouseX <= windowWidth * 0.85 &&
-              mouseY >= windowHeight * 0.15 &&
-              mouseY < windowHeight * 0.2) ||
-            (mouseX > windowWidth * 0.8 &&
-              mouseX < windowWidth * 0.85 &&
-              mouseY < windowHeight * 0.15)
-          ) {
-            scrollDirectionDiag = "topRight";
-          } else if (
-            mouseX <= windowWidth * 0.15 &&
-            mouseY >= windowHeight * 0.85
-          ) {
-            scrollDirectionDiag = "farBottomLeft";
-          } else if (
-            (mouseX < windowWidth * 0.15 &&
-              mouseY < windowHeight * 0.85 &&
-              mouseY > windowHeight * 0.8) ||
-            (mouseX >= windowWidth * 0.15 &&
-              mouseX < windowWidth * 0.2 &&
-              mouseY > windowHeight * 0.8 &&
-              mouseY <= windowHeight * 0.85) ||
-            (mouseX > windowWidth * 0.15 &&
-              mouseX < windowWidth * 0.2 &&
-              mouseY > windowHeight * 0.85)
-          ) {
-            scrollDirectionDiag = "bottomLeft";
-          } else if (
-            mouseX >= windowWidth * 0.85 &&
-            mouseY >= windowHeight * 0.85
-          ) {
-            scrollDirectionDiag = "farBottomRight";
-          } else if (
-            (mouseX > windowWidth * 0.85 &&
-              mouseY < windowHeight * 0.85 &&
-              mouseY > windowHeight * 0.8) ||
-            (mouseX > windowWidth * 0.8 &&
-              mouseX <= windowWidth * 0.85 &&
-              mouseY > windowHeight * 0.8 &&
-              mouseY <= windowHeight * 0.85) ||
-            (mouseX > windowWidth * 0.8 &&
-              mouseX < windowWidth * 0.85 &&
-              mouseY > windowHeight * 0.85)
-          ) {
-            scrollDirectionDiag = "bottomRight";
-          } else {
-            scrollDirectionDiag = "";
-          }
-        });
-        // teste para ver se o mouse não está em cima dos módulos e do menu
 
-        //função para travar o scroll da tela com a tecla espaço
-        var scrollOn = 1;
-        let body = document.querySelector("body");
-        let scrollLockDiv = document.querySelector("#scrollLockStatus");
-        body.addEventListener("keydown", function (e) {
-          if (e.keyCode === 32) {
-            if (scrollOn == 1) {
-              scrollOn = 0;
-              scrollLockDiv.innerHTML = `<img id="lockSign" src="/codigo/assets/img/trancar.png" alt="scroll Bloqueado">`;
-              $("#scrollLockStatus").css({
-                transform: "translateY(-15px)",
-              });
-            } else {
-              scrollOn = 1;
-              scrollLockDiv.innerHTML = `<img id="lockSign" src="/codigo/assets/img/desbloquear.png" alt="scroll Bloqueado">`;
-              $("#scrollLockStatus").css({
-                transform: "translateY(0px)",
-              });
+                // atribuição de nome à posição do mouse
+                if (mouseX <= windowWidth * 0.15 && mouseY <= windowHeight * 0.15) {
+                    scrollDirectionDiag = 'farTopLeft';
+                }
+                else if (
+                    mouseX < windowWidth * 0.15 && mouseY < windowHeight * 0.20 && mouseY > windowHeight * 0.15 ||
+                    mouseX >= windowWidth * 0.15 && mouseX < windowWidth * 0.20 && mouseY >= windowHeight * 0.15 && mouseY < windowHeight * 0.20 ||
+                    mouseX > windowWidth * 0.15 && mouseX < windowWidth * 0.20 && mouseY < windowHeight * 0.15
+                ) { scrollDirectionDiag = 'topLeft'; }
+                else if (mouseX >= windowWidth * 0.85 && mouseY <= windowHeight * 0.15) {
+                    scrollDirectionDiag = 'farTopRight';
+                }
+                else if (
+                    mouseX > windowWidth * 0.85 && mouseY < windowHeight * 0.20 && mouseY > windowHeight * 0.15 ||
+                    mouseX > windowWidth * 0.80 && mouseX <= windowWidth * 0.85 && mouseY >= windowHeight * 0.15 && mouseY < windowHeight * 0.20 ||
+                    mouseX > windowWidth * 0.80 && mouseX < windowWidth * 0.85 && mouseY < windowHeight * 0.15
+                ) { scrollDirectionDiag = 'topRight'; }
+                else if (mouseX <= windowWidth * 0.15 && mouseY >= windowHeight * 0.85) {
+                    scrollDirectionDiag = 'farBottomLeft';
+                }
+                else if (
+                    mouseX < windowWidth * 0.15 && mouseY < windowHeight * 0.85 && mouseY > windowHeight * 0.80 ||
+                    mouseX >= windowWidth * 0.15 && mouseX < windowWidth * 0.20 && mouseY > windowHeight * 0.80 && mouseY <= windowHeight * 0.85 ||
+                    mouseX > windowWidth * 0.15 && mouseX < windowWidth * 0.20 && mouseY > windowHeight * 0.85
+                ) { scrollDirectionDiag = 'bottomLeft'; }
+                else if (mouseX >= windowWidth * 0.85 && mouseY >= windowHeight * 0.85) {
+                    scrollDirectionDiag = 'farBottomRight';
+                }
+                else if (
+                    mouseX > windowWidth * 0.85 && mouseY < windowHeight * 0.85 && mouseY > windowHeight * 0.80 ||
+                    mouseX > windowWidth * 0.80 && mouseX <= windowWidth * 0.85 && mouseY > windowHeight * 0.80 && mouseY <= windowHeight * 0.85 ||
+                    mouseX > windowWidth * 0.80 && mouseX < windowWidth * 0.85 && mouseY > windowHeight * 0.85
+                ) { scrollDirectionDiag = 'bottomRight'; }
+                else {
+                    scrollDirectionDiag = ''
+                }
+            });
+            // teste para ver se o mouse não está em cima dos módulos e do menu
+
+            //função para travar o scroll da tela com a tecla espaço
+            var scrollOn = 1;
+            let body = document.querySelector('body');
+            let scrollLockDiv = document.querySelector('#scrollLockStatus');
+            body.addEventListener('keydown', function (e) {
+                if (e.keyCode === 32) {
+                    if (scrollOn == 1) {
+                        scrollOn = 0;
+                        scrollLockDiv.innerHTML = `<img id="lockSign" src="/codigo/assets/img/trancar.png" alt="scroll Bloqueado">`;
+                        $('#scrollLockStatus').css({
+                            transform: 'translateY(-15px)',
+                        });
+                    } else {
+                        scrollOn = 1;
+                        scrollLockDiv.innerHTML = `<img id="lockSign" src="/codigo/assets/img/desbloquear.png" alt="scroll Bloqueado">`;
+                        $('#scrollLockStatus').css({
+                            transform: 'translateY(0px)',
+                        });
+                    };
+                };
+            });
+            // função para mover o a tela de acordo com o nome da sua posição
+            window.isLoginPageOn = 0; // variável para checar se a pag de login ta on
+            function moveMouse() {
+                if (window.varIsConfigPageOn == 0 && scrollOn == 1 && window.isLoginPageOn == 0) {
+                    if (scrollDirectionX !== '') {
+                        if (scrollDirectionX === 'farLeft') {
+                            window.scrollBy(-20, 0);
+                        }
+                        else if (scrollDirectionX === 'left') {
+                            window.scrollBy(-5, 0);
+                        }
+                        else if (scrollDirectionX === 'farRight') {
+                            window.scrollBy(20, 0);
+                        }
+                        if (scrollDirectionX === 'right') {
+                            window.scrollBy(5, 0);
+                        }
+                    };
+                    if (scrollDirectionY !== '') {
+                        if (scrollDirectionY === 'farDown') {
+                            window.scrollBy(0, -20);
+                        }
+                        else if (scrollDirectionY === 'down') {
+                            window.scrollBy(0, -5);
+                        }
+                        else if (scrollDirectionY === 'farUp') {
+                            window.scrollBy(0, 20);
+                        }
+                        if (scrollDirectionY === 'up') {
+                            window.scrollBy(0, 5);
+                        }
+                    };
+                    if (scrollDirectionDiag !== '') {
+                        if (scrollDirectionDiag === 'topLeft') {
+                            window.scrollBy(-5, -5);
+                        }
+                        if (scrollDirectionDiag === 'farTopLeft') {
+                            window.scrollBy(-20, -20);
+                        } if (scrollDirectionDiag === 'topRight') {
+                            window.scrollBy(5, -5);
+                        }
+                        if (scrollDirectionDiag === 'farTopRight') {
+                            window.scrollBy(20, -20);
+                        } if (scrollDirectionDiag === 'bottomLeft') {
+                            window.scrollBy(-5, 5);
+                        }
+                        if (scrollDirectionDiag === 'farBottomLeft') {
+                            window.scrollBy(-20, 20);
+                        }
+                        if (scrollDirectionDiag === 'bottomRight') {
+                            window.scrollBy(5, 5);
+                        }
+                        if (scrollDirectionDiag === 'farBottomRight') {
+                            window.scrollBy(20, 20);
+                        }
+                    };
+                }
+                //console.log(scrollDirectionDiag);
+                //console.log(scrollDirectionX);
+                //console.log(scrollDirectionY);  
+                // os códigos comentados acima podem ser usados para imprimir no console o valor atual das variáveis scrollDirectionX e scrollDirectionY
             }
-          }
+            // intervalos de teste da posição do mouse
+            setInterval(moveMouse, 50); // define o intervalo em milisegundos para que a tela seja movida e chama a função de movimento
+
+            showLoginPage();
+
+
         });
-        // função para mover o a tela de acordo com o nome da sua posição
-        function moveMouse() {
-          if (window.varIsConfigPageOn == 0 && scrollOn == 1) {
-            if (scrollDirectionX !== "") {
-              if (scrollDirectionX === "farLeft") {
-                window.scrollBy(-20, 0);
-              } else if (scrollDirectionX === "left") {
-                window.scrollBy(-5, 0);
-              } else if (scrollDirectionX === "farRight") {
-                window.scrollBy(20, 0);
-              }
-              if (scrollDirectionX === "right") {
-                window.scrollBy(5, 0);
-              }
-            }
-            if (scrollDirectionY !== "") {
-              if (scrollDirectionY === "farDown") {
-                window.scrollBy(0, -20);
-              } else if (scrollDirectionY === "down") {
-                window.scrollBy(0, -5);
-              } else if (scrollDirectionY === "farUp") {
-                window.scrollBy(0, 20);
-              }
-              if (scrollDirectionY === "up") {
-                window.scrollBy(0, 5);
-              }
-            }
-            if (scrollDirectionDiag !== "") {
-              if (scrollDirectionDiag === "topLeft") {
-                window.scrollBy(-5, -5);
-              }
-              if (scrollDirectionDiag === "farTopLeft") {
-                window.scrollBy(-20, -20);
-              }
-              if (scrollDirectionDiag === "topRight") {
-                window.scrollBy(5, -5);
-              }
-              if (scrollDirectionDiag === "farTopRight") {
-                window.scrollBy(20, -20);
-              }
-              if (scrollDirectionDiag === "bottomLeft") {
-                window.scrollBy(-5, 5);
-              }
-              if (scrollDirectionDiag === "farBottomLeft") {
-                window.scrollBy(-20, 20);
-              }
-              if (scrollDirectionDiag === "bottomRight") {
-                window.scrollBy(5, 5);
-              }
-              if (scrollDirectionDiag === "farBottomRight") {
-                window.scrollBy(20, 20);
-              }
-            }
-          }
-          //console.log(scrollDirectionDiag);
-          //console.log(scrollDirectionX);
-          //console.log(scrollDirectionY);
-          // os códigos comentados acima podem ser usados para imprimir no console o valor atual das variáveis scrollDirectionX e scrollDirectionY
+        function themeToggle(){
+            return document.documentElement.classList.toggle('light');
         }
-        // intervalos de teste da posição do mouse
-        setInterval(moveMouse, 50); // define o intervalo em milisegundos para que a tela seja movida e chama a função de movimento
-      });
     </script>
     <script src="/codigo/assets/js/script.js"></script>
     <script src="/codigo/assets/js/infoD.js"></script>
@@ -443,26 +404,38 @@
             <section id="module-content"></section>
           </li>
 
-          <!--POMODORO-->
-          <li
-            class="módulo"
-            id="pomodoro"
-            data-row="4"
-            data-col="13"
-            data-sizex="5"
-            data-sizey="3"
-          >
-            <header>
-              <h2 id="module-title">Pomodoro</h2>
-              <div class="module-handle" id="module-handle">
-                <img
-                  src="/codigo/assets/img/setas-alt.png"
-                  alt="Mover Módulo"
-                />
-              </div>
-            </header>
-            <section id="module-content"></section>
-          </li>
+                <!--POMODORO-->
+                <li class="módulo" id="pomodoro" data-row="4" data-col="13" data-sizex="5" data-sizey="3">
+                    <header>
+                        <h2 id="module-title">Pomodoro</h2>
+                        <div class="module-handle" id="module-handle"><img src="/codigo/assets/img/setas-alt.png"
+                                alt="Mover Módulo"></div>
+                    </header>
+                    <section id="module-content">
+                        <div class="pomodoro">
+                        
+                            <div class="container">
+                                <div id="breaks-wrapper">
+                                    <div id="breaks">
+                                        <button class="btn" id="descansoCurto">5 min</button>
+                                        <button class="btn" id="descansoLongo">10 min</button>
+                                    </div>
+                                </div>
+                                <div class="timer">
+                                    <div class="time" id="minutes">00</div>
+                                    <div class="separator">:</div>
+                                    <div class="time" id="seconds">00</div>
+                                </div>
+                                <div class="buttons">
+                                    <button class="btn" id="start">Iniciar</button>
+                                    <button class="btn" id="pause">Pausar</button>
+                                    <button class="btn" id="resume">Continuar</button>
+                                    <button class="btn" id="reset">Resetar</button>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                </li>
 
           <!--Informante Digital-->
           <li
@@ -653,28 +626,10 @@
 
     <!--
     <div id="config-page-wrapper"></div>
-    <div id="login-page-outer-wrapper">
-        <div id="login-page-inner-wrapper">
-            <div id="login-form">
-                <h1 id="login-title">INSCREVA-SE</h1>
-                <div id="loguin-form-content">
-                    <h6 id="input-title">Usuário:</h6>
-                    <input type="text" placeholder="Email">
-                    <h6 id="input-title">Senha:</h6>
-                    <input type="text" placeholder="*********">
-                </div>
-                <p id="login-signup-button">Já tem uma conta? Entrar</p>
-                <div id="save-button">
-                    <h4 style="margin: 0;">REGISTRAR</h4>
-                </div>
-            </div>
-        </div>
-    </div>
-     -->
-    <script
-      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/js/bootstrap.bundle.min.js"
-      integrity="sha384-qKXV1j0HvMUeCBQ+QVp7JcfGl760yU08IQ+GpUo5hlbpg51QRiuqHAJz8+BrxE/N"
-      crossorigin="anonymous"
-    ></script>
-  </body>
+    <div id="login-page-outer-wrapper"></div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-qKXV1j0HvMUeCBQ+QVp7JcfGl760yU08IQ+GpUo5hlbpg51QRiuqHAJz8+BrxE/N" crossorigin="anonymous">
+        </script>
+</body>
+
 </html>

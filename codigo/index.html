@@ -1,10 +1,9 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Chronos</title>
     <link rel="stylesheet" href="./assets/css/style.css">
     <script src="./assets/js/script.js" defer></script>
@@ -20,81 +19,88 @@
         $(document).ready(function () {
             // ----------- javascript do menu flutuante -----------
 
-            // fazer os itens do menu "brilharem" conforme o mouse passa em cima
-            $('.menu-item').hover(function () {
-                $(this).css("background-color", "var(--cor-ds-3)");
-            }, function () {
-                $(this).css("background-color", "#333333");
-            });
-            // animações do botão contrair/expandir do menu
-            $('#menu-button img').hover(function () {
-                if (isMenuHidden == 0) {
-                    $(this).css({
-                        transform: 'translateX(10px)',
-                    });
-                } else if (isMenuHidden == 1) {
-                    $(this).css({
-                        transform: 'translateX(-10px)',
-                    });
-                }
-            }, function () {
-                $(this).css({
-                    backgroundColor: 'transparent',
-                    transform: 'translateX(0px)',
-                });
-            });
-            $('#menu-button').on('click', function () {
-                if (isMenuHidden == 0) {
-                    $('#menu-flutuante-inner-wrapper').css({
-                        transform: 'translateX(-80px)',
-                    });
-                    $(this).css({
-                        transform: 'rotate(180deg)',
-                    });
-                    $('#menu-config-wrapper').css({
-                        transform: 'translateX(-80px)',
-                    });
-                    $('#scrollLockStatus').css({
-                        transform: 'translateX(-80px)',
-                    });
-                    isMenuHidden = 1;
-                } else {
-                    $('#menu-flutuante-inner-wrapper').css({
-                        transform: 'translateX(0px)',
-                    });
-                    $(this).css({
-                        transform: 'rotate(0deg)',
-                    });
-                    $('#menu-config-wrapper').css({
-                        transform: 'translateX(0px)',
-                    });
-                    $('#scrollLockStatus').css({
-                        transform: 'translateX(0px)',
-                    });
-                    isMenuHidden = 0;
-                }
-            });
-            // animações do botão config
-            $('#menu-config-wrapper').hover(function () {
-                $('#menu-config').css({
-                    transform: 'rotate(180deg)',
-                });
-            }, function () {
-                $('#menu-config').css({
-                    transform: 'rotate(0deg)',
-                });
-            });
-            // botão config e config-page-leave
-
-            window.varIsConfigPageOn = 0;
-
-            if (window.varIsConfigPageOn == 0) {
-                $('#menu-config-wrapper').on('click', showConfigPage);
+        // fazer os itens do menu "brilharem" conforme o mouse passa em cima
+        $(".menu-item").hover(
+          function () {
+            $(this).css("background-color", "var(--cor-ds-3)");
+          },
+          function () {
+            $(this).css("background-color", "#333333");
+          }
+        );
+        // animações do botão contrair/expandir do menu
+        $("#menu-button img").hover(
+          function () {
+            if (isMenuHidden == 0) {
+              $(this).css({
+                transform: "translateX(10px)",
+              });
+            } else if (isMenuHidden == 1) {
+              $(this).css({
+                transform: "translateX(-10px)",
+              });
             }
+          },
+          function () {
+            $(this).css({
+              backgroundColor: "transparent",
+              transform: "translateX(0px)",
+            });
+          }
+        );
+        $("#menu-button").on("click", function () {
+          if (isMenuHidden == 0) {
+            $("#menu-flutuante-inner-wrapper").css({
+              transform: "translateX(-80px)",
+            });
+            $(this).css({
+              transform: "rotate(180deg)",
+            });
+            $("#menu-config-wrapper").css({
+              transform: "translateX(-80px)",
+            });
+            $("#scrollLockStatus").css({
+              transform: "translateX(-80px)",
+            });
+            isMenuHidden = 1;
+          } else {
+            $("#menu-flutuante-inner-wrapper").css({
+              transform: "translateX(0px)",
+            });
+            $(this).css({
+              transform: "rotate(0deg)",
+            });
+            $("#menu-config-wrapper").css({
+              transform: "translateX(0px)",
+            });
+            $("#scrollLockStatus").css({
+              transform: "translateX(0px)",
+            });
+            isMenuHidden = 0;
+          }
+        });
+        // animações do botão config
+        $("#menu-config-wrapper").hover(
+          function () {
+            $("#menu-config").css({
+              transform: "rotate(180deg)",
+            });
+          },
+          function () {
+            $("#menu-config").css({
+              transform: "rotate(0deg)",
+            });
+          }
+        );
+        // botão config e config-page-leave
 
+        window.varIsConfigPageOn = 0;
 
+        if (window.varIsConfigPageOn == 0) {
+          $("#menu-config-wrapper").on("click", showConfigPage);
+        }
 
-            // ----------- configurações da biblioteca gridster.js -----------
+        // ----------- configurações da biblioteca gridster.js -----------
 
             var gridster = $(".gridster > ul").gridster({
                 widget_base_dimensions: [100, 100], // dimensões em pixels
@@ -111,51 +117,63 @@
                 }
             }).data('gridster');
 
-            // ----------- sistema de scroll x axis -----------
-            var scrollDirectionX = ''; // direção do scroll
-            window.addEventListener('mousemove', function (event) {
-                var mouseX = event.clientX; // posição x do mouse
-                var windowWidth = window.innerWidth; // largura da janela
+        // ----------- sistema de scroll x axis -----------
+        var scrollDirectionX = ""; // direção do scroll
+        window.addEventListener("mousemove", function (event) {
+          var mouseX = event.clientX; // posição x do mouse
+          var windowWidth = window.innerWidth; // largura da janela
 
-                // atribuição de nome à posição do mouse
-                if (mouseX < windowWidth * 0.05) {
-                    scrollDirectionX = 'farLeft';
-                } else if (mouseX >= windowWidth * 0.05 && mouseX < windowWidth * 0.10) {
-                    scrollDirectionX = 'left';
-                } else if (mouseX > windowWidth * 0.95) {
-                    scrollDirectionX = 'farRight';
-                } else if (mouseX <= windowWidth * 0.95 && mouseX > windowWidth * 0.90) {
-                    scrollDirectionX = 'right';
-                } else {
-                    scrollDirectionX = '';
-                }
-            });
-            // ----------- sistema de scroll y axis -----------
-            var scrollDirectionY = ''; // direção do scroll
-            window.addEventListener('mousemove', function (event) {
-                var mouseY = event.clientY; // posição y do mouse
-                var windowHeight = window.innerHeight; // altura da janela
+          // atribuição de nome à posição do mouse
+          if (mouseX < windowWidth * 0.05) {
+            scrollDirectionX = "farLeft";
+          } else if (
+            mouseX >= windowWidth * 0.05 &&
+            mouseX < windowWidth * 0.1
+          ) {
+            scrollDirectionX = "left";
+          } else if (mouseX > windowWidth * 0.95) {
+            scrollDirectionX = "farRight";
+          } else if (
+            mouseX <= windowWidth * 0.95 &&
+            mouseX > windowWidth * 0.9
+          ) {
+            scrollDirectionX = "right";
+          } else {
+            scrollDirectionX = "";
+          }
+        });
+        // ----------- sistema de scroll y axis -----------
+        var scrollDirectionY = ""; // direção do scroll
+        window.addEventListener("mousemove", function (event) {
+          var mouseY = event.clientY; // posição y do mouse
+          var windowHeight = window.innerHeight; // altura da janela
 
-                // atribuição de nome à posição do mouse
-                if (mouseY < windowHeight * 0.05) {
-                    scrollDirectionY = 'farDown';
-                } else if (mouseY >= windowHeight * 0.05 && mouseY < windowHeight * 0.10) {
-                    scrollDirectionY = 'down';
-                } else if (mouseY > windowHeight * 0.95) {
-                    scrollDirectionY = 'farUp';
-                } else if (mouseY <= windowHeight * 0.95 && mouseY > windowHeight * 0.90) {
-                    scrollDirectionY = 'up';
-                } else {
-                    scrollDirectionY = '';
-                }
-            });
-            // ----------- sistema de scroll diagonal -----------
-            var scrollDirectionDiag = ''; // direção do scroll
-            window.addEventListener('mousemove', function (event) {
-                var mouseX = event.clientX; // posição x do mouse
-                var windowWidth = window.innerWidth; // largura da janela
-                var mouseY = event.clientY; // posição y do mouse
-                var windowHeight = window.innerHeight; // altura da janela
+          // atribuição de nome à posição do mouse
+          if (mouseY < windowHeight * 0.05) {
+            scrollDirectionY = "farDown";
+          } else if (
+            mouseY >= windowHeight * 0.05 &&
+            mouseY < windowHeight * 0.1
+          ) {
+            scrollDirectionY = "down";
+          } else if (mouseY > windowHeight * 0.95) {
+            scrollDirectionY = "farUp";
+          } else if (
+            mouseY <= windowHeight * 0.95 &&
+            mouseY > windowHeight * 0.9
+          ) {
+            scrollDirectionY = "up";
+          } else {
+            scrollDirectionY = "";
+          }
+        });
+        // ----------- sistema de scroll diagonal -----------
+        var scrollDirectionDiag = ""; // direção do scroll
+        window.addEventListener("mousemove", function (event) {
+          var mouseX = event.clientX; // posição x do mouse
+          var windowWidth = window.innerWidth; // largura da janela
+          var mouseY = event.clientY; // posição y do mouse
+          var windowHeight = window.innerHeight; // altura da janela
 
 
                 // atribuição de nome à posição do mouse
@@ -422,7 +440,7 @@
 
 </head>
 
-<body>
+  <body>
     <div id="menu-flutuante-outer-wrapper">
         <div id="scrollLockStatus">
             <img id="lockSign" src="/codigo/assets/img/desbloquear.png" alt="scroll Desbloqueado" onclick="animarCadeado()">
@@ -491,15 +509,25 @@
                     </section>
                 </li>
 
-                <!--GRAFICO-->
-                <li class="módulo" data-row="9" data-col="6" data-sizex="7" data-sizey="4">
-                    <header>
-                        <h2 id="module-title">Gráfico</h2>
-                        <div class="module-handle" id="module-handle"><img src="/codigo/assets/img/setas-alt.png"
-                                alt="Mover Módulo"></div>
-                    </header>
-                    <section id="module-content"></section>
-                </li>
+          <!--GRAFICO-->
+          <li
+            class="módulo"
+            data-row="9"
+            data-col="6"
+            data-sizex="7"
+            data-sizey="4"
+          >
+            <header>
+              <h2 id="module-title">Gráfico</h2>
+              <div class="module-handle" id="module-handle">
+                <img
+                  src="/codigo/assets/img/setas-alt.png"
+                  alt="Mover Módulo"
+                />
+              </div>
+            </header>
+            <section id="module-content"></section>
+          </li>
 
                 <!--POMODORO-->
                 <li class="módulo" id="pomodoro" data-row="4" data-col="13" data-sizex="5" data-sizey="3">
@@ -534,100 +562,193 @@
                     </section>
                 </li>
 
-                <!--Informante Digital-->
-                <li class="módulo" id="infoD" data-row="9" data-col="13" data-sizex="5" data-sizey="4">
-                    <div class="infoD-container">
-                        <header>
-                            <h2 id="module-title">Info. Digital</h2>
-                            <div class="module-handle" id="module-handle"><img src="/codigo/assets/img/setas-alt.png"
-                                    alt="Mover Módulo">
-                            </div>
-                        </header>
-                        <section id="module-content">
-                            <div class="inf-conjunto-container">
-
-                                <div class="informante" id="sono">
-                                    <div class="informante-titulo">
-                                        <h2>SONO</h2>
-                                    </div>
-                                </div>
-                                <div class="informante" id="foco">
-                                    <div class="informante-titulo">
-                                        <h2>FOCO</h2>
-                                    </div>
-                                </div>
-                                <div class="informante" id="agua">
-                                    <div class="informante-titulo">
-                                        <h2>AGUA</h2>
-                                    </div>
-                                </div>
-                                <div class="informante" id="vicios">
-                                    <div class="informante-titulo">
-                                        <h2>VICIOS</h2>
-                                    </div>
-                                </div>
-                                <div class="informante" id="saude-mental">
-                                    <div class="informante-titulo">
-                                        <h2>MENTAL</h2>
-                                    </div>
-                                </div>
-                                <div class="informante" id="exercicios-fisicos">
-                                    <div class="informante-titulo">
-                                        <h2>GYM</h2>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="infoD-tips-containder">
-                                <div class="tip">
-                                    <div id="text">a</div>
-                                </div>
-                            </div>
-                        </section>
-
+          <!--Informante Digital-->
+          <li
+            class="módulo"
+            id="infoD"
+            data-row="9"
+            data-col="13"
+            data-sizex="5"
+            data-sizey="4"
+          >
+            <div class="infoD-container">
+              <header>
+                <h2 id="module-title">Info. Digital</h2>
+                <div class="module-handle" id="module-handle">
+                  <img
+                    src="/codigo/assets/img/setas-alt.png"
+                    alt="Mover Módulo"
+                  />
+                </div>
+              </header>
+              <section id="module-content">
+                <div class="inf-conjunto-container">
+                  
+                  <div class="informante" id="sono">
+                    <div class="informante-titulo">
+                      <h2 id="titulo10">SONO</h2>
                     </div>
-                </li>
+                  </div>
 
-                <!--POST-ITS-->
-                <li class="post-it" data-row="7" data-col="13" data-sizex="2" data-sizey="2">
-                    <header>
-                        <h2 id="module-title">Tasklist</h2>
-                        <div class="module-handle" id="post-it-handle"><img src="/codigo/assets/img/setas-alt.png"
-                                alt="Mover Módulo"></div>
-                    </header>
-                </li>
+                  <div class="informante" id="foco">
+                    <div class="informante-titulo">
+                      <h2 id="titulo10">FOCO</h2>
+                    </div>
+                  </div>
+                  <div class="informante" id="agua">
+                    <div class="informante-titulo">
+                      <h2 id="titulo10">AGUA</h2>
+                    </div>
+                  </div>
+                  <div class="informante" id="vicios">
+                    <div class="informante-titulo">
+                      <h2 id="titulo10">VICIOS</h2>
+                    </div>
+                  </div>
+                  <div class="informante" id="saude-mental">
+                    <div class="informante-titulo">
+                      <h2 id="titulo10">MENTAL</h2>
+                    </div>
+                  </div>
+                  <div class="informante" id="exercicios-fisicos">
+                    <div class="informante-titulo">
+                      <h2 id="titulo10">GYM</h2>
+                    </div>
+                  </div>
+                </div>
 
-                <!--placeholders-->
-                <li class="módulo" data-row="1" data-col="1" data-sizex="1" data-sizey="1">
-                    <header>
+                <div class="infoD-tips-containder">
+                  <div class="tip">
+                    <div class="text_da_tip" id="text"></div>
+                    
+                    <script>
+                      var testejson = JSON.parse(
+                        '[{"frase1": "Um adulto deve dormir entre 7 - 9 horas por noite.","frase2": "Um vício é um comportamento que continu asendo executado mesmo na presença de uma punição.","frase3": "Um vício geralmente é atrelado a um gatilho [pessoa, ambiente, lugares e épocas].","frase4": "TODO MUNDO sonha todas as noites. Voce só nao vai sonhar se não passar pela fase de sono REM.", "frase5": "Conhecimento é poder.","frase6": "Apenas começe. Apenas faça.","frase7": "Se exponha a luz solar de manha, isso irá ajudar na qualidade do seu sono anoite.","fraseoito": "Cerca de apenas 5% da populaço.","frase8": "Cerca de apenas 5% da população mundial tem Transtorno de Défit de Atenção.","frase9": "Pessoas que tem INSÔNIA crônica tem atrofia no hipocampo, região do cérebro envolvida com formação de memória.","frase10": "Nossos comportamentos são modulados pelo nosso ambiente.","frase11": "Somos sensíveis as consequências dos nossos comportamento.","frase12": "Manter-se adequadamente hidratado com água pode melhorar a concentração, o foco e o desempenho mental.","frase13": "Nossa musculatura é naturalmente composta por cerca de 80% de agua. Portanto, se hidrate ao longo do dia.","frase14": "Temos que beber no MÍNIMO 35 ml de agua por kg corporal","frase15": "Depressão e ansiedade são transtornos mentais que diminuem a produtividade do individuo.","frase16": "Fazer exercícios físicos melhoram suas funções cognitivas.","frase17": "Um dos principais motivos da procastinação é a busca do perfeiccionismo.","frase18": "Descansar também é fundamental para hipertrofia!","frase19": "Busque sua melhor vesão.","frase20": "Sua atenção é controlada por uma região no seu cérebro conhecida como cortéx pré frontal."}]'
+                      );
+                
+                      var randomIndex = Math.floor(
+                        Math.random() * Object.keys(testejson[0]).length
+                      ); // escolhe um índice aleatório
+                      var randomKey = Object.keys(testejson[0])[randomIndex]; // obtém a chave correspondente ao índice aleatório
+                
+                      testejson.forEach(function (passa) {
+                        document.querySelector(".text_da_tip").innerHTML +=
+                          '<p class="reoo">' +
+                          passa[randomKey] +
+                          "</p>";
+                      });
+                    </script>
+                    <script>
+                      function pff(elementoooo) {
+                        const textoArrayyy = elementoooo.innerHTML.split("");
+                        elementoooo.innerHTML = "";
+                        textoArrayyy.forEach((letraa, i) => {
+                          setTimeout(function () {
+                            elementoooo.innerHTML += letraa;
+                          }, 88 * i);
+                        });
+                      }
+                      const ten = document.querySelector(".reoo");
+                      pff(ten);
+                    </script>
+                  </div>
+                </div>
+              </section>
+            </div>
+          </li>
 
-                        <div id="module-handle"><img src="/codigo/assets/img/setas-alt.png" alt="Mover Módulo"></div>
-                    </header>
-                    <section id="module-content"></section>
-                </li>
-                <li class="módulo" data-row="1" data-col="25" data-sizex="1" data-sizey="1">
-                    <header>
+          <!--POST-ITS-->
+          <li
+            class="post-it"
+            data-row="7"
+            data-col="13"
+            data-sizex="2"
+            data-sizey="2"
+          >
+            <header>
+              <h2 id="module-title">Tasklist</h2>
+              <div class="module-handle" id="post-it-handle">
+                <img
+                  src="/codigo/assets/img/setas-alt.png"
+                  alt="Mover Módulo"
+                />
+              </div>
+            </header>
+          </li>
 
-                        <div id="module-handle"><img src="/codigo/assets/img/setas-alt.png" alt="Mover Módulo"></div>
-                    </header>
-                    <section id="module-content"></section>
-                </li>
-                <li class="módulo" data-row="25" data-col="1" data-sizex="1" data-sizey="1">
-                    <header>
-
-                        <div id="module-handle"><img src="/codigo/assets/img/setas-alt.png" alt="Mover Módulo"></div>
-                    </header>
-                    <section id="module-content"></section>
-                </li>
-                <li class="módulo" data-row="25" data-col="25" data-sizex="1" data-sizey="1">
-                    <header>
-
-                        <div id="module-handle"><img src="/codigo/assets/img/setas-alt.png" alt="Mover Módulo"></div>
-                    </header>
-                    <section id="module-content"></section>
-                </li>
-            </ul>
-        </div>
+          <!--placeholders-->
+          <li
+            class="módulo"
+            data-row="1"
+            data-col="1"
+            data-sizex="1"
+            data-sizey="1"
+          >
+            <header>
+              <div id="module-handle">
+                <img
+                  src="/codigo/assets/img/setas-alt.png"
+                  alt="Mover Módulo"
+                />
+              </div>
+            </header>
+            <section id="module-content"></section>
+          </li>
+          <li
+            class="módulo"
+            data-row="1"
+            data-col="25"
+            data-sizex="1"
+            data-sizey="1"
+          >
+            <header>
+              <div id="module-handle">
+                <img
+                  src="/codigo/assets/img/setas-alt.png"
+                  alt="Mover Módulo"
+                />
+              </div>
+            </header>
+            <section id="module-content"></section>
+          </li>
+          <li
+            class="módulo"
+            data-row="25"
+            data-col="1"
+            data-sizex="1"
+            data-sizey="1"
+          >
+            <header>
+              <div id="module-handle">
+                <img
+                  src="/codigo/assets/img/setas-alt.png"
+                  alt="Mover Módulo"
+                />
+              </div>
+            </header>
+            <section id="module-content"></section>
+          </li>
+          <li
+            class="módulo"
+            data-row="25"
+            data-col="25"
+            data-sizex="1"
+            data-sizey="1"
+          >
+            <header>
+              <div id="module-handle">
+                <img
+                  src="/codigo/assets/img/setas-alt.png"
+                  alt="Mover Módulo"
+                />
+              </div>
+            </header>
+            <section id="module-content"></section>
+          </li>
+        </ul>
+      </div>
     </div>
+
     <div id="config-page-wrapper"></div>
     <div id="login-page-outer-wrapper"></div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/js/bootstrap.bundle.min.js"

@@ -96,7 +96,7 @@
 
             // ----------- configurações da biblioteca gridster.js -----------
 
-            var gridster = $(".gridster ul").gridster({
+            var gridster = $(".gridster > ul").gridster({
                 widget_base_dimensions: [100, 100], // dimensões em pixels
                 widget_margins: [10, 10], // margens em pixels
                 min_cols: 25,
@@ -283,31 +283,162 @@
             // intervalos de teste da posição do mouse
             setInterval(moveMouse, 50); // define o intervalo em milisegundos para que a tela seja movida e chama a função de movimento
 
-            showLoginPage();
+            //showLoginPage();
 
+            // ----------- tasklist -----------
+            window.tasklistCounter = 0;
+            window.produtividade = 0;
+            $('#d1').on('click', function (){
+                newTasklist('t1');
+            });
+            //newTasklist('t2');
 
         });
-        function themeToggle(){
+        //dark theme
+
+        //variaveis que armazenam imagens do modo escuro(antes de apertar checkbox)
+        var originalLockSignSrc = "/codigo/assets/img/desbloquear.png";
+        var originalMaisSrc = "/codigo/assets/img/mais.png";
+        var originalUtilizadorSrc = "/codigo/assets/img/do-utilizador.png";
+        var originalNotasSrc = "/codigo/assets/img/notas.png";
+        var originalEngrenagensSrc = "/codigo/assets/img/engrenagens.png";
+
+        var isAnimating = false; //variável para controlar cor do cadeado durante sua animação
+
+        function themeToggle() { //troca cores usando variaveis do css(light.root:, em style.css)
             return document.documentElement.classList.toggle('light');
         }
+        //funções que trocam cor dos icones do menu lateral ao clicar na checkbox(sol ou lua)
+        function trocaCadeado() {
+            var img = document.getElementById("lockSign");
+            img.src = "/codigo/assets/img/desbloquear-azul.png";
+        }
+        function trocaMais() {
+            var img = document.getElementById("img-mais");
+            img.src = "/codigo/assets/img/mais-azul.png";
+        }
+        function trocaUtilizador() {
+            var img = document.getElementById("img-utilizador");
+            img.src = "/codigo/assets/img/do-utilizador-azul.png";
+        }
+        function trocaNotas() {
+            var img = document.getElementById("img-notas");
+            img.src = "/codigo/assets/img/notas-azul.png";
+        }
+        function trocaEngrenagens() {
+            var img = document.getElementById("menu-config");
+            img.src = "/codigo/assets/img/engrenagens-azul.png";
+        }
+        //função linkada a checkbox(em script.js) que ativa o funcionamento de todas as outras ao mesmo tempo
+        function executarAcoes() {
+            themeToggle();
+            var checkbox = document.getElementById("change-theme");
+            var isDarkMode = checkbox.checked;
+            savePreference();
+            trocaCadeado(isDarkMode);
+            trocaMais(isDarkMode);
+            trocaUtilizador(isDarkMode);
+            trocaNotas(isDarkMode);
+            trocaEngrenagens(isDarkMode);
+        }
+        // funções que confere, se a checkbox se encontra clicada ou não, e ajusta cor dos ícones
+        function trocaCadeado(isDarkMode) {
+            var img = document.getElementById("lockSign");
+            if (isDarkMode) {
+                img.src = "/codigo/assets/img/desbloquear-azul.png";
+            } else {
+                img.src = originalLockSignSrc;
+            }
+        }
+
+        function trocaMais(isDarkMode) {//confere se a checkbox se encontra clicada ou não, e ajusta cor dos ícones
+            var img = document.getElementById("img-mais");
+            if (isDarkMode) {
+                img.src = "/codigo/assets/img/mais-azul.png";
+            } else {
+                img.src = originalMaisSrc;
+            }
+        }
+
+        function trocaUtilizador(isDarkMode) {//confere se a checkbox se encontra clicada ou não, e ajusta cor dos ícones
+            var img = document.getElementById("img-utilizador");
+            if (isDarkMode) {
+                img.src = "/codigo/assets/img/do-utilizador-azul.png";
+            } else {
+                img.src = originalUtilizadorSrc;
+            }
+        }
+
+        function trocaNotas(isDarkMode) {//confere se a checkbox se encontra clicada ou não, e ajusta cor dos ícones
+            var img = document.getElementById("img-notas");
+            if (isDarkMode) {
+                img.src = "/codigo/assets/img/notas-azul.png";
+            } else {
+                img.src = originalNotasSrc;
+            }
+        }
+
+        function trocaEngrenagens(isDarkMode) {//confere se a checkbox se encontra clicada ou não, e ajusta cor dos ícones
+            var img = document.getElementById("menu-config");
+            if (isDarkMode && !isAnimating) { //impede que cadeado retorne ao modo claro ao realizar animação
+                img.src = "/codigo/assets/img/engrenagens-azul.png";
+            } else {
+                img.src = originalEngrenagensSrc;
+            }
+        }
+        //função que controla cor do cadeado durante animação
+        function animarCadeado() { 
+            var checkbox = document.getElementById("change-theme");
+
+            if (checkbox.checked) {
+                isAnimating = true;
+            } else {
+                isAnimating = false;
+            }
+        }
+        //salva a preferência do usuário para que ele não tenha que ajustala toda vez que abrir a aplicação
+        function savePreference(isDarkMode) {
+            localStorage.setItem("darkModePreference", isDarkMode);
+        }
+        //carrega a página do usuário de acordo com sua preferência
+        function loadPreference() {
+            var isDarkMode = localStorage.getItem("darkModePreference");
+            if (isDarkMode === "true") {
+                // Aplicar modo escuro
+                document.getElementById("change-theme").checked = true;
+                executarAcoes();
+            } else {
+                // Aplicar modo claro
+                document.getElementById("change-theme").checked = false;
+                executarAcoes();
+            }
+        }
+        // Chame a função loadPreference quando a página for carregada
+        window.addEventListener("load", loadPreference);
+       
+
+
     </script>
-    
+
 </head>
 
 <body>
     <div id="menu-flutuante-outer-wrapper">
         <div id="scrollLockStatus">
-            <img id="lockSign" src="/codigo/assets/img/desbloquear.png" alt="scroll Desbloqueado">
+            <img id="lockSign" src="/codigo/assets/img/desbloquear.png" alt="scroll Desbloqueado" onclick="animarCadeado()">
         </div>
         <!--embrulho de fora do menu, serve para posicionamento na esquerda da página-->
         <div id="menu-flutuante-inner-wrapper">
             <!--embrulho de dentro do menu, serve para posicionamento no ponto médio da altura da página-->
             <ul id="menu-flutuante"> <!--menu flutuante-->
-                <li class="menu-item"><img src="/codigo/assets/img/mais.png" alt="Adicionar Módulo"></li>
-                <li class="menu-item"><img src="/codigo/assets/img/notas.png" alt="Post-its"></li>
-                <li class="menu-item"><img src="/codigo/assets/img/do-utilizador.png" alt="Usuário"></li>
+                <li class="menu-item" id="menu-mais"><img id="img-mais" src="/codigo/assets/img/mais.png"
+                        alt="Adicionar Módulo"></li>
+                <li class="menu-item" id="menu-notas"><img id="img-notas" src="/codigo/assets/img/notas.png"
+                        alt="Post-its"></li>
+                <li class="menu-item" id="menu-utilizador"><img id="img-utilizador"
+                        src="/codigo/assets/img/do-utilizador.png" alt="Usuário"></li>
             </ul>
-            <div id="menu-button"><img src="/codigo/assets/img/angulo-duplo-pequeno-esquerdo.png"
+            <div id="menu-button"><img id="img-angulo-duplo" src="/codigo/assets/img/angulo-duplo-pequeno-esquerdo.png"
                     alt="Contrair/Expandir"></div> <!--botão contrair/expandir-->
         </div>
         <div id="menu-config-wrapper">
@@ -329,7 +460,35 @@
                         <div class="module-handle" id="module-handle"><img src="/codigo/assets/img/setas-alt.png"
                                 alt="Mover Módulo"></div>
                     </header>
-                    <section id="module-content"></section>
+                    <section id="module-content">
+                        <div id="tasklist-wrapper">
+                            <div id="side-calendar">
+                                <ul id="day-list">
+                                    <li class="days" id="d1"><h4>seg</h4></li>
+                                    <li class="days" id="d2"><h4>ter</h4></li>
+                                    <li class="days" id="d3"><h4>qua</h4></li>
+                                    <li class="days" id="d4"><h4>qui</h4></li>
+                                    <li class="days" id="d5"><h4>sex</h4></li>
+                                    <li class="days" id="d6"><h4>sab</h4></li>
+                                    <li class="days" id="d7"><h4>dom</h4></li>
+                                </ul>
+                            </div>
+                            <div id="tasklists">
+                                <div id="day-tasklists-wrapper">
+                                    <ul id="day-tasklists">
+                                        <li class="taskspace" id="t1"><h4>-----</h4></li>
+                                        <li class="taskspace" id="t2"><h4>-----</h4></li>
+                                        <li class="taskspace" id="t3"><h4>-----</h4></li>
+                                        <li class="taskspace" id="t4"><h4>-----</h4></li>
+                                        <li class="taskspace" id="t5"><h4>-----</h4></li>
+                                        <li class="taskspace" id="t6"><h4>-----</h4></li>
+                                        <li class="taskspace" id="t7"><h4>-----</h4></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                    </section>
                 </li>
 
                 <!--GRAFICO-->
@@ -351,7 +510,7 @@
                     </header>
                     <section id="module-content">
                         <div class="pomodoro">
-                        
+
                             <div class="container">
                                 <div id="breaks-wrapper">
                                     <div id="breaks">

@@ -5,6 +5,7 @@
 @import url(./components/infoDigital.css);
 @import url(./components/pomodoro.css);
 @import url(./components/Post-its.css);
+@import url(./components/tasklist.css);
 
 
 
@@ -41,6 +42,7 @@ li {
     --cor-3:#333333 ;/*cor de fundo secundária*/
     --cor-4:#333333; /*cor de relevo secundária*/
     --cor-5:#f7f0f0;
+    --cor-6: #161616;
     /*modo claro*/
     /*cores de destaque*/
     --cor-ds-1:#F26419;
@@ -62,7 +64,23 @@ li {
     --cor-5:#052f5f;
 
 }
-
+.bi{
+    font-size: 1.3 rem;
+    cursor: pointer;
+}
+.bi-sun{ /*não mostra lua no modo light*/
+    display: none;
+}
+input[type="checkbox"] {
+    display: none;
+}
+/*tira sol e mostra lua ao ligar dark theme */
+.light .bi-moon{
+    display: none;
+}
+.light .bi-sun{
+    display: block;
+}
 /*------principal------*/
 
 #principal {

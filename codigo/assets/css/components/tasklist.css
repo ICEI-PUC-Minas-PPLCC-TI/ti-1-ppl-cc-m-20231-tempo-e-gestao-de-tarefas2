@@ -1,0 +1,114 @@
+#tasklist-wrapper {
+    height: 490px;
+    display: flex;
+}
+
+#side-calendar {
+    position: relative;
+    background-color: aliceblue;
+    width: 15%;
+    height: 100%;
+    
+}
+
+#day-list {
+    position: relative;
+    list-style-type: none;
+    padding: 0%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+    padding: 10%;
+    background-color: var(--cor-3);
+    display: flex;
+    flex-direction: column;
+}
+
+.days {
+    color: white;
+    position: relative;
+    border-radius: 10px;
+    background-color: var(--cor-2);
+    padding: 10% 10%;
+    margin: 0%;
+    text-align: center;
+}
+
+#tasklists {
+    position: relative;
+    width: 85%;
+    height: 100%;
+    background-color: aqua;
+}
+
+#day-tasklists-wrapper {
+    position: relative;
+    background-color: aliceblue;
+    width: 100%;
+    height: 100%;
+}
+
+/*separação das tasklists em dias*/
+#day-tasklists {
+    position: relative;
+    list-style-type: none;
+    padding: 0%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    height: 100%;
+    background-color: var(--cor-6);;
+    display: flex;
+    padding: 0px 10px;
+    flex-direction: column;
+}
+
+/*espaço de tasklists em cada dia*/
+.taskspace {
+    color: white;
+    position: relative;
+    border-radius: 10px;
+    background-color: var(--cor-6);
+    padding: 1.6% 0.8%;
+    display: inline-flex;
+    border: solid 1px var(--cor-3);
+    overflow: hidden;
+}
+
+.taskspace h4 {
+    opacity: 0.5;
+    font-weight: 400;
+    margin-left: 0.8%;
+}
+
+/*tasklists individuais*/
+.tasklist {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: nowrap;
+    font-size: x-large;
+    font-weight: 700;
+    background-color: var(--cor-ds-2);
+    border-radius: 10px;
+    padding: 0% 1.5%;
+    margin: 0% 0.8%;
+    display: inline-flex;
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+}
+
+.tasklist p {
+    padding: 0%;
+    margin: 0%;
+}
+
+.tasklist-title {
+    background-color: transparent;
+    border: none;
+    color: white;
+    outline: transparent;
+    width: 93%;
+}

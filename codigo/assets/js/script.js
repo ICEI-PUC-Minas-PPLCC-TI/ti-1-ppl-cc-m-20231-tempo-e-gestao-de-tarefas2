@@ -2,6 +2,80 @@
 
 var isMenuHidden = 0;
 
+//tasklist
+window.tasklistCounter = 0;
+var clickedInputId = 1;
+
+var seg = [];
+var ter;
+var qua;
+var qui;
+var sex;
+var sab;
+var dom;
+
+var tasklists = [
+    seg,
+    ter,
+    qua,
+    qui,
+    sex,
+    sab,
+    dom
+];
+
+function getClickedInputId (id) {
+    clickedInputId = id;
+    console.log(clickedInputId);
+}
+
+function newTasklist(dayPosition) {
+
+    let div = document.getElementById(dayPosition);
+
+    if (window.tasklistCounter == 0) {
+        div.innerHTML = ``;
+    }
+
+    window.tasklistCounter++;
+    clickedInputId = window.tasklistCounter;
+
+    seg[window.tasklistCounter - 1] = {
+        id: window.tasklistCounter,
+        title: "Título",
+    };
+    
+
+    let currentId = window.tasklistCounter;
+
+    div.insertAdjacentHTML('beforeend',`
+    <div class="tasklist" id="TL` + currentId + `">
+        <input type=""text" class="tasklist-title" id="TLT`+ currentId + `" placeholder="` + seg[window.tasklistCounter - 1].title + `" onFocus="this.select()" onclick="getClickedInputId(`+ currentId + `)">
+        <p class="tasklist-percentage">0%</p>
+    </div> 
+    `);
+
+    
+
+    var input = document.getElementById(`TLT`+ clickedInputId);
+    input.addEventListener('keydown', function (e) {
+        if (e.keyCode === 13) {
+            seg[clickedInputId - 1].title = input.value;
+            console.log(seg[clickedInputId - 1].title);
+            console.log(seg);
+        };
+    });
+
+
+
+
+    setTimeout(function () {
+        $('.tasklist').css({
+            opacity: '1',
+        });
+    }, 1);
+    console.log(seg);
+}
 
 
 // config-page
@@ -37,7 +111,7 @@ function showConfigPage() {
                 <h3>Tema</h3>
                 <div class="config-item-content">
                     <p>Escolha entre tema claro e escuro</p>
-                    <input type="checkbox" onclick="javascript:themeToggle()" name="change-theme" id="change-theme">
+                    <input type="checkbox" onclick="javascript:executarAcoes()" name="change-theme" id="change-theme">
         <label for="change-theme">
             <i class="bi bi-sun"></i>
             <i class="bi bi-moon"></i>

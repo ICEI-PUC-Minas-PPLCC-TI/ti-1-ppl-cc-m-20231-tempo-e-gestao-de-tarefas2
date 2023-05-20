@@ -495,37 +495,6 @@
                 <div class="infoD-tips-containder">
                   <div class="tip">
                     <div class="text_da_tip" id="text"></div>
-                    
-                    <script>
-                      var testejson = JSON.parse(
-                        '[{"frase1": "Um adulto deve dormir entre 7 - 9 horas por noite.","frase2": "Um vício é um comportamento que continu asendo executado mesmo na presença de uma punição.","frase3": "Um vício geralmente é atrelado a um gatilho [pessoa, ambiente, lugares e épocas].","frase4": "TODO MUNDO sonha todas as noites. Voce só nao vai sonhar se não passar pela fase de sono REM.", "frase5": "Conhecimento é poder.","frase6": "Apenas começe. Apenas faça.","frase7": "Se exponha a luz solar de manha, isso irá ajudar na qualidade do seu sono anoite.","fraseoito": "Cerca de apenas 5% da populaço.","frase8": "Cerca de apenas 5% da população mundial tem Transtorno de Défit de Atenção.","frase9": "Pessoas que tem INSÔNIA crônica tem atrofia no hipocampo, região do cérebro envolvida com formação de memória.","frase10": "Nossos comportamentos são modulados pelo nosso ambiente.","frase11": "Somos sensíveis as consequências dos nossos comportamento.","frase12": "Manter-se adequadamente hidratado com água pode melhorar a concentração, o foco e o desempenho mental.","frase13": "Nossa musculatura é naturalmente composta por cerca de 80% de agua. Portanto, se hidrate ao longo do dia.","frase14": "Temos que beber no MÍNIMO 35 ml de agua por kg corporal","frase15": "Depressão e ansiedade são transtornos mentais que diminuem a produtividade do individuo.","frase16": "Fazer exercícios físicos melhoram suas funções cognitivas.","frase17": "Um dos principais motivos da procastinação é a busca do perfeiccionismo.","frase18": "Descansar também é fundamental para hipertrofia!","frase19": "Busque sua melhor vesão.","frase20": "Sua atenção é controlada por uma região no seu cérebro conhecida como cortéx pré frontal."}]'
-                      );
-                
-                      var randomIndex = Math.floor(
-                        Math.random() * Object.keys(testejson[0]).length
-                      ); // escolhe um índice aleatório
-                      var randomKey = Object.keys(testejson[0])[randomIndex]; // obtém a chave correspondente ao índice aleatório
-                
-                      testejson.forEach(function (passa) {
-                        document.querySelector(".text_da_tip").innerHTML +=
-                          '<p class="reoo">' +
-                          passa[randomKey] +
-                          "</p>";
-                      });
-                    </script>
-                    <script>
-                      function pff(elementoooo) {
-                        const textoArrayyy = elementoooo.innerHTML.split("");
-                        elementoooo.innerHTML = "";
-                        textoArrayyy.forEach((letraa, i) => {
-                          setTimeout(function () {
-                            elementoooo.innerHTML += letraa;
-                          }, 88 * i);
-                        });
-                      }
-                      const ten = document.querySelector(".reoo");
-                      pff(ten);
-                    </script>
                   </div>
                 </div>
               </section>
@@ -623,9 +592,9 @@
         </ul>
       </div>
     </div>
-
+ 
     <div id="config-page-wrapper"></div>
-    <div id="login-page-outer-wrapper"></div>
+    <!--<div id="login-page-outer-wrapper"></div>-->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-qKXV1j0HvMUeCBQ+QVp7JcfGl760yU08IQ+GpUo5hlbpg51QRiuqHAJz8+BrxE/N" crossorigin="anonymous">
         </script>

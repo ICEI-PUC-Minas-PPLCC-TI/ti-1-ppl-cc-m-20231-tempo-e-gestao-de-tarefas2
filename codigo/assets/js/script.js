@@ -1,18 +1,27 @@
 
+setInterval(function (){
+    //coloque aqui suas funções
+}, 10000);
 
 var isMenuHidden = 0;
 
 //tasklist
 window.tasklistCounter = 0;
 var clickedInputId = 1;
+var dayJSONadress;
+var thisDayJSONadress;
+var currentTLcounter;
+var isTasklistOpened = 0;
+
+var segTLcounter = 0, terTLcounter = 0, quaTLcounter = 0, quiTLcounter = 0, sexTLcounter = 0, sabTLcounter = 0, domTLcounter = 0;
 
 var seg = [];
-var ter;
-var qua;
-var qui;
-var sex;
-var sab;
-var dom;
+var ter = [];
+var qua = [];
+var qui = [];
+var sex = [];
+var sab = [];
+var dom = [];
 
 var tasklists = [
     seg,
@@ -21,62 +30,294 @@ var tasklists = [
     qui,
     sex,
     sab,
-    dom
+    dom,
 ];
 
 function getClickedInputId (id) {
     clickedInputId = id;
-    console.log(clickedInputId);
 }
 
-function newTasklist(dayPosition) {
+function getThisJSONadress (dayJSONadress){
+    thisDayJSONadress = dayJSONadress;
+}
+
+
+function createTask (dayJSONadress,thisDayJSONadress,clickedInputId,currentTLcounter,savedTaskId) {
+    let div = document.querySelector('#task-creator-wrapper');
+    
+    tasklists[dayJSONadress][currentTLcounter - 1].taskQuantity += 1;
+
+    $('#task-creator-wrapper').css({
+        opacity: '1',
+    });
+    $('#tasklist-view').css({
+        pointerEvents: 'none',
+        opacity: '0.5',
+    });
+    $('.módulo').css({
+        pointerEvents: 'none',
+    });
+
+    div.innerHTML = `
+    <div id="task-creator">
+        <div id="task-creator-header">
+            <h2>Criar tarefa</h2>
+            <div id="task-creator-header-buttons">
+                <div id="task-creator-header-approve"><img src="./assets/img/mais amarelo.png" alt="Salvar Task"></div>
+                <div id="task-creator-header-reject"><img src="./assets/img/cruz amarelo.png" alt="Cancelar task"></div>
+            </div>
+        </div>
+        <div id="task-creator-content">
+            <h4>Título da tarefa</h4>
+            <input type="text" placeholder="Título" id="task-creator-input-title" class="tcit1">
+            <h4>Valor da tarefa (0 a 5 pontos)</h4>
+            <input type="text" placeholder="Valor" id="task-creator-input-title" class="tcit2">
+        </div>
+        <div id="task-creator-footer">
+            <h3>----------------------------------</h3>
+            <div id="task-creator-info">
+                <p><strong>id:</strong> `+tasklists[dayJSONadress][currentTLcounter - 1].taskQuantity+` <strong>tasklist:</strong> `+tasklists[thisDayJSONadress][clickedInputId - 1].title+`</p>
+            </div>
+        </div>
+    </div>
+    `;
+
+    $('#task-creator-header-reject').on('click', function () {
+        $('#task-creator-wrapper').css({
+            opacity: '0',
+        });
+        $('#tasklist-view').css({
+            pointerEvents: 'auto',
+            opacity: '1',
+        });
+        $('.módulo').css({
+            pointerEvents: 'auto',
+        });
+        div.innerHTML = ``;
+        tasklists[dayJSONadress][currentTLcounter - 1].taskQuantity -= 1;
+    })
+    $('#task-creator-header-approve').on('click', function () {
+        let input1 = document.querySelector('.tcit1');
+        let input2 = document.querySelector('.tcit2');
+        
+        if (input1.value != undefined && input2.value != undefined && input2.value > 0 && input2.value < 6){
+            tasklists[dayJSONadress][currentTLcounter - 1].tasks[tasklists[dayJSONadress][currentTLcounter - 1].taskQuantity - 1] = {
+                name: input1.value, complete: 0, value: input2.value, taskId: savedTaskId + 1,
+            };
+            $('#task-creator-wrapper').css({
+                opacity: '0',
+            });
+            $('#tasklist-view').css({
+                pointerEvents: 'auto',
+                opacity: '1',
+            });
+            $('.módulo').css({
+                pointerEvents: 'auto',
+            });
+            setTimeout(function(){
+                div.innerHTML = ``;
+            },300);
+            displayTasklist(dayJSONadress,clickedInputId,currentTLcounter,savedTaskId);
+        } else {
+            console.log('campos de preenchimento inválidos');
+        }
+    })
+}
+
+function newTasklist(dayPosition,) {
 
     let div = document.getElementById(dayPosition);
+    let taskspaceName;
 
-    if (window.tasklistCounter == 0) {
+    if (div === document.getElementById('t1')){
+        dayJSONadress = 0;
+        taskspaceName = "seg";
+        segTLcounter++;
+        currentTLcounter = segTLcounter;
+    } else if (div === document.getElementById('t2')) {
+        dayJSONadress = 1;
+        taskspaceName = "ter";
+        terTLcounter++;
+        currentTLcounter = terTLcounter;
+    } else if (div === document.getElementById('t3')) {
+        dayJSONadress = 2;
+        taskspaceName = "qua";
+        quaTLcounter++;
+        currentTLcounter = quaTLcounter;
+    } else if (div === document.getElementById('t4')) {
+        dayJSONadress = 3;
+        taskspaceName = "qui";
+        quiTLcounter++;
+        currentTLcounter = quiTLcounter;
+    } else if (div === document.getElementById('t5')) {
+        dayJSONadress = 4;
+        taskspaceName = "sex";
+        sexTLcounter++;
+        currentTLcounter = sexTLcounter;
+    } else if (div === document.getElementById('t6')) {
+        dayJSONadress = 5;
+        taskspaceName = "sab";
+        sabTLcounter++;
+        currentTLcounter = sabTLcounter;
+    } else if (div === document.getElementById('t7')) {
+        dayJSONadress = 6;
+        taskspaceName = "dom";
+        domTLcounter++;
+        currentTLcounter = domTLcounter;
+    } else {
+        console.log("taskspace não identificado!");
+        return 0;
+    }
+    
+    thisDayJSONadress = dayJSONadress;
+
+    if (tasklists[dayJSONadress].length == 0) {
         div.innerHTML = ``;
     }
+
 
     window.tasklistCounter++;
     clickedInputId = window.tasklistCounter;
 
-    seg[window.tasklistCounter - 1] = {
-        id: window.tasklistCounter,
+    tasklists[dayJSONadress][currentTLcounter - 1] = {
+        id: currentTLcounter,
         title: "Título",
+        taskspace: taskspaceName,
+        taskQuantity: 0,
+        tasks: [],
     };
     
 
     let currentId = window.tasklistCounter;
 
     div.insertAdjacentHTML('beforeend',`
-    <div class="tasklist" id="TL` + currentId + `">
-        <input type=""text" class="tasklist-title" id="TLT`+ currentId + `" placeholder="` + seg[window.tasklistCounter - 1].title + `" onFocus="this.select()" onclick="getClickedInputId(`+ currentId + `)">
+    <div class="tasklist" id="TL` + currentId + `" onclick="getThisJSONadress(`+dayJSONadress+`)">
+        <input type=""text" class="tasklist-title" id="TLT`+ currentId + `" placeholder="` + tasklists[thisDayJSONadress][currentTLcounter - 1].title + `" onFocus="this.select()" onclick="getClickedInputId(`+ currentTLcounter + `)" data-day="`+dayJSONadress+`" data-ident="`+currentId+`">
         <p class="tasklist-percentage">0%</p>
     </div> 
     `);
-
     
-
-    var input = document.getElementById(`TLT`+ clickedInputId);
+    let input = document.getElementById(`TLT`+ clickedInputId);
     input.addEventListener('keydown', function (e) {
         if (e.keyCode === 13) {
-            seg[clickedInputId - 1].title = input.value;
-            console.log(seg[clickedInputId - 1].title);
-            console.log(seg);
+            let dayJSONadress = input.getAttribute('data-day');
+            tasklists[dayJSONadress][clickedInputId - 1].title = input.value;
+            displayTasklist(dayJSONadress,clickedInputId,currentTLcounter);
         };
+        
     });
 
-
-
+    $('.tasklist').on('click', function (){
+        displayTasklist(dayJSONadress,clickedInputId,currentTLcounter);
+    });
 
     setTimeout(function () {
         $('.tasklist').css({
             opacity: '1',
         });
     }, 1);
-    console.log(seg);
 }
 
+let body = document.querySelector('body');
+body.addEventListener('keydown', function (e) {
+    if (e.keyCode === 80) {
+        console.log(tasklists);
+    };
+    
+});
+
+function displayTasklist (dayJSONadress,clickedInputId,currentTLcounter,savedTaskId) {
+
+    let div = document.querySelector('#tasklist-view-wrapper');
+    let taskQuantity = tasklists[thisDayJSONadress][clickedInputId - 1].taskQuantity;
+
+    if (isTasklistOpened === 1) {
+        div.innerHTML = ``;
+        $('#tasklist-view-wrapper').css({
+            left: '100%',
+        })
+    }
+
+    isTasklistOpened = 1;
+
+    setTimeout(function (){
+        div.insertAdjacentHTML('afterbegin', `
+        <div id="tasklist-view">
+            <h1 id="tasklist-view-title">`+tasklists[thisDayJSONadress][clickedInputId - 1].title+`</h1>
+            <div id="tasklist-view-content">
+            </div>
+            <div id="tasklist-view-footer">
+                <h1>-----------------------------------</h1>
+                <div id="footer-content">
+                    <div id="footer-content-left">
+                        <h5><strong>Info</strong></h5>
+                        <div id="info-TL-id"><strong>ID:</strong> `+clickedInputId+`</div>
+                        <div id="info-TL-Taskspace"><strong>Taskspace:</strong> `+tasklists[thisDayJSONadress][clickedInputId - 1].taskspace+`</div>
+                        <div id="info-TL-Task-counter"><strong>Quantidade de tasks:</strong> `+taskQuantity+`</div>
+                    </div>
+                    <div id="footer-content-right">
+                        <div id="newTLbutton">
+                            <img src="./assets/img/mais amarelo.png" alt="Nova Tarefa">
+                            <h3>Nova tarefa</h3>
+                        </div>
+                        <div id="exitTLbutton">
+                            <img src="./assets/img/saida amarelo.png" alt="Fechar Tasklist">
+                            <h3>Fechar</h3>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    `);
+
+    let tasklistViewContent = document.querySelector('#tasklist-view-content');
+
+    let savedTaskId = tasklists[thisDayJSONadress][clickedInputId - 1].tasks.length;
+
+    for (i = 0; i < tasklists[thisDayJSONadress][clickedInputId - 1].tasks.length; i++) {
+        tasklistViewContent.insertAdjacentHTML('beforeend', `
+        <div class="task" id="`+(i + 1)+`">
+            <input type="checkbox" class="checkbox" id="CB">
+            <input type="text" placeholder="Tarefa" class="task-title" id="task-title`+(i + 1)+`">
+            <div id="deleteTask">
+                <img src="./assets/img/cruz-pequeno.png" alt="Excluir Tarefa">
+            </div>
+        </div>
+        `);
+        var taskTitleId = document.getElementById(`task-title${i + 1}`);
+        taskTitleId.setAttribute('value', tasklists[dayJSONadress][currentTLcounter - 1].tasks[i].name);
+    };
+    
+    
+    
+
+
+    $('.task').hover(function(){
+        $('#deleteTask').css({
+            display: 'block',
+        });
+    },function(){
+        $('#deleteTask').css({
+            display: 'none',
+        });
+    });
+
+    $('#newTLbutton').on('click', function (){
+        createTask(dayJSONadress,thisDayJSONadress,clickedInputId,currentTLcounter,savedTaskId);
+    });
+    $('#exitTLbutton').on('click', function (){
+        $('#tasklist-view-wrapper').css({
+            left: '100%',
+        });
+        setTimeout(function(){
+            div.innerHTML = '';
+        },500);
+    });
+    $('#tasklist-view-wrapper').css({
+        left: '70%',
+    })
+    }, 200);
+}
 
 // config-page
 function showConfigPage() {

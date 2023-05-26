@@ -1,7 +1,22 @@
+document.addEventListener("DOMContentLoaded", showLoginPage);
 
-setInterval(function (){
-    //coloque aqui suas funções
-}, 10000);
+function preloadData() {
+  if (localStorage.getItem("user") == "") {
+    const basedados = {
+      users: [
+        {
+          id: 1,
+          name: "John Doe",
+          email: "john@gmail.com",
+          passwd: "123456",
+        },
+      ],
+    };
+  } else {
+    const basedados = JSON.parse(localStorage.getItem("user"));
+  }
+}
+document.addEventListener("DOMContentLoaded", preloadData);
 
 var isMenuHidden = 0;
 
@@ -430,98 +445,100 @@ function hideConfigPage() {
 // login page
 function showLoginPage() {
     window.isLoginPageOn = 1;
-    $('#login-page-outer-wrapper').css({
-        display: 'block',
+    $("#login-page-outer-wrapper").css({
+      display: "block",
     });
-    let div = document.querySelector('#login-page-outer-wrapper');
-
+    let div = document.querySelector("#login-page-outer-wrapper");
+  
     div.innerHTML += `
-    <div id="login-page-inner-wrapper">
-        <div id="login-form">
-            <h1 id="login-title">INSCREVA-SE</h1>
-            <div id="loguin-form-content">
-            <h6 id="input-title">Nome do usuário:</h6>
-                <input type="text" placeholder="NickName">
-                <h6 id="input-title">Usuário:</h6>
-                <input type="text" placeholder="Email">
-                <h6 id="input-title">Senha:</h6>
-                <input type="text" placeholder="*********">
-                <h6 id="input-title">Confirmar senha:</h6>
-                <input type="text" placeholder="*********">
-            </div>
-            <p id="login-signup-button">Já tem uma conta? Entrar</p>
-            <div id="save-button">
-                <h4 style="margin: 0;">REGISTRAR</h4>
-            </div>
-        </div>
-    </div>`;
-
-    $('#login-signup-button').on('click', slideToLogin);
-    $('#save-button').on('click', hideLoginPage);
-}
-function slideToLogin() {
-    $('#login-page-inner-wrapper').css({
-        left: "50%",
+      <div id="login-page-inner-wrapper">
+          <div id="login-form">
+              <h1 id="login-title">INSCREVA-SE</h1>
+              <div id="loguin-form-content">
+              <h6 id="input-title">Nome do usuário:</h6>
+                  <input type="text" id="name" placeholder="NickName">
+                  <h6 id="input-title">Usuário:</h6>
+                  <input type="text" id="email" placeholder="Email">
+                  <h6 id="input-title">Senha:</h6>
+                  <input type="password" id="passwd" placeholder="*********">
+                  <h6 id="input-title">Confirmar senha:</h6>
+                  <input type="password" id="confpasswd" placeholder="*********">
+              </div>
+              <p id="login-signup-button">Já tem uma conta? Entrar</p>
+              <div id="save-button">
+                  <h4 style="margin: 0;">REGISTRAR</h4>
+              </div>
+          </div>
+      </div>`;
+  
+    $("#login-signup-button").on("click", slideToLogin);
+    $("#save-button").on("click", fetchUserData);
+  }
+  
+  function slideToLogin() {
+    $("#login-page-inner-wrapper").css({
+      left: "50%",
     });
-    $('#login-form').css({
-        opacity: '0',
+    $("#login-form").css({
+      opacity: "0",
     });
-    let div = document.querySelector('#login-form');
+    let div = document.querySelector("#login-form");
     setTimeout(function () {
-        div.innerHTML = `
-        <h1 id="login-title">Seja bem vindo!</h1>
-        <div id="loguin-form-content">
-            <h6 id="input-title">Usuário:</h6>
-            <input type="text" placeholder="Email">
-            <h6 id="input-title">Senha:</h6>
-            <input type="text" placeholder="*********">
-        </div>
-        <p id="login-signup-button">Não tem uma conta? Registrar</p>
-        <div id="save-button">
-            <h4 style="margin: 0;">ENTRAR</h4>
-        </div>`;
-        setTimeout(function () {
-            $('#login-form').css({
-                opacity: '1',
-            });
-        }, 600);
-        $('#login-signup-button').on('click', slideToSignUp);
-        $('#save-button').on('click', hideLoginPage);
+      div.innerHTML = `
+          <h1 id="login-title">Seja bem vindo!</h1>
+          <div id="loguin-form-content">
+              <h6 id="input-title">Usuário:</h6>
+              <input type="text" id="email" placeholder="Email">
+              <h6 id="input-title">Senha:</h6>
+              <input type="password" id="passwd" placeholder="*********">
+          </div>
+          <p id="login-signup-button">Não tem uma conta? Registrar</p>
+          <div id="save-button">
+              <h4 style="margin: 0;">ENTRAR</h4>
+          </div>`;
+      setTimeout(function () {
+        $("#login-form").css({
+          opacity: "1",
+        });
+      }, 600);
+      $("#login-signup-button").on("click", slideToSignUp);
+      $("#save-button").on("click", loginUser);
     }, 200);
-
-}
-function slideToSignUp() {
-    $('#login-page-inner-wrapper').css({
-        left: "-50px",
+  }
+  
+  function slideToSignUp() {
+    $("#login-page-inner-wrapper").css({
+      left: "-50px",
     });
-    $('#login-form').css({
-        opacity: '0',
+    $("#login-form").css({
+      opacity: "0",
     });
-    let div = document.querySelector('#login-form');
+    let div = document.querySelector("#login-form");
     setTimeout(function () {
-        div.innerHTML = `
-        <h1 id="login-title">INSCREVA-SE</h1>
-        <div id="loguin-form-content">
-            <h6 id="input-title">Usuário:</h6>
-            <input type="text" placeholder="Email">
-            <h6 id="input-title">Senha:</h6>
-            <input type="text" placeholder="*********">
-            <h6 id="input-title">Confirmar senha:</h6>
-            <input type="text" placeholder="*********">
-        </div>
-        <p id="login-signup-button">Já tem uma conta? Entrar</p>
-        <div id="save-button">
-            <h4 style="margin: 0;">REGISTRAR</h4>
-        </div>`;
-        setTimeout(function () {
-            $('#login-form').css({
-                opacity: '1',
-            });
-            $('#login-signup-button').on('click', slideToLogin);
-            $('#save-button').on('click', hideLoginPage);
-        }, 600);
+      div.innerHTML = `
+          <h1 id="login-title">INSCREVA-SE</h1>
+          <div id="loguin-form-content">
+              <h6 id="input-title">Usuário:</h6>
+              <input type="text" placeholder="Email">
+              <h6 id="input-title">Senha:</h6>
+              <input type="text" placeholder="*********">
+              <h6 id="input-title">Confirmar senha:</h6>
+              <input type="text" placeholder="*********">
+          </div>
+          <p id="login-signup-button">Já tem uma conta? Entrar</p>
+          <div id="save-button">
+              <h4 style="margin: 0;">REGISTRAR</h4>
+          </div>`;
+      setTimeout(function () {
+        $("#login-form").css({
+          opacity: "1",
+        });
+        $("#login-signup-button").on("click", slideToLogin);
+        $("#save-button").on("click", hideLoginPage);
+      }, 600);
     }, 200);
-}
+  }
+  
 function hideLoginPage() {
     let div = document.querySelector('#login-page-outer-wrapper');
     $('#login-page-outer-wrapper').css({
@@ -667,5 +684,62 @@ function showText(el,text,interval){
 showText(el,text,interval);
 */
 
-
-
+function fetchUserData() {
+    const nome = document.querySelector("#name");
+    const email = document.querySelector("#email");
+    const passwd = document.querySelector("#passwd");
+    const confpasswd = document.querySelector("#confpasswd");
+    let achou = false;
+  
+    console.log("fetchUserData teste");
+    fetch("./assets/db/db.json")
+      .then(function (response) {
+        return response.json();
+      })
+      .then(function (db) {
+        let user = JSON.stringify(db);
+        user = JSON.parse(user);
+        user.users.push({
+          id: user.users.length + 1,
+          name: nome.value,
+          email: email.value,
+          passwd: passwd.value,
+        });
+        localStorage.setItem("users", JSON.stringify(user));
+      });
+  
+    if (passwd.value == confpasswd.value) {
+      if (email.value != "" && passwd.value != "" && nome.value != "") {
+        alert("Cadastro realizado com sucesso!");
+        hideLoginPage();
+      } else {
+        alert("Preencha todos os campos!");
+      }
+    } else {
+      alert("As senhas não coincidem!");
+    }
+  }
+  
+  function loginUser() {
+    let achou = false;
+    console.log("loginUser teste");
+    const email = document.querySelector("#email");
+    const passwd = document.querySelector("#passwd");
+    console.log(email.value);
+    console.log(passwd.value);
+  
+    let user = JSON.parse(localStorage.getItem("users"));
+    console.log(user);
+    for (let i = 0; i < user.users.length; i++) {
+      if (user.users[i].email == email.value && user.users[i].passwd == passwd.value) {
+        achou = true;
+      }
+    }
+    if (achou == true) {
+      alert("Login realizado com sucesso!");
+      hideLoginPage();
+    }
+    else
+      alert("Email ou senha incorretos!");
+  }
+    

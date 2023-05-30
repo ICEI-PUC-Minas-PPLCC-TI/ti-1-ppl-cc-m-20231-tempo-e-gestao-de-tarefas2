@@ -8,6 +8,7 @@ var isMenuHidden = 0;
 //tasklist
 window.tasklistCounter = 0;
 var clickedInputId = 1;
+var clickedTasklistId = window.tasklists;
 var dayJSONadress;
 var thisDayJSONadress;
 var currentTLcounter;
@@ -32,6 +33,10 @@ var tasklists = [
     sab,
     dom,
 ];
+
+function getTasklistId (id) {
+    clickedTasklistId = id;
+}
 
 function getClickedInputId (id) {
     clickedInputId = id;
@@ -101,7 +106,7 @@ function createTask (dayJSONadress,thisDayJSONadress,clickedInputId,currentTLcou
         let input2 = document.querySelector('.tcit2');
         
         if (input1.value != undefined && input2.value != undefined && input2.value > 0 && input2.value < 6){
-            tasklists[dayJSONadress][currentTLcounter - 1].tasks[tasklists[dayJSONadress][currentTLcounter - 1].taskQuantity - 1] = {
+            tasklists[clickedTasklistId][clickedInputId - 1].tasks[savedTaskId] = {
                 name: input1.value, complete: 0, value: input2.value, taskId: savedTaskId + 1,
             };
             $('#task-creator-wrapper').css({
@@ -192,7 +197,7 @@ function newTasklist(dayPosition,) {
 
     div.insertAdjacentHTML('beforeend',`
     <div class="tasklist" id="TL` + currentId + `" onclick="getThisJSONadress(`+dayJSONadress+`)">
-        <input type=""text" class="tasklist-title" id="TLT`+ currentId + `" placeholder="` + tasklists[thisDayJSONadress][currentTLcounter - 1].title + `" onFocus="this.select()" onclick="getClickedInputId(`+ currentTLcounter + `)" data-day="`+dayJSONadress+`" data-ident="`+currentId+`">
+        <input type=""text" class="tasklist-title" id="TLT`+ currentId + `" placeholder="` + tasklists[thisDayJSONadress][currentTLcounter - 1].title + `" onFocus="this.select()" onclick="getClickedInputId(`+ currentTLcounter + `); getTasklistId(`+dayJSONadress+`)" data-day="`+dayJSONadress+`" data-ident="`+currentId+`">
         <p class="tasklist-percentage">0%</p>
     </div> 
     `);
@@ -244,7 +249,7 @@ function displayTasklist (dayJSONadress,clickedInputId,currentTLcounter,savedTas
         div.insertAdjacentHTML('afterbegin', `
         <div id="tasklist-view">
             <h1 id="tasklist-view-title">`+tasklists[thisDayJSONadress][clickedInputId - 1].title+`</h1>
-            <div id="tasklist-view-content">
+            <div id="tasklist-view-content" class="TVC`+clickedInputId+`">
             </div>
             <div id="tasklist-view-footer">
                 <h1>-----------------------------------</h1>
@@ -270,7 +275,7 @@ function displayTasklist (dayJSONadress,clickedInputId,currentTLcounter,savedTas
         </div>
     `);
 
-    let tasklistViewContent = document.querySelector('#tasklist-view-content');
+    let tasklistViewContent = document.querySelector('.TVC'+clickedInputId+'');
 
     let savedTaskId = tasklists[thisDayJSONadress][clickedInputId - 1].tasks.length;
 
@@ -285,7 +290,7 @@ function displayTasklist (dayJSONadress,clickedInputId,currentTLcounter,savedTas
         </div>
         `);
         var taskTitleId = document.getElementById(`task-title${i + 1}`);
-        taskTitleId.setAttribute('value', tasklists[dayJSONadress][currentTLcounter - 1].tasks[i].name);
+        taskTitleId.setAttribute('value', tasklists[clickedTasklistId][clickedInputId - 1].tasks[i].name);
     };
     
     

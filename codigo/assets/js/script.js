@@ -123,6 +123,7 @@ function createTask (dayJSONadress,thisDayJSONadress,clickedInputId,currentTLcou
                 div.innerHTML = ``;
             },300);
             displayTasklist(dayJSONadress,clickedInputId,currentTLcounter,savedTaskId);
+            window.taskCounter++;
         } else {
             console.log('campos de preenchimento inválidos');
         }
@@ -231,17 +232,23 @@ body.addEventListener('keydown', function (e) {
     
 });
 
+function deletetask(id) {
+    window.taskCounter--;
+}
+
 function displayTasklist (dayJSONadress,clickedInputId,currentTLcounter,savedTaskId) {
 
     let div = document.querySelector('#tasklist-view-wrapper');
     let taskQuantity = tasklists[thisDayJSONadress][clickedInputId - 1].taskQuantity;
 
-    if (isTasklistOpened === 1) {
-        div.innerHTML = ``;
-        $('#tasklist-view-wrapper').css({
-            left: '100%',
-        })
-    }
+    //if (isTasklistOpened === 1) {
+        
+    //}
+
+    div.innerHTML = ``;
+    $('#tasklist-view-wrapper').css({
+        left: '100%',
+    })
 
     isTasklistOpened = 1;
 
@@ -281,7 +288,7 @@ function displayTasklist (dayJSONadress,clickedInputId,currentTLcounter,savedTas
 
     for (i = 0; i < tasklists[thisDayJSONadress][clickedInputId - 1].tasks.length; i++) {
         tasklistViewContent.insertAdjacentHTML('beforeend', `
-        <div class="task" id="`+(i + 1)+`">
+        <div class="task">
             <input type="checkbox" class="checkbox" id="CB">
             <input type="text" placeholder="Tarefa" class="task-title" id="task-title`+(i + 1)+`">
             <div id="deleteTask">

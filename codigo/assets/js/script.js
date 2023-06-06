@@ -232,8 +232,40 @@ body.addEventListener('keydown', function (e) {
     
 });
 
-function deletetask(id) {
+function deletetask(clickedTasklistId, dayJSONadress, clickedInputId, currentTLcounter, i) {
     window.taskCounter--;
+    let array = tasklists[clickedTasklistId][clickedInputId - 1].tasks;
+    let index = i;
+    if (index === 0) {
+        array.shift();  // Remove the first element
+    } else {
+    for (let i = index; i < array.length - 1; i++) {
+      array[i] = array[i + 1];  // Shift elements to the left
+    }
+    array.pop();  // Remove the last element
+    } 
+    displayTasklist(dayJSONadress,clickedInputId,currentTLcounter);
+}
+
+function addTaskEvents (id, clickedTasklistId, dayJSONadress, clickedInputId, currentTLcounter, clickedTaskId, i) {
+    $(`#${id}`).hover(function(){
+        $(`#dTask${id}`).css({
+            opacity: '1',
+        });
+    },function(){
+        $(`#dTask${id}`).css({
+            opacity: '0',
+        });
+    });
+    $(`#dTask${id}`).on('click', function () {
+        deletetask(clickedTasklistId, dayJSONadress, clickedInputId, currentTLcounter, i);
+    });
+}
+
+var clickedTaskId;
+function getTaskId(id){
+    clickedTaskId = id;
+    console.log(id);
 }
 
 function displayTasklist (dayJSONadress,clickedInputId,currentTLcounter,savedTaskId) {
@@ -259,7 +291,6 @@ function displayTasklist (dayJSONadress,clickedInputId,currentTLcounter,savedTas
             <div id="tasklist-view-content" class="TVC`+clickedInputId+`">
             </div>
             <div id="tasklist-view-footer">
-                <h1>-----------------------------------</h1>
                 <div id="footer-content">
                     <div id="footer-content-left">
                         <h5><strong>Info</strong></h5>
@@ -284,35 +315,30 @@ function displayTasklist (dayJSONadress,clickedInputId,currentTLcounter,savedTas
 
     let tasklistViewContent = document.querySelector('.TVC'+clickedInputId+'');
 
-    let savedTaskId = tasklists[thisDayJSONadress][clickedInputId - 1].tasks.length;
+    var savedTaskId = tasklists[thisDayJSONadress][clickedInputId - 1].tasks.length;
+    let taskHTMLid;
 
     for (i = 0; i < tasklists[thisDayJSONadress][clickedInputId - 1].tasks.length; i++) {
+        taskHTMLid = taskHTMLid = clickedTasklistId+`-`+(clickedInputId - 1)+`-`+i;
         tasklistViewContent.insertAdjacentHTML('beforeend', `
-        <div class="task">
+        <div class="task" id="${taskHTMLid}">
             <input type="checkbox" class="checkbox" id="CB">
             <input type="text" placeholder="Tarefa" class="task-title" id="task-title`+(i + 1)+`">
-            <div id="deleteTask">
-                <img src="./assets/img/cruz-pequeno.png" alt="Excluir Tarefa">
+            <div class="deleteTask" id="deleteTask${taskHTMLid}">
+                <img src="./assets/img/cruz-pequeno.png" alt="Excluir Tarefa" id="dTask${taskHTMLid}">
             </div>
         </div>
-        `);
+        `); 
         var taskTitleId = document.getElementById(`task-title${i + 1}`);
         taskTitleId.setAttribute('value', tasklists[clickedTasklistId][clickedInputId - 1].tasks[i].name);
+        addTaskEvents(taskHTMLid, clickedTasklistId, dayJSONadress, clickedInputId, currentTLcounter, savedTaskId, i);
     };
     
     
     
 
 
-    $('.task').hover(function(){
-        $('#deleteTask').css({
-            display: 'block',
-        });
-    },function(){
-        $('#deleteTask').css({
-            display: 'none',
-        });
-    });
+    
 
     $('#newTLbutton').on('click', function (){
         createTask(dayJSONadress,thisDayJSONadress,clickedInputId,currentTLcounter,savedTaskId);

@@ -534,6 +534,75 @@
             });
             //newTasklist('t2');
 
+            // ----------- menu addButton -----------
+
+            window.TasklistActive = 1;
+            window.graficoActive = 1;
+            window.pomodoroActive = 1;
+            window.informanteActive = 1;
+
+            $('#tasklistAddBTN').click(function(){
+                if(window.TasklistActive == 0){
+                    $(this).css({
+                        backgroundColor: 'var(--cor-ds-3)',
+                    });
+                    window.TasklistActive = 1;
+                } else {
+                    $(this).css({
+                        backgroundColor: 'var(--cor-6)',
+                    });
+                    window.TasklistActive = 0;
+                }
+            });
+            $('#graficoAddBTN').click(function(){
+                if(window.graficoActive == 0){
+                    $(this).css({
+                        backgroundColor: 'var(--cor-ds-3)',
+                    });
+                    window.graficoActive = 1;
+                } else {
+                    $(this).css({
+                        backgroundColor: 'var(--cor-6)',
+                    });
+                    window.graficoActive = 0;
+                }
+            });
+            $('#pomodoroAddBTN').click(function(){
+                if(window.pomodoroActive == 0){
+                    $(this).css({
+                        backgroundColor: 'var(--cor-ds-3)',
+                    });
+                    window.pomodoroActive = 1;
+                } else {
+                    $(this).css({
+                        backgroundColor: 'var(--cor-6)',
+                    });
+                    window.pomodoroActive = 0;
+                }
+            });
+            $('#informanteAddBTN').click(function(){
+                if(window.informanteActive == 0){
+                    $(this).css({
+                        backgroundColor: 'var(--cor-ds-3)',
+                    });
+                    window.informanteActive = 1;
+                } else {
+                    $(this).css({
+                        backgroundColor: 'var(--cor-6)',
+                    });
+                    window.informanteActive = 0;
+                }
+            });
+            $('#menu-mais').click(function(){
+                $('#addList').css({
+                    left: '10vw',
+                });
+            })
+            $('#addList-close').click(function(){
+                $('#addList').css({
+                    left: '-50vw',
+                });
+            })
         });
         //dark theme
 
@@ -684,6 +753,27 @@
         </div>
         <div id="menu-config-wrapper">
             <img id="menu-config" src="/codigo/assets/img/engrenagens.png" alt="Configurações">
+        </div>
+    </div>
+    <div id="addList">
+        <div id="addList-header">
+            <p id="addList-title">Adicionar</p>
+            <div id="addList-close-wrapper">
+                <img src="./assets/img/cruz.png" alt="Fechar menu" id="addList-close">
+            </div>
+        </div>
+        <div id="addList-content">
+            <div class="addListBTN" id="tasklistAddBTN">
+                <p id="addListBTN-title">Tasklist</p>
+            </div>
+            <div class="addListBTN" id="graficoAddBTN">
+                <p id="addListBTN-title">Gráfico</p>
+            </div>
+            <div class="addListBTN" id="pomodoroAddBTN">
+                <p id="addListBTN-title">Pomodoro</p>
+            </div><div class="addListBTN" id="informanteAddBTN">
+                <p id="addListBTN-title">Informante D.</p>
+            </div>
         </div>
     </div>
     <!--scrollzone-->

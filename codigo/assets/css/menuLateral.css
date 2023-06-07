@@ -124,7 +124,7 @@
     width: 18%;
     z-index: 1001;
     top: 25vh;
-    left: 10vw;
+    left: -50vw;
     padding: 10px;
     transition: left 0.3s ease-in-out;
 }

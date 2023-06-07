@@ -391,16 +391,30 @@ function showConfigPage() {
                 <div class="config-item-content">
                     <p>Escolha entre tema claro e escuro</p>
                     <input type="checkbox" onclick="javascript:executarAcoes()" name="change-theme" id="change-theme">
-        <label for="change-theme">
-            <i class="bi bi-sun"></i>
-            <i class="bi bi-moon"></i>
-        </label>
+                <label for="change-theme">
+                    <i class="bi bi-sun"></i>
+                    <i class="bi bi-moon"></i>
+                </label>
                 </div>
             </li>
             <li class="config-item op50animation" id="background">
                 <h3>Background</h3>
                 <div class="config-item-content">
                     <p>Defina o background como cor, gradiente ou imagem</p>
+                    <div id="imgSelect-wrapper">
+                        <div class="imgSelect" id="img1">
+                            <img src="./assets/img/pool-nature-landscape-palm-ocean.jpg" alt="background 1" class="bgOption">
+                        </div>
+                        <div class="imgSelect" id="img2">
+                            <img src="./assets/img/large-cliff-pfeiffer-beach-usa-during-sunset.jpg" alt="background 2" class="bgOption">
+                        </div>
+                        <div class="imgSelect" id="img3">
+                            <img src="./assets/img/beautiful-view-tropical-sandy-beach-with-palm-trees.jpg" alt="background 3" class="bgOption">
+                        </div>
+                        <div class="imgSelect" id="img4">
+                            <p>Cor padrão</p>
+                        </div>
+                    </div>
                 </div>
             </li>
             <li class="config-item op50animation">a</li>
@@ -442,8 +456,53 @@ function showConfigPage() {
         });
     }, 1000);
 
+    $("#img1").click(function(){
+        $('.imgSelect').css({
+            backgroundColor: 'transparent',
+        });
+        $(this).css({
+            backgroundColor: 'var(--cor-3)',
+        });
+        $('#body').css({
+            backgroundImage: 'url(/codigo/assets/img/pool-nature-landscape-palm-ocean.jpg)',
+        })
+    });
+    $("#img2").click(function(){
+        $('.imgSelect').css({
+            backgroundColor: 'transparent',
+        });
+        $(this).css({
+            backgroundColor: 'var(--cor-3)',
+        });
+        $('#body').css({
+            backgroundImage: 'url(/codigo/assets/img/large-cliff-pfeiffer-beach-usa-during-sunset.jpg)',
+        })
+    });
+    $("#img3").click(function(){
+        $('.imgSelect').css({
+            backgroundColor: 'transparent',
+        });
+        $(this).css({
+            backgroundColor: 'var(--cor-3)',
+        });
+        $('#body').css({
+            backgroundImage: 'url(/codigo/assets/img/beautiful-view-tropical-sandy-beach-with-palm-trees.jpg)',
+        })
+    });
+    $("#img4").click(function(){
+        $('.imgSelect').css({
+            backgroundColor: 'transparent',
+        });
+        $(this).css({
+            backgroundColor: 'var(--cor-3)',
+        });
+        $('#body').css({
+            backgroundImage: 'none',
+        })
+    });
 
 };
+
 function hideConfigPage() {
 
 

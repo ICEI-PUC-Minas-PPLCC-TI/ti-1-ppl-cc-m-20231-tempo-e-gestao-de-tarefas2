@@ -93,11 +93,56 @@ header p {
     transition: height 0.5s ease-in-out, opacity 0.3s ease-in-out;
 }
 .config-item:hover {
-    height: 200px;
+    height: 300px;
 }
 
-.config-item div {
+.config-item > div {
     opacity: 0;
     transition: opacity 0.3s ease-in-out;
     font-weight: 100;
 }
+
+#imgSelect-wrapper {
+    display: inline-flex;
+    align-items: center;
+    position: relative;
+    width: 100%;
+    padding: 5px;
+}
+
+.imgSelect {
+    position: relative;
+    padding: 10px;
+    border: solid 2px var(--cor-3);
+    border-radius: 10px;
+    width: fit-content;
+    margin: 0px 5px;
+    background-color: transparent;
+    transition: background-Color 0.3s ease-out;
+}
+
+.imgSelect:first-child {
+    margin-left: 0px;
+}
+
+.imgSelect:last-child {
+    position: relative;
+    size: 50px;
+    height: 10.8vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.imgSelect:last-child p {
+    font-weight: 700;
+    margin: 0%;
+    padding: 0%;
+}
+
+.bgOption {
+    position: relative;
+    width: 7vw;
+    border-radius: 10px;
+}
+

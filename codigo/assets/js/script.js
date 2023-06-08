@@ -12,7 +12,7 @@ var clickedTasklistId = window.tasklists;
 var dayJSONadress;
 var thisDayJSONadress;
 var currentTLcounter;
-var isTasklistOpened = 0;
+var isTLorPTopen = 0;
 
 var segTLcounter = 0, terTLcounter = 0, quaTLcounter = 0, quiTLcounter = 0, sexTLcounter = 0, sabTLcounter = 0, domTLcounter = 0;
 
@@ -271,18 +271,20 @@ function getTaskId(id){
 function displayTasklist (dayJSONadress,clickedInputId,currentTLcounter,savedTaskId) {
 
     let div = document.querySelector('#tasklist-view-wrapper');
+    let div2 = document.querySelector('#postit-view-wrapper');
     let taskQuantity = tasklists[thisDayJSONadress][clickedInputId - 1].taskQuantity;
 
-    //if (isTasklistOpened === 1) {
+    //if (isTLorPTopen === 1) {
         
     //}
 
     div.innerHTML = ``;
+    div2.innerHTML = ``;
     $('#tasklist-view-wrapper').css({
         left: '100%',
     })
 
-    isTasklistOpened = 1;
+    isTLorPTopen = 1;
 
     setTimeout(function (){
         div.insertAdjacentHTML('afterbegin', `
@@ -356,6 +358,67 @@ function displayTasklist (dayJSONadress,clickedInputId,currentTLcounter,savedTas
     })
     }, 200);
 }
+
+//post-its
+
+
+
+function displayPostit () {
+    console.log('detectado!');
+    isTLorPTopen = 1;
+
+    let div = document.querySelector('#postit-view-wrapper');
+    let div2 = document.querySelector('#tasklist-view-wrapper');
+
+    div.innerHTML = ``;
+    div2.innerHTML = ``;
+    $('#postit-view-wrapper').css({
+        left: '100%',
+    })
+
+    isTLorPTopen = 1;
+
+    setTimeout(function (){
+        div.insertAdjacentHTML('afterbegin', `
+        <div id="postit-view">
+            <h1 id="postit-view-title">Post-it`+/*add titulo com input*/`</h1>
+            <div id="postit-view-content" class="PVC1"> `+/*atribuir id procedural*/`
+                <div id="PT-text">
+                    <h5 id="PT-textTitle"><strong>Texto:</strong></h5>
+                    <div id="PT-text-content">"insira texto aqui"</div>
+                </div>
+                <div id="PT-task">
+                    <h5 id="PT-taskTitle"><strong>Tasks:</strong></h5>
+                    <div id="PT-task-content">"tasks estarão aqui. Essas tasks não contam pro sistema de pontuação de produtividade"</div>
+                </div>
+            </div>
+            <div id="postit-view-footer">
+                <div class="postitBTN" id="exitPT">
+                    <img src="/codigo/assets/img/saida-laranja.png" alt="Sair">
+                    <h3>Sair</h3>
+                </div>
+                <div class="postitBTN" id="newPT-task">
+                    <img src="/codigo/assets/img/mais-laranja.png" alt="Nova Task">
+                    <h3>Nova<br>task</h3>
+                </div>
+            </div>
+        </div>
+    `);
+
+    $('#exitPT').click(function(){
+        $('#postit-view-wrapper').css({
+            left: '100%',
+        });
+    });
+    $('#postit-view-wrapper').css({
+        left: '70%',
+    });
+    }, 200);
+}
+
+
+
+
 
 // config-page
 function showConfigPage() {

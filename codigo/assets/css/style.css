@@ -28,7 +28,7 @@ body {
     background-color: var(--cor-1) !important;
     overflow: hidden;
     background-repeat: no-repeat;
-    background-size: cover;
+    background-size: 200%;
 }
 
 li {

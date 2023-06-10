@@ -17,8 +17,8 @@
 }
 
 .inf-conjunto-container:hover > :not(:hover){
-    opacity: .8;
-    transform: scale(0.99);
+    opacity: 0.7;
+    transform: scale(0.97);
 }
 
 .informante {

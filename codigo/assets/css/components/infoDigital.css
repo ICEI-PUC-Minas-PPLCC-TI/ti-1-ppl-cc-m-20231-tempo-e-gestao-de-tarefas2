@@ -5,7 +5,7 @@
 }
 
 .inf-conjunto-container{
-    background-color: white;
+    background: linear-gradient(#333, #555);
     width: 100%;
     height: 300px;
     display: grid;
@@ -18,7 +18,7 @@
 
 .inf-conjunto-container:hover > :not(:hover){
     opacity: .8;
-    transform: scale(0.96);
+    transform: scale(0.99);
 }
 
 .informante {
@@ -26,7 +26,7 @@
     background-color: #eee;
     cursor: pointer;
     transition: .35s;
-    border: 1px solid black;
+    border: 2px solid #222;
     border-radius: 10px;
     display: flex;
     align-items: center;
@@ -57,76 +57,10 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: gray;
+    
     width: 100%;
 }
-.informante-titulo > #titulo10{
-    color: #000;
-    opacity: 1; 
-}
 
-.text_da_tip{
-    text-align: center;
-    display: block;
-    width: 100%;
-    background-color: darkgrey;
-}
-
-
-.quadrado{
-    padding-top: 16px;
-    padding-right: 50px;
-    display: flex;
-    background-color: aliceblue;
-    width: 533px;
-    height: 297px;
-}
-
-.quadrado li{
-    color: black;
-    margin-top: 15px;
-}
-
-.divx{
-    
-    padding: 0;
-    position: absolute;
-    top: 52px;
-    right: 5px;
-   
-    cursor: pointer;
-    
-}
-
-.x{
-    text-align: center;
-    width: 20px;
-    background-color: #000;
-    color: white;
-    border-radius: 2px;
-    margin-right: 2px;
-    margin-top: 2px;
-}
-
-
-
-
-
-/*
-.divLista{
-    background-color: #000;
-    width: 520px;
-    height: 285px;
-    padding-top: 15px;
-    padding-right: 15px;
-    
-}
-
-.divLista li{
-    margin-bottom: 10px;
-}
-*/
-/*
 #sono{
     background-image: url(/codigo/assets/img/infoDigital.img/neuronio1.ti.jpg);
     background-size: cover;
@@ -156,4 +90,78 @@
     background-image: url(/codigo/assets/img/infoDigital.img/muscle.ti.jpg);
     background-size: cover;
 }
+
+.informante-titulo > #titulo10{
+    color: #fff;
+    opacity: 1; 
+    text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000; /* Adiciona a borda preta */
+    /* text-shadow: -1.5px -1.5px 0 #000, 1.5px -1.5px 0 #000, -1.5px 1.5px 0 #000, 1.5px 1.5px 0 #000; */
+}
+
+#titulo10{
+    font-family:Arial, Helvetica, sans-serif;
+    font-size: 40px;
+    letter-spacing: 2px;
+}
+
+.text_da_tip{
+    text-align: center;
+    width: 100%;
+    background: linear-gradient(#777, #555);
+    border-radius: 7.5px;
+    font-family:Arial, Helvetica, sans-serif;
+    color: #fff;
+    padding: 4px;
+    /* text-transform: uppercase; */
+    text-shadow: -0.5px -0.5px 0 #000, 0.5px -0.5px 0 #000, -0.5px 0.5px 0 #000, 0.5px 0.5px 0 #000; 
+}
+
+
+.quadrado{
+    padding-top: 7px;
+    padding-right: 50px;
+    display: flex;
+    background-color: aliceblue;
+    width: 533px;
+    height: 297px;
+}
+
+.quadrado li{
+    color: black;
+    margin-top: 9px;
+}
+
+.divx{
+    padding: 0;
+    position: absolute;
+    top: 300px;
+    right: 10px;
+    cursor: pointer;
+}
+
+.x{
+    text-align: center;
+    width: 20px;
+    background-color: #000;
+    color: white;
+    border-radius: 2px;
+    margin-right: 2px;
+    margin-top: 2px;
+}
+
+/*
+.divLista{
+    background-color: #000;
+    width: 520px;
+    height: 285px;
+    padding-top: 15px;
+    padding-right: 15px;
+    
+}
+
+.divLista li{
+    margin-bottom: 10px;
+}
 */
+
+

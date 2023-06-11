@@ -80,3 +80,7 @@
     height: 50px;
     width: 50px;
 }
+
+.post-it{
+    display: none;
+}

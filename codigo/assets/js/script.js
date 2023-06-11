@@ -691,6 +691,12 @@ function hideLoginPage() {
     window.isLoginPageOn = 0;
 }
 
+$("#menu-notas").on("click",function(){
+    let div = document.querySelector('.post-it');
+    $(".post-it").css({
+        display: "block",
+    })
+})
 
 //CODIGO TEXTO Q DIGITA SOZINHO
 

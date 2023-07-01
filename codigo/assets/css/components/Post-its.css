@@ -84,3 +84,10 @@
 .post-it{
     display: none;
 }
+
+.post-it-content{
+    display: flex;
+    width: 100%;
+    
+    background-color: #fafafa;
+}

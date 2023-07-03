@@ -1,5 +1,25 @@
+window.addEventListener("DOMContentLoaded", showLoginPage());
 
-setInterval(function (){
+function preloadData() {
+    if (localStorage.getItem("user") == "") {
+        const basedados = {
+            users: [
+                {
+                    id: 1,
+                    name: "John Doe",
+                    email: "john@gmail.com",
+                    passwd: "123456",
+                },
+            ],
+        };
+    } else {
+        const basedados = JSON.parse(localStorage.getItem("user"));
+    }
+}
+document.addEventListener("DOMContentLoaded", preloadData);
+
+
+setInterval(function () {
     //coloque aqui suas funções
 }, 10000);
 
@@ -34,22 +54,22 @@ var tasklists = [
     dom,
 ];
 
-function getTasklistId (id) {
+function getTasklistId(id) {
     clickedTasklistId = id;
 }
 
-function getClickedInputId (id) {
+function getClickedInputId(id) {
     clickedInputId = id;
 }
 
-function getThisJSONadress (dayJSONadress){
+function getThisJSONadress(dayJSONadress) {
     thisDayJSONadress = dayJSONadress;
 }
 
 
-function createTask (dayJSONadress,thisDayJSONadress,clickedInputId,currentTLcounter,savedTaskId) {
+function createTask(dayJSONadress, thisDayJSONadress, clickedInputId, currentTLcounter, savedTaskId) {
     let div = document.querySelector('#task-creator-wrapper');
-    
+
     tasklists[dayJSONadress][currentTLcounter - 1].taskQuantity += 1;
 
     $('#task-creator-wrapper').css({
@@ -81,7 +101,7 @@ function createTask (dayJSONadress,thisDayJSONadress,clickedInputId,currentTLcou
         <div id="task-creator-footer">
             <h3>----------------------------------</h3>
             <div id="task-creator-info">
-                <p><strong>id:</strong> `+tasklists[dayJSONadress][currentTLcounter - 1].taskQuantity+` <strong>tasklist:</strong> `+tasklists[thisDayJSONadress][clickedInputId - 1].title+`</p>
+                <p><strong>id:</strong> `+ tasklists[dayJSONadress][currentTLcounter - 1].taskQuantity + ` <strong>tasklist:</strong> ` + tasklists[thisDayJSONadress][clickedInputId - 1].title + `</p>
             </div>
         </div>
     </div>
@@ -104,8 +124,8 @@ function createTask (dayJSONadress,thisDayJSONadress,clickedInputId,currentTLcou
     $('#task-creator-header-approve').on('click', function () {
         let input1 = document.querySelector('.tcit1');
         let input2 = document.querySelector('.tcit2');
-        
-        if (input1.value != undefined && input2.value != undefined && input2.value > 0 && input2.value < 6){
+
+        if (input1.value != undefined && input2.value != undefined && input2.value > 0 && input2.value < 6) {
             tasklists[clickedTasklistId][clickedInputId - 1].tasks[savedTaskId] = {
                 name: input1.value, complete: 0, value: input2.value, taskId: savedTaskId + 1,
             };
@@ -119,10 +139,10 @@ function createTask (dayJSONadress,thisDayJSONadress,clickedInputId,currentTLcou
             $('.módulo').css({
                 pointerEvents: 'auto',
             });
-            setTimeout(function(){
+            setTimeout(function () {
                 div.innerHTML = ``;
-            },300);
-            displayTasklist(dayJSONadress,clickedInputId,currentTLcounter,savedTaskId);
+            }, 300);
+            displayTasklist(dayJSONadress, clickedInputId, currentTLcounter, savedTaskId);
             window.taskCounter++;
         } else {
             console.log('campos de preenchimento inválidos');
@@ -135,7 +155,7 @@ function newTasklist(dayPosition,) {
     let div = document.getElementById(dayPosition);
     let taskspaceName;
 
-    if (div === document.getElementById('t1')){
+    if (div === document.getElementById('t1')) {
         dayJSONadress = 0;
         taskspaceName = "seg";
         segTLcounter++;
@@ -174,7 +194,7 @@ function newTasklist(dayPosition,) {
         console.log("taskspace não identificado!");
         return 0;
     }
-    
+
     thisDayJSONadress = dayJSONadress;
 
     if (tasklists[dayJSONadress].length == 0) {
@@ -192,29 +212,29 @@ function newTasklist(dayPosition,) {
         taskQuantity: 0,
         tasks: [],
     };
-    
+
 
     let currentId = window.tasklistCounter;
 
-    div.insertAdjacentHTML('beforeend',`
-    <div class="tasklist" id="TL` + currentId + `" onclick="getThisJSONadress(`+dayJSONadress+`)">
-        <input type=""text" class="tasklist-title" id="TLT`+ currentId + `" placeholder="` + tasklists[thisDayJSONadress][currentTLcounter - 1].title + `" onFocus="this.select()" onclick="getClickedInputId(`+ currentTLcounter + `); getTasklistId(`+dayJSONadress+`)" data-day="`+dayJSONadress+`" data-ident="`+currentId+`">
+    div.insertAdjacentHTML('beforeend', `
+    <div class="tasklist" id="TL` + currentId + `" onclick="getThisJSONadress(` + dayJSONadress + `)">
+        <input type=""text" class="tasklist-title" id="TLT`+ currentId + `" placeholder="` + tasklists[thisDayJSONadress][currentTLcounter - 1].title + `" onFocus="this.select()" onclick="getClickedInputId(` + currentTLcounter + `); getTasklistId(` + dayJSONadress + `)" data-day="` + dayJSONadress + `" data-ident="` + currentId + `">
         <p class="tasklist-percentage">0%</p>
     </div> 
     `);
-    
-    let input = document.getElementById(`TLT`+ clickedInputId);
+
+    let input = document.getElementById(`TLT` + clickedInputId);
     input.addEventListener('keydown', function (e) {
         if (e.keyCode === 13) {
             let dayJSONadress = input.getAttribute('data-day');
             tasklists[dayJSONadress][clickedInputId - 1].title = input.value;
-            displayTasklist(dayJSONadress,clickedInputId,currentTLcounter);
+            displayTasklist(dayJSONadress, clickedInputId, currentTLcounter);
         };
-        
+
     });
 
-    $('.tasklist').on('click', function (){
-        displayTasklist(dayJSONadress,clickedInputId,currentTLcounter);
+    $('.tasklist').on('click', function () {
+        displayTasklist(dayJSONadress, clickedInputId, currentTLcounter);
     });
 
     setTimeout(function () {
@@ -229,7 +249,7 @@ body.addEventListener('keydown', function (e) {
     if (e.keyCode === 80) {
         console.log(tasklists);
     };
-    
+
 });
 
 function deletetask(clickedTasklistId, dayJSONadress, clickedInputId, currentTLcounter, i) {
@@ -239,20 +259,20 @@ function deletetask(clickedTasklistId, dayJSONadress, clickedInputId, currentTLc
     if (index === 0) {
         array.shift();  // Remove the first element
     } else {
-    for (let i = index; i < array.length - 1; i++) {
-      array[i] = array[i + 1];  // Shift elements to the left
+        for (let i = index; i < array.length - 1; i++) {
+            array[i] = array[i + 1];  // Shift elements to the left
+        }
+        array.pop();  // Remove the last element
     }
-    array.pop();  // Remove the last element
-    } 
-    displayTasklist(dayJSONadress,clickedInputId,currentTLcounter);
+    displayTasklist(dayJSONadress, clickedInputId, currentTLcounter);
 }
 
-function addTaskEvents (id, clickedTasklistId, dayJSONadress, clickedInputId, currentTLcounter, clickedTaskId, i) {
-    $(`#${id}`).hover(function(){
+function addTaskEvents(id, clickedTasklistId, dayJSONadress, clickedInputId, currentTLcounter, clickedTaskId, i) {
+    $(`#${id}`).hover(function () {
         $(`#dTask${id}`).css({
             opacity: '1',
         });
-    },function(){
+    }, function () {
         $(`#dTask${id}`).css({
             opacity: '0',
         });
@@ -263,19 +283,19 @@ function addTaskEvents (id, clickedTasklistId, dayJSONadress, clickedInputId, cu
 }
 
 var clickedTaskId;
-function getTaskId(id){
+function getTaskId(id) {
     clickedTaskId = id;
     console.log(id);
 }
 
-function displayTasklist (dayJSONadress,clickedInputId,currentTLcounter,savedTaskId) {
+function displayTasklist(dayJSONadress, clickedInputId, currentTLcounter, savedTaskId) {
 
     let div = document.querySelector('#tasklist-view-wrapper');
     let div2 = document.querySelector('#postit-view-wrapper');
     let taskQuantity = tasklists[thisDayJSONadress][clickedInputId - 1].taskQuantity;
 
     //if (isTLorPTopen === 1) {
-        
+
     //}
 
     div.innerHTML = ``;
@@ -286,19 +306,19 @@ function displayTasklist (dayJSONadress,clickedInputId,currentTLcounter,savedTas
 
     isTLorPTopen = 1;
 
-    setTimeout(function (){
+    setTimeout(function () {
         div.insertAdjacentHTML('afterbegin', `
         <div id="tasklist-view">
-            <h1 id="tasklist-view-title">`+tasklists[thisDayJSONadress][clickedInputId - 1].title+`</h1>
-            <div id="tasklist-view-content" class="TVC`+clickedInputId+`">
+            <h1 id="tasklist-view-title">`+ tasklists[thisDayJSONadress][clickedInputId - 1].title + `</h1>
+            <div id="tasklist-view-content" class="TVC`+ clickedInputId + `">
             </div>
             <div id="tasklist-view-footer">
                 <div id="footer-content">
                     <div id="footer-content-left">
                         <h5><strong>Info</strong></h5>
-                        <div id="info-TL-id"><strong>ID:</strong> `+clickedInputId+`</div>
-                        <div id="info-TL-Taskspace"><strong>Taskspace:</strong> `+tasklists[thisDayJSONadress][clickedInputId - 1].taskspace+`</div>
-                        <div id="info-TL-Task-counter"><strong>Quantidade de tasks:</strong> `+taskQuantity+`</div>
+                        <div id="info-TL-id"><strong>ID:</strong> `+ clickedInputId + `</div>
+                        <div id="info-TL-Taskspace"><strong>Taskspace:</strong> `+ tasklists[thisDayJSONadress][clickedInputId - 1].taskspace + `</div>
+                        <div id="info-TL-Task-counter"><strong>Quantidade de tasks:</strong> `+ taskQuantity + `</div>
                     </div>
                     <div id="footer-content-right">
                         <div id="newTLbutton">
@@ -315,47 +335,41 @@ function displayTasklist (dayJSONadress,clickedInputId,currentTLcounter,savedTas
         </div>
     `);
 
-    let tasklistViewContent = document.querySelector('.TVC'+clickedInputId+'');
+        let tasklistViewContent = document.querySelector('.TVC' + clickedInputId + '');
 
-    var savedTaskId = tasklists[thisDayJSONadress][clickedInputId - 1].tasks.length;
-    let taskHTMLid;
+        var savedTaskId = tasklists[thisDayJSONadress][clickedInputId - 1].tasks.length;
+        let taskHTMLid;
 
-    for (i = 0; i < tasklists[thisDayJSONadress][clickedInputId - 1].tasks.length; i++) {
-        taskHTMLid = taskHTMLid = clickedTasklistId+`-`+(clickedInputId - 1)+`-`+i;
-        tasklistViewContent.insertAdjacentHTML('beforeend', `
+        for (i = 0; i < tasklists[thisDayJSONadress][clickedInputId - 1].tasks.length; i++) {
+            taskHTMLid = taskHTMLid = clickedTasklistId + `-` + (clickedInputId - 1) + `-` + i;
+            tasklistViewContent.insertAdjacentHTML('beforeend', `
         <div class="task" id="${taskHTMLid}">
             <input type="checkbox" class="checkbox" id="CB">
-            <input type="text" placeholder="Tarefa" class="task-title" id="task-title`+(i + 1)+`">
+            <input type="text" placeholder="Tarefa" class="task-title" id="task-title`+ (i + 1) + `">
             <div class="deleteTask" id="deleteTask${taskHTMLid}">
                 <img src="./assets/img/cruz-pequeno.png" alt="Excluir Tarefa" id="dTask${taskHTMLid}">
             </div>
         </div>
-        `); 
-        var taskTitleId = document.getElementById(`task-title${i + 1}`);
-        taskTitleId.setAttribute('value', tasklists[clickedTasklistId][clickedInputId - 1].tasks[i].name);
-        addTaskEvents(taskHTMLid, clickedTasklistId, dayJSONadress, clickedInputId, currentTLcounter, savedTaskId, i);
-    };
-    
-    
-    
+        `);
+            var taskTitleId = document.getElementById(`task-title${i + 1}`);
+            taskTitleId.setAttribute('value', tasklists[clickedTasklistId][clickedInputId - 1].tasks[i].name);
+            addTaskEvents(taskHTMLid, clickedTasklistId, dayJSONadress, clickedInputId, currentTLcounter, savedTaskId, i);
+        };
 
-
-    
-
-    $('#newTLbutton').on('click', function (){
-        createTask(dayJSONadress,thisDayJSONadress,clickedInputId,currentTLcounter,savedTaskId);
-    });
-    $('#exitTLbutton').on('click', function (){
-        $('#tasklist-view-wrapper').css({
-            left: '100%',
+        $('#newTLbutton').on('click', function () {
+            createTask(dayJSONadress, thisDayJSONadress, clickedInputId, currentTLcounter, savedTaskId);
         });
-        setTimeout(function(){
-            div.innerHTML = '';
-        },500);
-    });
-    $('#tasklist-view-wrapper').css({
-        left: '70%',
-    })
+        $('#exitTLbutton').on('click', function () {
+            $('#tasklist-view-wrapper').css({
+                left: '100%',
+            });
+            setTimeout(function () {
+                div.innerHTML = '';
+            }, 500);
+        });
+        $('#tasklist-view-wrapper').css({
+            left: '70%',
+        })
     }, 200);
 }
 
@@ -363,7 +377,7 @@ function displayTasklist (dayJSONadress,clickedInputId,currentTLcounter,savedTas
 
 
 
-function displayPostit () {
+function displayPostit() {
     console.log('detectado!');
     isTLorPTopen = 1;
 
@@ -378,7 +392,7 @@ function displayPostit () {
 
     isTLorPTopen = 1;
 
-    setTimeout(function (){
+    setTimeout(function () {
         div.insertAdjacentHTML('afterbegin', `
         <div id="postit-view">
             <h1 id="postit-view-title">Post-it`+/*add titulo com input*/`</h1>
@@ -394,31 +408,27 @@ function displayPostit () {
             </div>
             <div id="postit-view-footer">
                 <div class="postitBTN" id="exitPT">
-                    <img src="/codigo/assets/img/saida-laranja.png" alt="Sair">
+                    <img src="./assets/img/saida-laranja.png" alt="Sair">
                     <h3>Sair</h3>
                 </div>
                 <div class="postitBTN" id="newPT-task">
-                    <img src="/codigo/assets/img/mais-laranja.png" alt="Nova Task">
+                    <img src="./assets/img/mais-laranja.png" alt="Nova Task">
                     <h3>Nova<br>task</h3>
                 </div>
             </div>
         </div>
     `);
 
-    $('#exitPT').click(function(){
-        $('#postit-view-wrapper').css({
-            left: '100%',
+        $('#exitPT').click(function () {
+            $('#postit-view-wrapper').css({
+                left: '100%',
+            });
         });
-    });
-    $('#postit-view-wrapper').css({
-        left: '70%',
-    });
+        $('#postit-view-wrapper').css({
+            left: '70%',
+        });
     }, 200);
 }
-
-
-
-
 
 // config-page
 function showConfigPage() {
@@ -519,7 +529,7 @@ function showConfigPage() {
         });
     }, 1000);
 
-    $("#img1").click(function(){
+    $("#img1").click(function () {
         $('.imgSelect').css({
             backgroundColor: 'transparent',
         });
@@ -527,10 +537,10 @@ function showConfigPage() {
             backgroundColor: 'var(--cor-3)',
         });
         $('#body').css({
-            backgroundImage: 'url(/codigo/assets/img/pool-nature-landscape-palm-ocean.jpg)',
+            backgroundImage: 'url(./assets/img/pool-nature-landscape-palm-ocean.jpg)',
         })
     });
-    $("#img2").click(function(){
+    $("#img2").click(function () {
         $('.imgSelect').css({
             backgroundColor: 'transparent',
         });
@@ -538,10 +548,10 @@ function showConfigPage() {
             backgroundColor: 'var(--cor-3)',
         });
         $('#body').css({
-            backgroundImage: 'url(/codigo/assets/img/large-cliff-pfeiffer-beach-usa-during-sunset.jpg)',
+            backgroundImage: 'url(./assets/img/large-cliff-pfeiffer-beach-usa-during-sunset.jpg)',
         })
     });
-    $("#img3").click(function(){
+    $("#img3").click(function () {
         $('.imgSelect').css({
             backgroundColor: 'transparent',
         });
@@ -549,10 +559,10 @@ function showConfigPage() {
             backgroundColor: 'var(--cor-3)',
         });
         $('#body').css({
-            backgroundImage: 'url(/codigo/assets/img/beautiful-view-tropical-sandy-beach-with-palm-trees.jpg)',
+            backgroundImage: 'url(./assets/img/beautiful-view-tropical-sandy-beach-with-palm-trees.jpg)',
         })
     });
-    $("#img4").click(function(){
+    $("#img4").click(function () {
         $('.imgSelect').css({
             backgroundColor: 'transparent',
         });
@@ -567,8 +577,6 @@ function showConfigPage() {
 };
 
 function hideConfigPage() {
-
-
     const pageEnd = document.querySelector('#config-page-wrapper');
 
     $('#config-page-content').css({
@@ -600,14 +608,14 @@ function showLoginPage() {
         <div id="login-form">
             <h1 id="login-title">INSCREVA-SE</h1>
             <div id="loguin-form-content">
-            <h6 id="input-title">Nome do usuário:</h6>
-                <input type="text" placeholder="NickName">
+                <h6 id="input-title">Nome do usuário:</h6>
+                <input type="text" placeholder="NickName" id="name">
                 <h6 id="input-title">Usuário:</h6>
-                <input type="text" placeholder="Email">
+                <input type="text" placeholder="Email" id="email">
                 <h6 id="input-title">Senha:</h6>
-                <input type="text" placeholder="*********">
+                <input type="password" placeholder="*********" id="passwd">
                 <h6 id="input-title">Confirmar senha:</h6>
-                <input type="text" placeholder="*********">
+                <input type="password" placeholder="*********" id="confpasswd">
             </div>
             <p id="login-signup-button">Já tem uma conta? Entrar</p>
             <div id="save-button">
@@ -617,7 +625,7 @@ function showLoginPage() {
     </div>`;
 
     $('#login-signup-button').on('click', slideToLogin);
-    $('#save-button').on('click', hideLoginPage);
+    $("#save-button").on("click", fetchUserData);
 }
 function slideToLogin() {
     $('#login-page-inner-wrapper').css({
@@ -632,9 +640,9 @@ function slideToLogin() {
         <h1 id="login-title">Seja bem vindo!</h1>
         <div id="loguin-form-content">
             <h6 id="input-title">Usuário:</h6>
-            <input type="text" placeholder="Email">
+            <input type="text" placeholder="Email" id="email">
             <h6 id="input-title">Senha:</h6>
-            <input type="text" placeholder="*********">
+            <input type="password" placeholder="*********" id="passwd">
         </div>
         <p id="login-signup-button">Não tem uma conta? Registrar</p>
         <div id="save-button">
@@ -646,7 +654,7 @@ function slideToLogin() {
             });
         }, 600);
         $('#login-signup-button').on('click', slideToSignUp);
-        $('#save-button').on('click', hideLoginPage);
+        $('#save-button').on('click', loginUser);
     }, 200);
 
 }
@@ -662,12 +670,14 @@ function slideToSignUp() {
         div.innerHTML = `
         <h1 id="login-title">INSCREVA-SE</h1>
         <div id="loguin-form-content">
+            <h6 id="input-title">Nome do usuário:</h6>
+            <input type="text" placeholder="NickName" id="name">
             <h6 id="input-title">Usuário:</h6>
-            <input type="text" placeholder="Email">
+            <input type="text" placeholder="Email" id="email">
             <h6 id="input-title">Senha:</h6>
-            <input type="text" placeholder="*********">
+            <input type="password" placeholder="*********" id="passwd">
             <h6 id="input-title">Confirmar senha:</h6>
-            <input type="text" placeholder="*********">
+            <input type="password" placeholder="*********" id="confpasswd">
         </div>
         <p id="login-signup-button">Já tem uma conta? Entrar</p>
         <div id="save-button">
@@ -678,7 +688,7 @@ function slideToSignUp() {
                 opacity: '1',
             });
             $('#login-signup-button').on('click', slideToLogin);
-            $('#save-button').on('click', hideLoginPage);
+            $("#save-button").on("click", fetchUserData);
         }, 600);
     }, 200);
 }
@@ -691,11 +701,15 @@ function hideLoginPage() {
     window.isLoginPageOn = 0;
 }
 
-$("#menu-notas").on("click",function(){
+$("#menu-notas").on("click", function () {
     let div = document.querySelector('.post-it');
     $(".post-it").css({
         display: "block",
     })
+})
+
+$("menu-utilizador").on('click', () => {
+    let
 })
 
 //CODIGO TEXTO Q DIGITA SOZINHO
@@ -721,5 +735,97 @@ function showText(el,text,interval){
 showText(el,text,interval);
 */
 
+function fetchUserData() {
+    const nome = document.querySelector("#name");
+    const email = document.querySelector("#email");
+    const passwd = document.querySelector("#passwd");
+    const confpasswd = document.querySelector("#confpasswd");
+    let achou = false;
 
+    fetch("./assets/db/db.json")
+        .then(function (response) {
+            return response.json();
+        })
+        .then(function (db) {
+            let user = JSON.stringify(db);
+            user = JSON.parse(user);
+            user.users.push({
+                id: user.users.length + 1,
+                name: nome.value,
+                email: email.value,
+                passwd: passwd.value,
+            });
+            localStorage.setItem("users", JSON.stringify(user));
+        });
 
+    if (passwd.value == confpasswd.value) {
+        if (email.value != "" && passwd.value != "" && nome.value != "") {
+            alert("Cadastro realizado com sucesso!");
+            hideLoginPage();
+        } else {
+            alert("Preencha todos os campos!");
+        }
+    } else {
+        alert("As senhas não coincidem!");
+    }
+}
+
+let idUser = '';
+
+function loginUser() {
+    let achou = false;
+    const email = document.querySelector("#email");
+    const passwd = document.querySelector("#passwd");
+
+    let user = JSON.parse(localStorage.getItem("users"));
+
+    for (let i = 0; i < user.users.length; i++) {
+        if (user.users[i].email == email.value && user.users[i].passwd == passwd.value) {
+            idUser = user.users[i].id;
+            achou = true;
+        }
+    }
+    if (achou == true) {
+        alert("Login realizado com sucesso!");
+        hideLoginPage();
+    }
+    else
+        alert("Email ou senha incorretos!");
+}
+
+function showUserPage() {
+    const userPage = document.querySelector("#user-page-wrapper");
+    let user = JSON.parse(localStorage.getItem("users"));
+
+    userPage.innerHTML += `
+    <div id="user-page">
+        <section id="user-page-content"></section>
+    </div>`
+
+    const userPageContent = document.querySelector("#user-page-content")
+    userPageContent.innerHTML += `
+    <header>
+        <div class="op50animation" id="user-page-leave">
+            <img id="a" src="./assets/img/cruz.png" alt="Sair">
+        </div>
+        <p>Olá ${user.users[idUser - 1].name}</p>
+    </header>
+    
+    <div id="container-info-user">
+        <p>Email: ${user.users[idUser - 1].email}</p>
+        <h3>Mudar sua senha:</h3>
+        <p id="input-title" type="password">Digite sua antiga senha:</p>
+        <input id="old-passwd" placeholder="Digite sua antiga senha">
+        <p id="input-title" type="password">Nova senha:</p>
+        <input id="new-passwd" placeholder="Nova senha">
+    </div>`
+
+    const antSenha = document.getElementById("old-passwd");
+    const novaSenha = document.getElementById("new-passwd");
+
+    if (antSenha.value == user.users[idUser - 1].passwd) {
+        user.users[idUser - 1].passwd.put(novaSenha.value);
+    } else {
+        window.alert("Sua antiga senha está errada. Digite-a novamente.");
+    }
+}

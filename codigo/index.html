@@ -8,12 +8,12 @@
     <title>Chronos</title>
     <link rel="stylesheet" href="./assets/css/style.css">
     <script src="./assets/js/script.js" defer></script>
-    <script src="/codigo/assets/js/infoD.js"></script>
+    <script src="./assets/js/infoD.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"
         integrity="sha256-oP6HI9z1XaZNBrJURtCoUT5SUnxFr8s3BzRl+cbzUq8=" crossorigin="anonymous"></script>
     <link rel="stylesheet" type="text/css"
-        href="/codigo/assets/libraries/dsmorse-gridster.js-6d418df/dist/jquery.dsmorse-gridster.min.css">
-    <script src="/codigo/assets/libraries/dsmorse-gridster.js-6d418df/dist/jquery.dsmorse-gridster.min.js"></script>
+        href="./assets/libraries/dsmorse-gridster.js-6d418df/dist/jquery.dsmorse-gridster.min.css">
+    <script src="./assets/libraries/dsmorse-gridster.js-6d418df/dist/jquery.dsmorse-gridster.min.js"></script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-aFq/bzH65dt+w6FI2ooMVUpc+21e0SRygnTpmBvdBgSdnuTN7QbdgL+OapgHtvPp" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
@@ -100,6 +100,11 @@
 
             if (window.varIsConfigPageOn == 0) {
                 $("#menu-config-wrapper").on("click", showConfigPage);
+            }
+
+            window.varIsUserPageOn = 0;
+            if (window.varIsUserPageOn) {
+                $("#menu-user-wrapper").on("click", showUserPage);
             }
 
             // ----------- configurações da biblioteca gridster.js -----------
@@ -225,13 +230,13 @@
                 if (e.keyCode === 32) {
                     if (scrollOn == 1) {
                         scrollOn = 0;
-                        scrollLockDiv.innerHTML = `<img id="lockSign" src="/codigo/assets/img/trancar.png" alt="scroll Bloqueado">`;
+                        scrollLockDiv.innerHTML = `<img id="lockSign" src="./assets/img/trancar.png" alt="scroll Bloqueado">`;
                         $('#scrollLockStatus').css({
                             transform: 'translateY(-15px)',
                         });
                     } else {
                         scrollOn = 1;
-                        scrollLockDiv.innerHTML = `<img id="lockSign" src="/codigo/assets/img/desbloquear.png" alt="scroll Bloqueado">`;
+                        scrollLockDiv.innerHTML = `<img id="lockSign" src="./assets/img/desbloquear.png" alt="scroll Bloqueado">`;
                         $('#scrollLockStatus').css({
                             transform: 'translateY(0px)',
                         });
@@ -313,200 +318,200 @@
 
             // animações dos botóes dos dias
             //seg
-            $('#d1').hover(function(){
-                
+            $('#d1').hover(function () {
+
                 $(this).css({
                     padding: '13.8% 13.8%',
                 });
-                setTimeout(function(){
+                setTimeout(function () {
                     $('#segText').css({
                         opacity: '0',
                     });
                     $('#maisImg1').css({
                         opacity: '1',
                     });
-                },1);
-            },function(){
-                
+                }, 1);
+            }, function () {
+
                 $(this).css({
                     padding: '14.5% 14.5%',
                 });
-                setTimeout(function(){
+                setTimeout(function () {
                     $('#segText').css({
                         opacity: '1',
                     });
                     $('#maisImg1').css({
                         opacity: '0',
                     });
-                },1);
+                }, 1);
             });
             //ter
-            $('#d2').hover(function(){
-                
+            $('#d2').hover(function () {
+
                 $(this).css({
                     padding: '13.8% 13.8%',
                 });
-                setTimeout(function(){
+                setTimeout(function () {
                     $('#terText').css({
                         opacity: '0',
                     });
                     $('#maisImg2').css({
                         opacity: '1',
                     });
-                },1);
-            },function(){
-                
+                }, 1);
+            }, function () {
+
                 $(this).css({
                     padding: '14.5% 14.5%',
                 });
-                setTimeout(function(){
+                setTimeout(function () {
                     $('#terText').css({
                         opacity: '1',
                     });
                     $('#maisImg2').css({
                         opacity: '0',
                     });
-                },1);
+                }, 1);
             });
             //qua
-            $('#d3').hover(function(){
-                
+            $('#d3').hover(function () {
+
                 $(this).css({
                     padding: '13.8% 13.8%',
                 });
-                setTimeout(function(){
+                setTimeout(function () {
                     $('#quaText').css({
                         opacity: '0',
                     });
                     $('#maisImg3').css({
                         opacity: '1',
                     });
-                },1);
-            },function(){
-                
+                }, 1);
+            }, function () {
+
                 $(this).css({
                     padding: '14.5% 14.5%',
                 });
-                setTimeout(function(){
+                setTimeout(function () {
                     $('#quaText').css({
                         opacity: '1',
                     });
                     $('#maisImg3').css({
                         opacity: '0',
                     });
-                },1);
+                }, 1);
             });
             //qui
-            $('#d4').hover(function(){
-                
+            $('#d4').hover(function () {
+
                 $(this).css({
                     padding: '13.8% 13.8%',
                 });
-                setTimeout(function(){
+                setTimeout(function () {
                     $('#quiText').css({
                         opacity: '0',
                     });
                     $('#maisImg4').css({
                         opacity: '1',
                     });
-                },1);
-            },function(){
-                
+                }, 1);
+            }, function () {
+
                 $(this).css({
                     padding: '14.5% 14.5%',
                 });
-                setTimeout(function(){
+                setTimeout(function () {
                     $('#quiText').css({
                         opacity: '1',
                     });
                     $('#maisImg4').css({
                         opacity: '0',
                     });
-                },1);
+                }, 1);
             });
             //sex
-            $('#d5').hover(function(){
-                
+            $('#d5').hover(function () {
+
                 $(this).css({
                     padding: '13.8% 13.8%',
                 });
-                setTimeout(function(){
+                setTimeout(function () {
                     $('#sexText').css({
                         opacity: '0',
                     });
                     $('#maisImg5').css({
                         opacity: '1',
                     });
-                },1);
-            },function(){
-                
+                }, 1);
+            }, function () {
+
                 $(this).css({
                     padding: '14.5% 14.5%',
                 });
-                setTimeout(function(){
+                setTimeout(function () {
                     $('#sexText').css({
                         opacity: '1',
                     });
                     $('#maisImg5').css({
                         opacity: '0',
                     });
-                },1);
+                }, 1);
             });
             //sáb
-            $('#d6').hover(function(){
-                
+            $('#d6').hover(function () {
+
                 $(this).css({
                     padding: '13.8% 13.8%',
                 });
-                setTimeout(function(){
+                setTimeout(function () {
                     $('#sabText').css({
                         opacity: '0',
                     });
                     $('#maisImg6').css({
                         opacity: '1',
                     });
-                },1);
-            },function(){
-                
+                }, 1);
+            }, function () {
+
                 $(this).css({
                     padding: '14.5% 14.5%',
                 });
-                setTimeout(function(){
+                setTimeout(function () {
                     $('#sabText').css({
                         opacity: '1',
                     });
                     $('#maisImg6').css({
                         opacity: '0',
                     });
-                },1);
+                }, 1);
             });
             //dom
-            $('#d7').hover(function(){
-                
+            $('#d7').hover(function () {
+
                 $(this).css({
                     padding: '13.8% 13.8%',
                 });
-                setTimeout(function(){
+                setTimeout(function () {
                     $('#domText').css({
                         opacity: '0',
                     });
                     $('#maisImg7').css({
                         opacity: '1',
                     });
-                },1);
-            },function(){
-                
+                }, 1);
+            }, function () {
+
                 $(this).css({
                     padding: '14.5% 14.5%',
                 });
-                setTimeout(function(){
+                setTimeout(function () {
                     $('#domText').css({
                         opacity: '1',
                     });
                     $('#maisImg7').css({
                         opacity: '0',
                     });
-                },1);
+                }, 1);
             });
 
             $('#d1').on('click', function () {
@@ -539,8 +544,8 @@
             window.pomodoroActive = 1;
             window.informanteActive = 1;
 
-            $('#tasklistAddBTN').click(function(){
-                if(window.TasklistActive == 0){
+            $('#tasklistAddBTN').click(function () {
+                if (window.TasklistActive == 0) {
                     $(this).css({
                         backgroundColor: 'var(--cor-ds-3)',
                     });
@@ -552,8 +557,8 @@
                     window.TasklistActive = 0;
                 }
             });
-            $('#graficoAddBTN').click(function(){
-                if(window.graficoActive == 0){
+            $('#graficoAddBTN').click(function () {
+                if (window.graficoActive == 0) {
                     $(this).css({
                         backgroundColor: 'var(--cor-ds-3)',
                     });
@@ -565,8 +570,8 @@
                     window.graficoActive = 0;
                 }
             });
-            $('#pomodoroAddBTN').click(function(){
-                if(window.pomodoroActive == 0){
+            $('#pomodoroAddBTN').click(function () {
+                if (window.pomodoroActive == 0) {
                     $(this).css({
                         backgroundColor: 'var(--cor-ds-3)',
                     });
@@ -578,8 +583,8 @@
                     window.pomodoroActive = 0;
                 }
             });
-            $('#informanteAddBTN').click(function(){
-                if(window.informanteActive == 0){
+            $('#informanteAddBTN').click(function () {
+                if (window.informanteActive == 0) {
                     $(this).css({
                         backgroundColor: 'var(--cor-ds-3)',
                     });
@@ -591,12 +596,12 @@
                     window.informanteActive = 0;
                 }
             });
-            $('#menu-mais').click(function(){
+            $('#menu-mais').click(function () {
                 $('#addList').css({
                     left: '10vw',
                 });
             })
-            $('#addList-close').click(function(){
+            $('#addList-close').click(function () {
                 $('#addList').css({
                     left: '-50vw',
                 });
@@ -610,11 +615,11 @@
         //dark theme
 
         //variaveis que armazenam imagens do modo escuro(antes de apertar checkbox)
-        var originalLockSignSrc = "/codigo/assets/img/desbloquear.png";
-        var originalMaisSrc = "/codigo/assets/img/mais.png";
-        var originalUtilizadorSrc = "/codigo/assets/img/do-utilizador.png";
-        var originalNotasSrc = "/codigo/assets/img/notas.png";
-        var originalEngrenagensSrc = "/codigo/assets/img/engrenagens.png";
+        var originalLockSignSrc = "./assets/img/desbloquear.png";
+        var originalMaisSrc = "./assets/img/mais.png";
+        var originalUtilizadorSrc = "./assets/img/do-utilizador.png";
+        var originalNotasSrc = "./assets/img/notas.png";
+        var originalEngrenagensSrc = "./assets/img/engrenagens.png";
 
         var isAnimating = false; //variável para controlar cor do cadeado durante sua animação
 
@@ -624,23 +629,23 @@
         //funções que trocam cor dos icones do menu lateral ao clicar na checkbox(sol ou lua)
         function trocaCadeado() {
             var img = document.getElementById("lockSign");
-            img.src = "/codigo/assets/img/desbloquear-azul.png";
+            img.src = "./assets/img/desbloquear-azul.png";
         }
         function trocaMais() {
             var img = document.getElementById("img-mais");
-            img.src = "/codigo/assets/img/mais-azul.png";
+            img.src = "./assets/img/mais-azul.png";
         }
         function trocaUtilizador() {
             var img = document.getElementById("img-utilizador");
-            img.src = "/codigo/assets/img/do-utilizador-azul.png";
+            img.src = "./assets/img/do-utilizador-azul.png";
         }
         function trocaNotas() {
             var img = document.getElementById("img-notas");
-            img.src = "/codigo/assets/img/notas-azul.png";
+            img.src = "./assets/img/notas-azul.png";
         }
         function trocaEngrenagens() {
             var img = document.getElementById("menu-config");
-            img.src = "/codigo/assets/img/engrenagens-azul.png";
+            img.src = "./assets/img/engrenagens-azul.png";
         }
         //função linkada a checkbox(em script.js) que ativa o funcionamento de todas as outras ao mesmo tempo
         function executarAcoes() {
@@ -658,7 +663,7 @@
         function trocaCadeado(isDarkMode) {
             var img = document.getElementById("lockSign");
             if (isDarkMode) {
-                img.src = "/codigo/assets/img/desbloquear-azul.png";
+                img.src = "./assets/img/desbloquear-azul.png";
             } else {
                 img.src = originalLockSignSrc;
             }
@@ -667,7 +672,7 @@
         function trocaMais(isDarkMode) {//confere se a checkbox se encontra clicada ou não, e ajusta cor dos ícones
             var img = document.getElementById("img-mais");
             if (isDarkMode) {
-                img.src = "/codigo/assets/img/mais-azul.png";
+                img.src = "./assets/img/mais-azul.png";
             } else {
                 img.src = originalMaisSrc;
             }
@@ -676,7 +681,7 @@
         function trocaUtilizador(isDarkMode) {//confere se a checkbox se encontra clicada ou não, e ajusta cor dos ícones
             var img = document.getElementById("img-utilizador");
             if (isDarkMode) {
-                img.src = "/codigo/assets/img/do-utilizador-azul.png";
+                img.src = "./assets/img/do-utilizador-azul.png";
             } else {
                 img.src = originalUtilizadorSrc;
             }
@@ -685,7 +690,7 @@
         function trocaNotas(isDarkMode) {//confere se a checkbox se encontra clicada ou não, e ajusta cor dos ícones
             var img = document.getElementById("img-notas");
             if (isDarkMode) {
-                img.src = "/codigo/assets/img/notas-azul.png";
+                img.src = "./assets/img/notas-azul.png";
             } else {
                 img.src = originalNotasSrc;
             }
@@ -694,7 +699,7 @@
         function trocaEngrenagens(isDarkMode) {//confere se a checkbox se encontra clicada ou não, e ajusta cor dos ícones
             var img = document.getElementById("menu-config");
             if (isDarkMode && !isAnimating) { //impede que cadeado retorne ao modo claro ao realizar animação
-                img.src = "/codigo/assets/img/engrenagens-azul.png";
+                img.src = "./assets/img/engrenagens-azul.png";
             } else {
                 img.src = originalEngrenagensSrc;
             }
@@ -737,25 +742,25 @@
 <body id="body">
     <div id="menu-flutuante-outer-wrapper">
         <div id="scrollLockStatus">
-            <img id="lockSign" src="/codigo/assets/img/desbloquear.png" alt="scroll Desbloqueado"
+            <img id="lockSign" src="./assets/img/desbloquear.png" alt="scroll Desbloqueado"
                 onclick="animarCadeado()">
         </div>
         <!--embrulho de fora do menu, serve para posicionamento na esquerda da página-->
         <div id="menu-flutuante-inner-wrapper">
             <!--embrulho de dentro do menu, serve para posicionamento no ponto médio da altura da página-->
             <ul id="menu-flutuante"> <!--menu flutuante-->
-                <li class="menu-item" id="menu-mais"><img id="img-mais" src="/codigo/assets/img/mais.png"
+                <li class="menu-item" id="menu-mais"><img id="img-mais" src="./assets/img/mais.png"
                         alt="Adicionar Módulo"></li>
-                <li class="menu-item" id="menu-notas"><img id="img-notas" src="/codigo/assets/img/notas.png"
+                <li class="menu-item" id="menu-notas"><img id="img-notas" src="./assets/img/notas.png"
                         alt="Post-its"></li>
                 <li class="menu-item" id="menu-utilizador"><img id="img-utilizador"
-                        src="/codigo/assets/img/do-utilizador.png" alt="Usuário"></li>
+                        src="./assets/img/do-utilizador.png" alt="Usuário"></li>
             </ul>
-            <div id="menu-button"><img id="img-angulo-duplo" src="/codigo/assets/img/angulo-duplo-pequeno-esquerdo.png"
+            <div id="menu-button"><img id="img-angulo-duplo" src="./assets/img/angulo-duplo-pequeno-esquerdo.png"
                     alt="Contrair/Expandir"></div> <!--botão contrair/expandir-->
         </div>
         <div id="menu-config-wrapper">
-            <img id="menu-config" src="/codigo/assets/img/engrenagens.png" alt="Configurações">
+            <img id="menu-config" src="./assets/img/engrenagens.png" alt="Configurações">
         </div>
     </div>
     <div id="addList">
@@ -774,7 +779,8 @@
             </div>
             <div class="addListBTN" id="pomodoroAddBTN">
                 <p id="addListBTN-title">Pomodoro</p>
-            </div><div class="addListBTN" id="informanteAddBTN">
+            </div>
+            <div class="addListBTN" id="informanteAddBTN">
                 <p id="addListBTN-title">Informante D.</p>
             </div>
         </div>
@@ -790,7 +796,7 @@
                 <li class="módulo" data-row="4" data-col="6" data-sizex="7" data-sizey="5">
                     <header>
                         <h2 id="module-title">Tasklist</h2>
-                        <div class="module-handle" id="module-handle"><img src="/codigo/assets/img/setas-alt.png"
+                        <div class="module-handle" id="module-handle"><img src="./assets/img/setas-alt.png"
                                 alt="Mover Módulo"></div>
                     </header>
                     <section id="module-content">
@@ -864,7 +870,7 @@
                     <header>
                         <h2 id="module-title">Gráfico</h2>
                         <div class="module-handle" id="module-handle">
-                            <img src="/codigo/assets/img/setas-alt.png" alt="Mover Módulo" />
+                            <img src="./assets/img/setas-alt.png" alt="Mover Módulo" />
                         </div>
                     </header>
                     <section id="module-content"></section>
@@ -874,7 +880,7 @@
                 <li class="módulo" id="pomodoro" data-row="4" data-col="13" data-sizex="5" data-sizey="3">
                     <header>
                         <h2 id="module-title">Pomodoro</h2>
-                        <div class="module-handle" id="module-handle"><img src="/codigo/assets/img/setas-alt.png"
+                        <div class="module-handle" id="module-handle"><img src="./assets/img/setas-alt.png"
                                 alt="Mover Módulo"></div>
                     </header>
                     <section id="module-content" class="pomodoro-kkkk">
@@ -909,7 +915,7 @@
                         <header>
                             <h2 id="module-title">Info. Digital</h2>
                             <div class="module-handle" id="module-handle">
-                                <img src="/codigo/assets/img/setas-alt.png" alt="Mover Módulo" />
+                                <img src="./assets/img/setas-alt.png" alt="Mover Módulo" />
                             </div>
                         </header>
                         <section id="module-content">
@@ -948,21 +954,22 @@
                                 </div>
                             </div>
 
-                <div class="infoD-tips-containder">
-                  <div class="tip">
-                    <div class="text_da_tip" id="text"></div>
-                  </div>
-                </div>
-              </section>
-            </div>
-          </li>
+                            <div class="infoD-tips-containder">
+                                <div class="tip">
+                                    <div class="text_da_tip" id="text"></div>
+                                </div>
+                            </div>
+                        </section>
+                    </div>
+                </li>
 
                 <!--POST-ITS-->
-                <li class="post-it" id="p1" onclick="displayPostit()" data-row="7" data-col="13" data-sizex="2" data-sizey="2">
+                <li class="post-it" id="p1" onclick="displayPostit()" data-row="7" data-col="13" data-sizex="2"
+                    data-sizey="2">
                     <header>
                         <h2 id="module-title">Post-it</h2>
                         <div class="module-handle" id="post-it-handle">
-                            <img src="/codigo/assets/img/setas-alt.png" alt="Mover Módulo" />
+                            <img src="./assets/img/setas-alt.png" alt="Mover Módulo" />
                         </div>
                     </header>
                 </li>
@@ -971,7 +978,7 @@
                 <li class="módulo" data-row="1" data-col="1" data-sizex="1" data-sizey="1">
                     <header>
                         <div id="module-handle">
-                            <img src="/codigo/assets/img/setas-alt.png" alt="Mover Módulo" />
+                            <img src="./assets/img/setas-alt.png" alt="Mover Módulo" />
                         </div>
                     </header>
                     <section id="module-content"></section>
@@ -979,7 +986,7 @@
                 <li class="módulo" data-row="1" data-col="25" data-sizex="1" data-sizey="1">
                     <header>
                         <div id="module-handle">
-                            <img src="/codigo/assets/img/setas-alt.png" alt="Mover Módulo" />
+                            <img src="./assets/img/setas-alt.png" alt="Mover Módulo" />
                         </div>
                     </header>
                     <section id="module-content"></section>
@@ -987,7 +994,7 @@
                 <li class="módulo" data-row="25" data-col="1" data-sizex="1" data-sizey="1">
                     <header>
                         <div id="module-handle">
-                            <img src="/codigo/assets/img/setas-alt.png" alt="Mover Módulo" />
+                            <img src="./assets/img/setas-alt.png" alt="Mover Módulo" />
                         </div>
                     </header>
                     <section id="module-content"></section>
@@ -995,7 +1002,7 @@
                 <li class="módulo" data-row="25" data-col="25" data-sizex="1" data-sizey="1">
                     <header>
                         <div id="module-handle">
-                            <img src="/codigo/assets/img/setas-alt.png" alt="Mover Módulo" />
+                            <img src="./assets/img/setas-alt.png" alt="Mover Módulo" />
                         </div>
                     </header>
                     <section id="module-content"></section>
@@ -1003,6 +1010,7 @@
             </ul>
         </div>
     </div>
+    <div id="user-page-wrapper"></div>
     <div id="config-page-wrapper"></div>
     <div id="login-page-outer-wrapper"></div>
     <div id="postit-view-wrapper"></div>

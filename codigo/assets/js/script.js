@@ -721,5 +721,30 @@ function showText(el,text,interval){
 showText(el,text,interval);
 */
 
+const ctx = document.getElementById('line-chart');
 
+let valoresX = ["lista AEDS", "Prova de calculo", "jogar bola", "debulhar milho"]
+let labelsX = [10, 25, 20, 70]
+new Chart(ctx, {
+    type: 'line',
+    data: {
+        labels: valoresX,
+        datasets: [{
+            label: 'Tarefas',
+            data: labelsX,
+            borderWidth: 6,  //largura da linha
+            borderColor: '#F26419'
+        }]
+    },
+    options: {
+        scales: {
+            y: {
+                beginAtZero: true,
+                font: {
+                    size: 70,
+                }
+            }
+        }
+    }
+}); 
 

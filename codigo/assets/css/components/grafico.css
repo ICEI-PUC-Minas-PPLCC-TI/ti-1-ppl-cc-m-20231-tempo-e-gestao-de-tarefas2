@@ -1,0 +1,28 @@
+:root {
+    /*modo escuro*/
+    --cor-1: #1E1E1E;
+    /*cor de fundo primária*/
+    --cor-2: #292929;
+    /*cor de relevo primária*/
+    --cor-3: #333333;
+    /*cor de fundo secundária*/
+    --cor-4: #3D3D3D;
+    /*cor de relevo secundária*/
+    --cor-5: #f7f0f0;
+    --cor-6: #161616;
+    /*modo claro*/
+    /*cores de destaque*/
+    --cor-ds-1: #F26419;
+    --cor-ds-2: #F5D02C;
+    --cor-ds-3: #0E79B2;
+    --cor-ds-4: #3D0B37;
+    --cor-ds-5: #84C4B2;
+    --cor-ds-6: #DBD3D8;
+    --cor-texto-1: aliceblue;
+    /* color-texto*/
+    --cor-texto-2: black;
+    /* color-texto-2*/
+}
+#line-chart{
+    background-color: var(--cor-1);
+}  

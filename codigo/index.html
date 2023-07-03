@@ -17,6 +17,9 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-aFq/bzH65dt+w6FI2ooMVUpc+21e0SRygnTpmBvdBgSdnuTN7QbdgL+OapgHtvPp" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    <!-- script do grafico -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
     <script type="text/javascript">
         $(document).ready(function () {
             // ----------- javascript do menu flutuante -----------
@@ -772,16 +775,19 @@
         </div>
         <div id="addList-content">
             <div class="addListBTN" id="tasklistAddBTN">
-                <p id="addListBTN-title">Tasklist</p>
+                <p>Tasklist</p>
             </div>
             <div class="addListBTN" id="graficoAddBTN">
-                <p id="addListBTN-title">Gráfico</p>
+                <p>Gráfico</p>
             </div>
             <div class="addListBTN" id="pomodoroAddBTN">
                 <p id="addListBTN-title">Pomodoro</p>
             </div>
             <div class="addListBTN" id="informanteAddBTN">
                 <p id="addListBTN-title">Informante D.</p>
+            </div>
+            <div class="addListBTN" id="CalculadoraAddBTN">
+                <p>Calculadora</p>
             </div>
         </div>
     </div>
@@ -873,7 +879,11 @@
                             <img src="./assets/img/setas-alt.png" alt="Mover Módulo" />
                         </div>
                     </header>
-                    <section id="module-content"></section>
+                    <section id="module-content">
+                        <div>
+                            <canvas id="line-chart" ></canvas>
+                        </div>
+                    </section>
                 </li>
 
                 <!--POMODORO-->
@@ -972,8 +982,62 @@
                             <img src="./assets/img/setas-alt.png" alt="Mover Módulo" />
                         </div>
                     </header>
+                    <section class="post-it-content">
+                        a
+                    </section>
                 </li>
 
+                <!-- Calculadora -->
+                <li class="módulo" id="calculadora-modulo" data-row="2" data-col="2" data-sizex="3" data-sizey="3">
+                    <header>
+                        <h2 id="module-title">Calculadora</h2>
+                        <div class="module-handle" id="post-it-handle">
+                            <img src="./assets/img/setas-alt.png" alt="Mover Módulo" />
+                        </div>
+                    </header>
+                    <div class="calculadora-content">
+                        <div class="fechar-calculadora-modulo" id="fechar-calculadora-modulo-id">
+                            X
+                        </div>
+                        <div class="agua-calc-content">
+                            <div class="label">
+                                <label for="genero">Gênero:</label>
+                                <select id="genero">
+                                    <option value="homem">Homem</option>
+                                    <option value="mulher">Mulher</option>
+                                </select>
+                            </div>
+                            <div class="butoes-calc-wrapper">
+                            <div class="butoes-calc">
+                                <input type="text" id="numero-input" placeholder="Peso em KG">
+                                <button id="botao-calc-calcular"><i class="fa-regular fa-circle-check"></i></button>
+                                <button id="botao-calc-resetar">Reset</button>
+                            </div>
+                            <div class="butoes-calc">
+                                <input type="text" id="altura-input" placeholder="altura em CM">
+                                <button id="botao-calc-cm"><i class="fa-regular fa-circle-check"></i></button>
+                                <button id="botao-reset-cm">Reset</button>
+                            </div>
+                            <div class="butoes-calc">
+                                <input type="text" id="idade-input" placeholder="Idade">
+                                <button id="botao-calc-idade"><i class="fa-regular fa-circle-check"></i></button>
+                                <button id="botao-reset-idade">Reset</button>
+                            </div>
+                            <div class="botaoaoao">
+                                <button id="calcularTudo">Calcular</button>
+                            </div>
+                            <div class="agua-calc-resultado">
+                                <div class="calc-text">Agua:</div>
+                                <div class="calc-resultado" id="calc-resultado"></div>
+                            </div>
+                            <div class="agua-calc-resultado">
+                                <div class="calc-text">Metabolismo Basal:</div>
+                                <div class="calc-resultado" id="calc-resultado-caloria"></div>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                
                 <!--placeholders-->
                 <li class="módulo" data-row="1" data-col="1" data-sizex="1" data-sizey="1">
                     <header>
@@ -987,10 +1051,11 @@
                     <header>
                         <div id="module-handle">
                             <img src="./assets/img/setas-alt.png" alt="Mover Módulo" />
+                            <img src="./assets/img/setas-alt.png" alt="Mover Módulo" />
                         </div>
                     </header>
                     <section id="module-content"></section>
-                </li>
+                </li>  
                 <li class="módulo" data-row="25" data-col="1" data-sizex="1" data-sizey="1">
                     <header>
                         <div id="module-handle">
@@ -1024,6 +1089,7 @@
     <!--Link fontawsome Thomas Neuneschwader-->
     <script src="https://kit.fontawesome.com/7a19ffbb9e.js" crossorigin="anonymous"></script>
     <script src="./assets/js/pomodoro.js"></script>
+    <script src="./assets/js/calculadora.js"></script>
 </body>
 
 </html>

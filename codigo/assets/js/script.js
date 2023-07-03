@@ -741,6 +741,7 @@ function fetchUserData() {
     const passwd = document.querySelector("#passwd");
     const confpasswd = document.querySelector("#confpasswd");
     let achou = false;
+const ctx = document.getElementById('line-chart');
 
     fetch("./assets/db/db.json")
         .then(function (response) {
@@ -757,6 +758,30 @@ function fetchUserData() {
             });
             localStorage.setItem("users", JSON.stringify(user));
         });
+let valoresX = ["lista AEDS", "Prova de calculo", "jogar bola", "debulhar milho"]
+let labelsX = [10, 25, 20, 70]
+new Chart(ctx, {
+    type: 'line',
+    data: {
+        labels: valoresX,
+        datasets: [{
+            label: 'Tarefas',
+            data: labelsX,
+            borderWidth: 6,  //largura da linha
+            borderColor: '#F26419'
+        }]
+    },
+    options: {
+        scales: {
+            y: {
+                beginAtZero: true,
+                font: {
+                    size: 70,
+                }
+            }
+        }
+    }
+}); 
 
     if (passwd.value == confpasswd.value) {
         if (email.value != "" && passwd.value != "" && nome.value != "") {

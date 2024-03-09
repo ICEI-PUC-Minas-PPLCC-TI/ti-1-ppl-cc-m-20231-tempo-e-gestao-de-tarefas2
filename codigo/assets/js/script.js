@@ -818,7 +818,7 @@ function loginUser() {
         alert("Email ou senha incorretos!");
 }
 
-function showUserPage() {
+/*function showUserPage() {
     const userPage = document.querySelector("#user-page-wrapper");
     let user = JSON.parse(localStorage.getItem("users"));
 
@@ -853,4 +853,4 @@ function showUserPage() {
     } else {
         window.alert("Sua antiga senha está errada. Digite-a novamente.");
     }
-}
+}*/
